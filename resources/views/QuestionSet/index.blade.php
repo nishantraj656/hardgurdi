@@ -36,7 +36,7 @@
                                   <td>
                                   <div class="row">
                                     <div class="ml-5">
-                                      <form class="form-inline" action="{{url('QuestionS',[$value->infoID])}}" method="POST">
+                                      <form class="form-inline" action="{{url('QuestionS',[$value->infoID])}}" method="POST" onsubmit="return deleteQuestion()">
                                           <input type="hidden" name="_method" value="DELETE">
                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                           
@@ -66,3 +66,23 @@
     </div>
     
  @endsection
+
+
+
+<script type="text/javascript">
+  // console.log("helrrrlo");
+  
+
+  // confrmation on delte 
+  function deleteQuestion() {
+    var result = prompt("Type yes to ensure you are serious?");
+    if ( result == 'yes') {
+      return(true)
+    }
+    else{
+      return(false)
+      alert("Opps.. Not Deleted")
+
+    }
+  }
+</script>

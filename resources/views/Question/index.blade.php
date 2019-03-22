@@ -13,7 +13,7 @@
                         <thead class="thead-dark">
                           <tr>
                             <th>#</th>
-                            <th>Question</th>
+                            <th>Questions</th>
                             <th>Package Name</th>
                             <th>Price </th>
                             <th>Student </th>
@@ -86,12 +86,12 @@
                     <td>
                     <div class="row">
                       <div class="ml-5">
-                        <form class="form-inline" action="{{url('Question',[$value->question_id])}}" method="POST">
+                        <form class="form-inline" action="{{url('Question',[$value->question_id])}}" method="POST" onsubmit="return deleteQuestion()">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             
                           
-                            <button type="submit" class="btn btn-danger ml-4">Delete</button>
+                            <button type="submit" id = "deleteButton" class="btn btn-danger ml-4" >Delete</button>
                         </form> 
                       </div>
                       <div class="ml-5">
@@ -117,3 +117,21 @@
     </div>
     
  @endsection
+
+<script type="text/javascript">
+  // console.log("helrrrlo");
+  
+
+  // confrmation on delte 
+  function deleteQuestion() {
+    var result = prompt("Type yes to ensure you are serious?");
+    if ( result == 'yes') {
+      return(true)
+    }
+    else{
+      alert("Opps.. Not Deleted")
+
+      return(false)
+    }
+  }
+</script>

@@ -18,7 +18,7 @@
                   </div>
                 </div> 
               <div class="card-footer">
-              <a class="nav-link" href="{{url('/')}}/Exame">More</a>
+              <a class="nav-link" href="{{url('/')}}/Exam">More</a>
               </div>
             </div>
       </div>
