@@ -24,6 +24,12 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         ->select('question_tab.question_id','question_tab.question_json','test_info_tab.test_name','question_tab.section_id')
         ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
         ->simplePaginate(50);
+
+        $list =new QuestionSetController();
+        $list = $list->list();
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
+      
         foreach($datas as $data)
         {
             
@@ -37,7 +43,62 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         }
         
         
-        return view('Question.index',['data'=>$datas]);
+        return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>'All','li'=>'All']);
+    }
+
+    /**Filter data */
+    public function filter(Request $request)
+    {
+    /**SELECT `question_tab`.`question_id`,`question_tab`.`question_json`,`question_tab`.`option_json`,`test_info_tab`.`test_name` FROM `question_tab`
+INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`test_info_id` ; */
+        $where=array();
+
+        if($request->setname != 'All'){
+            $set=['question_tab.test_info_id','=',$request->setname];
+            array_push($where,$set);
+        }
+
+        if($request->section != 'All'){
+            $set=['question_tab.section_id',"=",$request->section];
+            array_push($where,$set);
+        }
+            
+        
+        $datas='';
+
+        if(sizeof($where)!=0)
+            $datas =DB::table('question_tab')
+            ->select('question_tab.question_id','question_tab.question_json','test_info_tab.test_name','question_tab.section_id')
+            ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
+            ->where($where)
+            ->simplePaginate(50);
+        else
+            $datas =DB::table('question_tab')
+            ->select('question_tab.question_id','question_tab.question_json','test_info_tab.test_name','question_tab.section_id')
+            ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
+            ->simplePaginate(50);
+
+
+        // foreach($datas as $data)
+        // {
+            
+        //     // var_dump($data);
+        //     // echo $data->question_id;
+        //     // echo '<br>';
+        //     // var_dump(json_decode($data->question_json)->eng->text);
+        
+        //     // echo '<br>';
+        //     // echo $data->test_name;
+        // }
+
+        $list =new QuestionSetController();
+        $list = $list->list();
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
+      
+        
+        
+        return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>$request->setname,'li'=>$request->section]);
     }
 
     /**
@@ -86,6 +147,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picEngpath = $request->file('picEng');
         if($picEngpath != null)
             $picEngpath = $picEngpath->store('Question');
+        else
+            var_dump($picEngpath);
 
         $picEngOptionApath = $request->file('picEngOptionA');
         if($picEngOptionApath != null)
