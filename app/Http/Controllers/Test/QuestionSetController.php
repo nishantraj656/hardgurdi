@@ -63,6 +63,7 @@ return $data;
      */
     public function store(Request $request)
     {
+        
         $request->validate([
            
         'setname'=>'required',
@@ -76,6 +77,8 @@ return $data;
        $path = $request->file('pic');
             if($path != null)
                 $path = $path->store('Set');
+            else
+                var_dump($path);
       
      QuestionS::create( [
         'package_id'=>$request->pid,
@@ -88,7 +91,7 @@ return $data;
         'marks_on_incorrect'=>$request->incorrect,
 
    ]);
-     return redirect('QuestionS');
+    // return redirect('QuestionS');
     }
 
     /**
