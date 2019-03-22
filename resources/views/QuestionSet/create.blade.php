@@ -38,7 +38,7 @@
                           </div>
                     <div class="form-group">
                         <label for="incorrect">Marks on incorrect:</label>
-                        <input type="number" min="0" value="0" class="form-control" id="incorrect" name="incorrect" required>
+                        <input type="text" min="0" value="0" class="form-control" id="incorrect" name="incorrect" required>
                         
                         </div>
                       

@@ -71,14 +71,14 @@ return $data;
         
         'price'=>'required|numeric',
         'correct'=>'required|numeric',
-        'incorrect'=>'required|numeric',
+        'incorrect'=>'required',
        
              ]);
        $path = $request->file('pic');
             if($path != null)
                 $path = $path->store('Set');
-            else
-                var_dump($path);
+           
+                
       
      QuestionS::create( [
         'package_id'=>$request->pid,
@@ -91,7 +91,7 @@ return $data;
         'marks_on_incorrect'=>$request->incorrect,
 
    ]);
-    // return redirect('QuestionS');
+    return redirect('QuestionS');
     }
 
     /**
