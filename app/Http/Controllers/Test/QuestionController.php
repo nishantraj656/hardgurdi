@@ -30,17 +30,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
       
-        foreach($datas as $data)
-        {
-            
-            // var_dump($data);
-            // echo $data->question_id;
-            // echo '<br>';
-            // var_dump(json_decode($data->question_json)->eng->text);
-        
-            // echo '<br>';
-            // echo $data->test_name;
-        }
+      
         
         
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>'All','li'=>'All']);
@@ -142,7 +132,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         //    'hindiRadio'=>'required',
         //    'hindiExplaination'=>'required',
         //    'engExplaination'=>'required',
-        ]);
+        ])->withInput();;
 
         $picEngpath = $request->file('picEng');
         if($picEngpath != null)
@@ -215,7 +205,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
               'explaination'=>json_encode($explaination),
            ]);
 
-           return redirect('Question');
+           return redirect('Question/create');
     }
 
     /**
@@ -272,12 +262,17 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
          ]);
 
          $picEngpath = $request->file('picEng');
-        if($picEngpath != null)
+        if($picEngpath != null){
             $picEngpath = $picEngpath->store('Question');
+           
+            }
+      
 
         $picEngOptionApath = $request->file('picEngOptionA');
-        if($picEngOptionApath != null)
+        if($picEngOptionApath != null){     
             $picEngOptionApath = $picEngOptionApath->store('Set');
+          
+        }
 
         $picEngOptionBpath = $request->file('picEngOptionB');
         if($picEngOptionBpath != null)
@@ -335,7 +330,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
                'explaination'=>json_encode($explaination),
             ]);
  
-            return redirect('Question');
+          return redirect('Question');
     }
 
     /**
