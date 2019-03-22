@@ -245,10 +245,10 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
        $datas=Question::where(['question_id'=>$id])->first();
       // var_dump(json_decode($datas->answer_json)->hindi);
 
-       var_dump($datas);
-       var_dump($list)
-       var_dump($section)
-       // return view('Question.edit',['datas'=>$datas,"list"=>$list,'section'=>$section]);
+    //    var_dump($datas);
+    //    var_dump($list);
+    //    var_dump($section);
+       return view('Question.edit',['datas'=>$datas,"list"=>$list,'section'=>$section]);
     }
 
     /**

@@ -2,6 +2,8 @@
  
 @section('content')
 
+echo "hello"
+<!-- 
     <div class="container">
         <form action="{{url('Question',$datas->question_id)}}" method="POST">
                
@@ -208,6 +210,6 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
               
         </form>
-    </div>
+    </div> -->
 
 @endsection
