@@ -185,7 +185,7 @@
                                 <div class="form-inline">
                                         <label for="hindiOptionA" class="m-2">क</label>
                                             <input type="radio" value="A"  name="hindiRadio"  @if(old('hindiRadio')=='A') checked="checked"@endif>
-                                <input type="text" class="form-control m-2" value="{{old('hindiOptionA')}}" name="hindiOptionA" >
+                                <input type="text" class="form-control m-2" value="{{old('hindiOptionA')}}" name="hindiOptionA" id="hindiOptionA">
                                         <div class="form-group">
                                             <label for="pic">Insert Pic:</label>
                                             <input type="file" name="picHindiOptionA">
@@ -197,7 +197,7 @@
                                     <div class="form-inline">
                                             <label for="hindiOptionB" class="m-2">ख</label>
                                                 <input type="radio" value="B" name="hindiRadio"  @if(old('hindiRadio')=='B') checked="checked"@endif>
-                                            <input type="text" class="form-control m-2" value="{{old('hindiOptionB')}}"  name="hindiOptionB" >
+                                            <input type="text" class="form-control m-2" value="{{old('hindiOptionB')}}"  name="hindiOptionB" id = "hindiOptionB">
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionB">
@@ -208,7 +208,7 @@
                                     <div class="form-inline">
                                             <label for="hindiOptionC" class="m-2">ग</label>
                                                 <input type="radio" value="C" name="hindiRadio"  @if(old('hindiRadio')=='C') checked="checked"@endif>
-                                            <input type="text" class="form-control m-2" value="{{old('hindiOptionC')}}"  name="hindiOptionC" >
+                                            <input type="text" class="form-control m-2" value="{{old('hindiOptionC')}}"  name="hindiOptionC" id = "hindiOptionC" >
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionC">
@@ -219,7 +219,7 @@
                                     <div class="form-inline">
                                             <label for="hindiOptionD" class="m-2">घ</label>
                                                 <input type="radio" value="D" name="hindiRadio"  @if(old('hindiRadio')=='D') checked="checked"@endif>
-                                            <input type="text" class="form-control m-2" value="{{old('hindiOptionD')}}"  name="hindiOptionD" >
+                                            <input type="text" class="form-control m-2" value="{{old('hindiOptionD')}}"  name="hindiOptionD" id = "hindiOptionD">
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionD">
@@ -229,7 +229,7 @@
 
                                     <div class="form-group">
                                             <label for="setname">Explaination (हिंदी)  :</label>
-                                            <textarea class="form-control" id="hindiExplaination" name="hindiExplaination" rows="5" >{{old('hindiExplaination')}}</textarea>
+                                            <textarea class="form-control" id="hindiExplaination" name="hindiExplaination" rows="5" id="hindiExplaination">{{old('hindiExplaination')}}</textarea>
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiExplaination">
