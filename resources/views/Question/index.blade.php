@@ -7,6 +7,11 @@
               <button type="button" class="btn btn-success ml-4">New</button>
           </a>;
         </div>
+        @if (session('status'))
+        <div class="alert alert-success">
+                <strong>Success!</strong> {{session('status')}}.
+              </div>         
+    @endif
 
         <form method="POST" action="{{url('Question/filter')}}">
         <div class="row m-2">
@@ -57,7 +62,7 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th>Question ID</th>
+              <th>ID(Sl.No.)</th>
               <th>Question</th>
               <th>Section</th>
               <th>Test Set </th>
@@ -66,15 +71,18 @@
             </tr>
           </thead>
           <tbody>
+              @php $i = 0;  @endphp
               @foreach ($data as $value)
                 <tr>
-                <td>{{$value->question_id}}</td>
+
+                @php $i++;  @endphp
+                
+                <td>{{$value->question_id}} ({{$i}})</td>
                  
                   <td>{{json_decode($value->question_json)->eng->text}}</td>
                   <td>{{$value->section_id}}</td>
                   <td>{{$value->test_name}}</td>
                   
-                      
                     <td>
                     <div class="row">
                       <div class="ml-5">

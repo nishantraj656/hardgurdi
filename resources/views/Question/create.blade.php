@@ -52,6 +52,12 @@
 @section('content')
 
     <div class="container">
+
+            @if (session('status'))
+            <div class="alert alert-success">
+                    <strong>Success!</strong> {{session('status')}}.
+                  </div>         
+        @endif
         <form action="{{url('Question')}}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 @if ($errors->any())

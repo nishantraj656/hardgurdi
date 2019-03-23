@@ -69,17 +69,6 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             ->simplePaginate(50);
 
 
-        // foreach($datas as $data)
-        // {
-            
-        //     // var_dump($data);
-        //     // echo $data->question_id;
-        //     // echo '<br>';
-        //     // var_dump(json_decode($data->question_json)->eng->text);
-        
-        //     // echo '<br>';
-        //     // echo $data->test_name;
-        // }
 
         $list =new QuestionSetController();
         $list = $list->list();
@@ -132,7 +121,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         //    'hindiRadio'=>'required',
         //    'hindiExplaination'=>'required',
         //    'engExplaination'=>'required',
-        ])->withInput();;
+        ]);
 
         $picEngpath = $request->file('picEng');
         if($picEngpath != null)
@@ -205,7 +194,10 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
               'explaination'=>json_encode($explaination),
            ]);
 
-           return redirect('Question/create');
+           $request->session()->flash('status', 'Task was successful!');
+           return redirect('Question/create')
+           ->with('success','Great! Notes updated successfully');
+           
     }
 
     /**
@@ -329,7 +321,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
                'answer_json'=>json_encode($answer), 
                'explaination'=>json_encode($explaination),
             ]);
- 
+            $request->session()->flash('status', ' Notes updated successfully');
           return redirect('Question');
     }
 
