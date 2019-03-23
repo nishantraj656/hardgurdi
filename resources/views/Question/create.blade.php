@@ -63,11 +63,12 @@
                     </ul>
                 </div>
               @endif
+
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="setname">Set Name :</label>
-                        <select class="form-control" name="setname">
+                        <select class="form-control" name="setname" id="test_name_select_newQuestion">
                         @foreach ($list as $l)
                         <option value="{{$l->infoID}}">{{$l->title}}</option>   
                         @endforeach
@@ -77,7 +78,7 @@
                 <div class="col-sm-6">
                         <div class="form-group">
                             <label for="setname">Set Section :</label>
-                            <select class="form-control" name="section">
+                            <select class="form-control" name="section" id="section_name_select_newQuestion">
                             @foreach ($section as $l)
                             <option value="{{$l['id']}}">{{$l['title']}}</option>   
                             @endforeach
@@ -236,5 +237,26 @@
               
         </form>
     </div>
+    <script type="text/javascript">
+      $(function(){
+            
 
+            $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected_newQuestion"));
+            $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected_newQuestion"));
+
+            $("#test_name_select_newQuestion").change(function(){
+              console.log("Testname changed");
+              $test_id_selected_newQuestion = $(this).children("option:selected").val()
+              localStorage.setItem("test_id_selected_newQuestion", $test_id_selected_newQuestion);
+
+            });
+            
+            $("#section_name_select_newQuestion").change(function(){
+              console.log("Sectionname changed");
+              $section_id_selected_newQuestion = $(this).children("option:selected").val()
+              localStorage.setItem("section_id_selected_newQuestion", $section_id_selected_newQuestion);
+            });
+
+        })
+    </script>
 @endsection
