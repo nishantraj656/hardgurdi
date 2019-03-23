@@ -23,7 +23,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $datas =DB::table('question_tab')
         ->select('question_tab.question_id','question_tab.question_json','test_info_tab.test_name','question_tab.section_id')
         ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
-        ->simplePaginate(50);
+        ->simplePaginate(100);
 
         $list =new QuestionSetController();
         $list = $list->list();
@@ -61,12 +61,12 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             ->select('question_tab.question_id','question_tab.question_json','test_info_tab.test_name','question_tab.section_id')
             ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
             ->where($where)
-            ->simplePaginate(50);
+            ->simplePaginate(100);
         else
             $datas =DB::table('question_tab')
             ->select('question_tab.question_id','question_tab.question_json','test_info_tab.test_name','question_tab.section_id')
             ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
-            ->simplePaginate(50);
+            ->simplePaginate(100);
 
 
 

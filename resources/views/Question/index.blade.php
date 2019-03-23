@@ -19,7 +19,7 @@
           <div class="col-sm-4">
             <div class="row form-inline">
               <label class="ml-2">Test Name  : </label>
-              <select class="form-control" name="setname">
+              <select class="form-control" name="setname" id = "test_name_select" >
                   <option value="All">All</option>   
                   @foreach ($list as $l)
                             @if($l->infoID == $s )
@@ -35,7 +35,7 @@
           <div class="col-sm-4">
               <div class="row form-inline">
                   <label class="ml-2">Section  : </label>
-                  <select class="form-control" name="section">
+                  <select class="form-control" name="section" id = "section_name_select">
                       <option value="All">All</option>   
                       @foreach ($section as $l)
                       @if($l['id'] == $li.'')
@@ -116,23 +116,42 @@
         </div>
     </div>
    
-    
+    <script type="text/javascript">
+        // console.log("helrrrlo");
+        
+
+        // confrmation on delte 
+        function deleteQuestion() {
+          var result = prompt("Type yes to ensure you are serious?");
+          if ( result == 'yes') {
+            return(true)
+          }
+          else{
+            alert("Opps.. Not Deleted")
+
+            return(false)
+          }
+        }
+
+        $(function(){
+            
+
+            $("#test_name_select").val(localStorage.getItem("test_id_selected"));
+            $("#section_name_select").val(localStorage.getItem("section_id_selected"));
+
+            $("#test_name_select").change(function(){
+              console.log("Testname changed");
+              $test_id_selected = $(this).children("option:selected").val()
+              localStorage.setItem("test_id_selected", $test_id_selected);
+
+            });
+            $("#section_name_select").change(function(){
+              console.log("Sectionname changed");
+              $section_id_selected = $(this).children("option:selected").val()
+              localStorage.setItem("section_id_selected", $section_id_selected);
+            });
+
+        })
+      </script>
  @endsection
 
-<script type="text/javascript">
-  // console.log("helrrrlo");
-  
-
-  // confrmation on delte 
-  function deleteQuestion() {
-    var result = prompt("Type yes to ensure you are serious?");
-    if ( result == 'yes') {
-      return(true)
-    }
-    else{
-      alert("Opps.. Not Deleted")
-
-      return(false)
-    }
-  }
-</script>
