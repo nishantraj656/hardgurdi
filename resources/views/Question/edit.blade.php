@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        <form action="{{url('Question',$datas->question_id)}}" method="POST">
+        <form action="{{url('Question',$datas->question_id)}}" method="POST" enctype="multipart/form-data">
                
                 @if ($errors->any())
                 <div class="alert alert-danger">
