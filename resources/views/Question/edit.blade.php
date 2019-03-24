@@ -1,5 +1,53 @@
 @extends('layouts.app')
- 
+<script type="text/javascript" src="https://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+   // Load the Google Transliterate API
+   google.load("elements", "1", {
+         packages: "transliteration"
+       });
+
+   function onLoad() {
+     var options = {
+         sourceLanguage:
+             google.elements.transliteration.LanguageCode.ENGLISH,
+         destinationLanguage:
+             [google.elements.transliteration.LanguageCode.HINDI],
+         shortcutKey: 'ctrl+g',
+         transliterationEnabled: true
+     };
+
+     // Create an instance on TransliterationControl with the required
+     // options.
+     var control =
+         new google.elements.transliteration.TransliterationControl(options);
+
+     // Enable transliteration in the textbox with id
+     // 'transliterateTextarea'.
+     control.makeTransliteratable(['hindi']);
+     control.makeTransliteratable(['hindiOptionA']);
+     control.makeTransliteratable(['hindiOptionB']);
+     control.makeTransliteratable(['hindiOptionC']);
+     control.makeTransliteratable(['hindiOptionD']);
+     control.makeTransliteratable(['hindiExplaination']);
+   }
+   google.setOnLoadCallback(onLoad);
+
+//    //Load the Language API.
+//    google.load("language", "1");
+
+//    //Call google.language.transliterate() 
+//    google.language.transliterate(["Namaste"], "en", "hi", function(result) {
+//      if (!result.error) {
+//        var container = document.getElementById("transliteration");
+//        if (result.transliterations && result.transliterations.length > 0 &&
+//            result.transliterations[0].transliteratedWords.length > 0) {
+//          console.log(result.transliterations[0].transliteratedWords[0]);
+//        }
+//      }
+//    });
+ </script>
 @section('content')
 
     <div class="container">
@@ -129,7 +177,7 @@
                         
                                 <div class="form-group">
                                     <label for="setname">Enter Question (हिंदी)  :</label>
-                                    <textarea class="form-control" id="hindi" name="hindi"  rows="5" >{{json_decode($datas->question_json)->hindi->text}}</textarea>
+                                    <textarea class="form-control" id="hindi" name="hindi"  rows="5" id = "hindi">{{json_decode($datas->question_json)->hindi->text}}</textarea>
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picHindi">
@@ -142,7 +190,7 @@
                                             <input type="radio" value="A"  @if (json_decode($datas->answer_json)->hindi == 'A')
                                             checked="checked"
                                         @endif name="hindiRadio">
-                                        <input type="text" class="form-control m-2" value="{{json_decode($datas->option_json)->hindi->A->text}}" name="hindiOptionA" >
+                                        <input type="text" class="form-control m-2" value="{{json_decode($datas->option_json)->hindi->A->text}}" name="hindiOptionA" id= "hindiOptionA">
                                         <div class="form-group">
                                             <label for="pic">Insert Pic:</label>
                                             <input type="file" name="picHindiOptionA">
@@ -155,7 +203,7 @@
                                                 <input type="radio" value="B" @if (json_decode($datas->answer_json)->hindi == 'B')
                                                 checked="checked"
                                             @endif name="hindiRadio">
-                                            <input type="text" value="{{json_decode($datas->option_json)->hindi->B->text}}" class="form-control m-2" name="hindiOptionB" >
+                                            <input type="text" value="{{json_decode($datas->option_json)->hindi->B->text}}" class="form-control m-2" name="hindiOptionB" id="hindiOptionB">
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionB">
@@ -168,7 +216,7 @@
                                                 <input type="radio"  @if (json_decode($datas->answer_json)->hindi == 'C')
                                                 checked="checked"
                                             @endif value="C" name="hindiRadio">
-                                            <input type="text" class="form-control m-2"  value="{{json_decode($datas->option_json)->hindi->C->text}}" name="hindiOptionC" >
+                                            <input type="text" class="form-control m-2"  value="{{json_decode($datas->option_json)->hindi->C->text}}" name="hindiOptionC" id="hindiOptionC">
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionC">
@@ -181,7 +229,7 @@
                                                 <input type="radio" value="D"  @if (json_decode($datas->answer_json)->hindi == 'D')
                                                 checked="checked"
                                             @endif name="hindiRadio">
-                                            <input type="text" class="form-control m-2"  value="{{json_decode($datas->option_json)->hindi->D->text}}" name="hindiOptionD" >
+                                            <input type="text" class="form-control m-2"  value="{{json_decode($datas->option_json)->hindi->D->text}}" name="hindiOptionD" id="hindiOptionD">
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionD">
@@ -191,7 +239,7 @@
 
                                     <div class="form-group">
                                             <label for="setname">Explaination (हिंदी)  :</label>
-                                    <textarea class="form-control" id="hindiExplaination" name="hindiExplaination" rows="5" >{{json_decode($datas->explaination)->hindi->text}}</textarea>
+                                    <textarea class="form-control" id="hindiExplaination" name="hindiExplaination" rows="5" id="hindiExplaination">{{json_decode($datas->explaination)->hindi->text}}</textarea>
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picHindiExplaination">
