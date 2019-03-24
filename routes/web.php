@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Route::post('Question/filter', 'Test\\QuestionController@filter');
 
+Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate');
+
+Route::post('Package/{Test}/a', 'Test\\packageController@Activate');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

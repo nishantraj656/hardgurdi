@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
                             @foreach ($data as $value)
-                              <tr>
+                              <tr class="@if($value->status == 0) text-warning @endif">
                                 <td></td>
                                
                                 <td>{{$value->sname}}</td>
@@ -49,6 +49,29 @@
                                         <button type="button" class="btn btn-success ml-4">Edit</button>
                                     </a>&nbsp;
                                     </div>
+                                    @if ($value->status!=0)
+                                    <div class="ml-1 mt-1">
+                                      
+                                    
+                                          
+                                      
+                                      <form action="{{url('Package/'.$value->pid.'/a')}}" method="POST">
+                                        <input type="hidden" name="status" value='0'/>
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <Button id="status" type="submit" class="btn btn-warning">Deactivate</Button>
+                                      </form> 
+                                    </div>
+                                   @else
+                                    
+                                    <div class="ml-1 mt-1">
+                                      <form action="{{url('Package/'.$value->pid.'/a')}}" method="POST">
+                                        <input type="hidden" name="status" value='1'/>
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <Button id="status" type="submit" class="btn btn-primary ">Activate</Button>
+                                      </form> 
+                                    
+                                    </div>
+                                    @endif
                                   </div>
                                 </td>
                               </tr>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
  @section('content')
+<script type="text/javascript" src="{{url('/')}}/js/jquery.toggler.js"></script>
+
     <div class="container">
         <div class="row">
            
@@ -22,7 +24,7 @@
                         </thead>
                         <tbody>
                             @foreach ($data as $value)
-                              <tr>
+                              <tr class="@if($value->status == 0) text-warning @endif">
                                 <td></td>
                                
                                 <td>{{$value->title}}</td>
@@ -35,7 +37,7 @@
                                     <td>{{$value->count}}</td>
                                   <td>
                                   <div class="row">
-                                    <div class="ml-5">
+                                    <div class="ml-1">
                                       <form class="form-inline" action="{{url('QuestionS',[$value->infoID])}}" method="POST" onsubmit="return deleteQuestion()">
                                           <input type="hidden" name="_method" value="DELETE">
                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -44,7 +46,7 @@
                                           <button type="submit" class="btn btn-danger ml-4">Delete</button>
                                       </form> 
                                     </div>
-                                    <div class="ml-5">
+                                    <div class="ml-1">
 
                                     {{-- <form class="form-inline" action="{{url('Exame/'.$value->examID.'/edit')}}" method="GET">
                                       <button type="submit" class="btn btn-success ml-4">Edit</button>
@@ -53,6 +55,29 @@
                                         <button type="button" class="btn btn-success ml-4">Edit</button>
                                     </a>&nbsp;
                                     </div>
+                                    @if ($value->status!=0)
+                                    <div class="ml-1 mt-1">
+                                      
+                                    
+                                          
+                                      
+                                      <form action="{{url('QuestionS/'.$value->infoID.'/a')}}" method="POST">
+                                        <input type="hidden" name="status" value='0'/>
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <Button id="status" type="submit" class="btn btn-warning">Deactivate</Button>
+                                      </form> 
+                                    </div>
+                                   @else
+                                    
+                                    <div class="ml-1 mt-1">
+                                      <form action="{{url('QuestionS/'.$value->infoID.'/a')}}" method="POST">
+                                        <input type="hidden" name="status" value='1'/>
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <Button id="status" type="submit" class="btn btn-primary ">Activate</Button>
+                                      </form> 
+                                    
+                                    </div>
+                                    @endif
                                   </div>
                                 </td>
                               </tr>
@@ -64,6 +89,21 @@
                       </table>
         </div>
     </div>
+
+       <script type="text/javascript">
+       $(document).ready(function(){
+      $(function(){
+
+          $('#status').checkToggler({
+              labelOn:'On',
+              labelOff:'Off'
+          });
+
+         
+
+      });});
+  </script>
+
     
  @endsection
 

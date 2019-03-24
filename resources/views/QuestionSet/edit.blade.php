@@ -42,6 +42,7 @@
                     <div class="form-group">
                         <label for="incorrect">Marks on incorrect:</label>
                         <input type="text" value="{{$data->marks_on_incorrect}}" class="form-control" id="incorrect" name="incorrect" required>
+
                         
                         </div>
                         <div class="form-group">

@@ -21,7 +21,7 @@ class packageController extends Controller
         //SELECT `package_tab`.`package_id`, `test_cat_tab`.`cat_name` , `package_tab`.`subcat_name`, `package_tab`.`package_price` FROM `package_tab` 
 //INNER JOIN `test_cat_tab` ON `test_cat_tab`.`test_cat_id` = package_tab.test_cat_id
         $data=DB::table('package_tab')
-        ->select('package_tab.package_id as pid','test_cat_tab.cat_name as cname','package_tab.subcat_name as sname','package_tab.package_price as price')
+        ->select('package_tab.package_id as pid','test_cat_tab.cat_name as cname','package_tab.subcat_name as sname','package_tab.package_price as price','package_tab.status as status')
         ->join('test_cat_tab','test_cat_tab.test_cat_id','=','package_tab.test_cat_id')
         ->get();
         return view('package.index',['data'=>$data]);
@@ -130,6 +130,20 @@ class packageController extends Controller
         return Redirect::to('Package')
        ->with('success','Great! Notes updated successfully');
     }
+
+    public function Activate(Request $request,$id)
+    {
+        
+      
+        $update= [
+            'status'=>$request->status,
+           
+       ];
+
+       Package::where('package_id',$id)->update($update);
+          return redirect('Package');
+    }
+
 
     /**
      * Remove the specified resource from storage.

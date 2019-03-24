@@ -35,6 +35,8 @@ class QuestionS extends Model
        'test_price',
         'marks_on_correct', 
         'marks_on_incorrect',
+        'status',
+        'expDate',
    ];
 }
  
