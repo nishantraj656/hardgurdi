@@ -70,7 +70,8 @@ class packageController extends Controller
      Package::create( [
         'test_cat_id'=>$request->catID,
         'subcat_name'=>$request->pname,
-        'package_price'=>$request->price
+        'package_price'=>$request->price,
+        'expDate'=>$request->expDate,
    ]);
       return redirect('Package');
     }
@@ -123,7 +124,8 @@ class packageController extends Controller
         $update =  [
             'test_cat_id'=>$request->catID,
             'subcat_name'=>$request->pname,
-            'package_price'=>$request->price
+            'package_price'=>$request->price,
+            'expDate'=>$request->expDate,
             ];
      Package::where('package_id',$id)->update($update);
    

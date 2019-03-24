@@ -19,7 +19,7 @@ class QuestionS extends Model
 //         'test_name',
 //         'descrption',
 //         'pic',
-//         'enroll_stud_count',
+//         'enroll_stud_count',  
 //         'test_price',
 //         'marks_on_correct',
 //         'marks_on_incorrect',
@@ -37,6 +37,7 @@ class QuestionS extends Model
         'marks_on_incorrect',
         'status',
         'expDate',
+        'time',
    ];
 }
  

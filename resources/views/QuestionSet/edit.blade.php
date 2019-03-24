@@ -45,6 +45,19 @@
 
                         
                         </div>
+
+                        <div class="form-group">
+                                <label for="Time">Test Time :</label>
+                                <input type="time" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
+                               
+                              </div>
+                          
+                            <div class="form-group">
+                              <label for="expDate">Validity :</label>
+                              <input type="date" min="0" value="{{$data->expDate}}" class="form-control" id="expDate" name="expDate" required>
+                              
+                              </div>
+
                         <div class="form-group">
                                 <label for="pic">Insert Pic:</label>
                                 <input type="file" name="pic">

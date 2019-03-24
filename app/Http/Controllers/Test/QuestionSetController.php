@@ -74,7 +74,8 @@ return $data;
         'price'=>'required|numeric',
         'correct'=>'required|numeric',
         'incorrect'=>'required',
-       
+        'expDate'=>'required',
+        'Time'=>'required'
              ]);
        $path = $request->file('pic');
             if($path != null)
@@ -91,7 +92,9 @@ return $data;
         'test_price'=>$request->price,
         'marks_on_correct'=>$request->correct,
         'marks_on_incorrect'=>$request->incorrect,
-
+        'status'=>0,
+        'expDate'=>$request->expDate,
+        'time'=>$request->Time,
    ]);
     return redirect('QuestionS');
     }
@@ -145,7 +148,7 @@ return $data;
             'price'=>'required|numeric',
             'correct'=>'required|numeric',
             'incorrect'=>'required|numeric',
-           
+            'Time'=>'required'
                  ]);
     
         $update= [
@@ -158,6 +161,9 @@ return $data;
             'test_price'=>$request->price,
             'marks_on_correct'=>$request->correct,
             'marks_on_incorrect'=>$request->incorrect,
+            'status'=>0,
+            'expDate'=>$request->expDate,
+            'time'=>$request->Time,
        ];
 
         QuestionS::where('test_info_id',$id)->update($update);
