@@ -24,6 +24,12 @@
                         <input type="number" value="0" min="0" class="form-control" value="{{$data->package_price}}" id="price" name="price" required>
                        
                       </div>
+
+                      <div class="form-group">
+                            <label for="expDate">Validity :</label>
+                            <input type="date" min="0" value="{{$data->expDate}}" class="form-control" id="expDate" name="expDate" required>
+                            
+                            </div>
                   @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
@@ -35,7 +41,7 @@
                 @endif
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="_method" value="PUT">
-                <button type="submit" class="btn btn-primary ml-4">New</button>
+                <button type="submit" class="btn btn-primary ml-4">Save</button>
             </form> 
            
         </div>

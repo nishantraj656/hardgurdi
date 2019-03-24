@@ -109,10 +109,10 @@
                                    
                                   </div>
                             </div>
-                            <div class="form-inline">
+                            <div class="form-inline o ">
                                 <label for="engOptionA" class="m-2">A</label>
                                     <input type="radio" value="A"  @if(old('engRadio')=='A') checked="checked"@endif name="engRadio" >
-                                <input type="text" class="form-control m-2" value="{{old('engOptionA')}}" name="engOptionA" required>
+                                <input type="text" class="form-control m-2" value="{{old('engOptionA')}}" name="engOptionA" >
                                 <div class="form-group">
                                     <label for="pic">Insert Pic:</label>
                                     <input type="file" name="picEngOptionA">
@@ -121,10 +121,10 @@
                                 
                             </div>
 
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                     <label for="engOptionB" class="m-2">B</label>
                                         <input type="radio" value="B" name="engRadio"  @if(old('engRadio')=='B') checked="checked"@endif>
-                                    <input type="text" class="form-control m-2" value="{{old('engOptionB')}}" name="engOptionB" required>
+                                    <input type="text" class="form-control m-2" value="{{old('engOptionB')}}" name="engOptionB" >
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionB">
@@ -133,10 +133,10 @@
                                     
                              </div>
                             
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                     <label for="engOptionC" class="m-2">C</label>
                                         <input type="radio" value="C" name="engRadio"  @if(old('engRadio')=='C') checked="checked"@endif>
-                                    <input type="text" class="form-control m-2" value="{{old('engOptionC')}}" name="engOptionC" required>
+                                    <input type="text" class="form-control m-2" value="{{old('engOptionC')}}" name="engOptionC" >
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionC">
@@ -145,10 +145,10 @@
                                     
                             </div>
 
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                     <label for="engOptionD" class="m-2">D</label>
                                         <input type="radio" value="D" name="engRadio"  @if(old('engRadio')=='D') checked="checked"@endif>
-                                    <input type="text" class="form-control m-2" value="{{old('engOptionD')}}" name="engOptionD" required>
+                                    <input type="text" class="form-control m-2" value="{{old('engOptionD')}}" name="engOptionD" >
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionD">
@@ -182,7 +182,7 @@
                                       </div>
                                 </div>
 
-                                <div class="form-inline">
+                                <div class="form-inline o">
                                         <label for="hindiOptionA" class="m-2">क</label>
                                             <input type="radio" value="A"  name="hindiRadio"  @if(old('hindiRadio')=='A') checked="checked"@endif>
                                 <input type="text" class="form-control m-2" value="{{old('hindiOptionA')}}" name="hindiOptionA" id="hindiOptionA">
@@ -194,7 +194,7 @@
                                         
                                     </div>
         
-                                    <div class="form-inline">
+                                    <div class="form-inline o">
                                             <label for="hindiOptionB" class="m-2">ख</label>
                                                 <input type="radio" value="B" name="hindiRadio"  @if(old('hindiRadio')=='B') checked="checked"@endif>
                                             <input type="text" class="form-control m-2" value="{{old('hindiOptionB')}}"  name="hindiOptionB" id = "hindiOptionB">
@@ -205,7 +205,7 @@
                                               </div> 
                                      </div>
                                     
-                                    <div class="form-inline">
+                                    <div class="form-inline o">
                                             <label for="hindiOptionC" class="m-2">ग</label>
                                                 <input type="radio" value="C" name="hindiRadio"  @if(old('hindiRadio')=='C') checked="checked"@endif>
                                             <input type="text" class="form-control m-2" value="{{old('hindiOptionC')}}"  name="hindiOptionC" id = "hindiOptionC" >
@@ -216,7 +216,7 @@
                                               </div>
                                     </div>
         
-                                    <div class="form-inline">
+                                    <div class="form-inline o">
                                             <label for="hindiOptionD" class="m-2">घ</label>
                                                 <input type="radio" value="D" name="hindiRadio"  @if(old('hindiRadio')=='D') checked="checked"@endif>
                                             <input type="text" class="form-control m-2" value="{{old('hindiOptionD')}}"  name="hindiOptionD" id = "hindiOptionD">
@@ -248,10 +248,17 @@
         </form>
     </div>
     <script type="text/javascript">
-      $(function(){
-            
+      $(document).ready(function(){
+        if($('#section_name_select_newQuestion').children("option:selected").val()==7){
+                $('.o').hide();
+            }
+            else{
+                $('.o').show();
+            }
 
-            $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected_newQuestion"));
+          
+
+          $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected_newQuestion"));
             $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected_newQuestion"));
 
             $("#test_name_select_newQuestion").change(function(){
@@ -260,11 +267,19 @@
               localStorage.setItem("test_id_selected_newQuestion", $test_id_selected_newQuestion);
 
             });
-            
+           
             $("#section_name_select_newQuestion").change(function(){
               console.log("Sectionname changed");
               $section_id_selected_newQuestion = $(this).children("option:selected").val()
-              localStorage.setItem("section_id_selected_newQuestion", $section_id_selected_newQuestion);
+           localStorage.setItem("section_id_selected_newQuestion", $section_id_selected_newQuestion);
+
+            if($(this).children("option:selected").val()==7){
+                $('.o').hide();
+            }
+            else{
+                $('.o').show();
+            }
+
             });
 
         })

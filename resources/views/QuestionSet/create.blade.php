@@ -43,8 +43,14 @@
                         </div>
                       
                         <div class="form-group">
-                          <label for="incorrect">Validity :</label>
-                          <input type="date" min="0" value="0" class="form-control" id="incorrect" name="incorrect" required>
+                            <label for="Time">Test Time :</label>
+                            <input type="time" value="0" min="0" class="form-control" id="Time" name="Time" required>
+                           
+                          </div>
+                      
+                        <div class="form-group">
+                          <label for="expDate">Validity :</label>
+                          <input type="date" min="0" value="0" class="form-control" id="expDate" name="expDate" required>
                           
                           </div>
 

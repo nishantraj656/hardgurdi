@@ -33,7 +33,7 @@
                 <div class="col-sm-6">
                         <div class="form-group">
                             <label for="setname">Set Section :</label>
-                            <select class="form-control" name="section">
+                            <select class="form-control" id="section_name_select_newQuestion" name="section">
                             @foreach ($section as $l)
                                 @if($l['id'] == $datas->section_id)
                                     <option value="{{$l['id']}}" selected='selected'>{{$l['title']}}</option>
@@ -59,12 +59,12 @@
                               </div>
                         
                         </div>
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                 <label for="engOptionA" class="m-2">A</label>
                                     <input type="radio" @if (json_decode($datas->answer_json)->eng == 'A')
                                         checked="checked"
                                     @endif value="A" name="engRadio" >
-                                <input type="text" value="{{json_decode($datas->option_json)->eng->A->text}}" class="form-control m-2" name="engOptionA" required>
+                                <input type="text" value="{{json_decode($datas->option_json)->eng->A->text}}" class="form-control m-2" name="engOptionA" >
                                 <div class="form-group">
                                     <label for="pic">Insert Pic:</label>
                                     <input type="file" name="picEngOptionA">
@@ -74,12 +74,12 @@
 
                             </div>
 
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                     <label for="engOptionB" class="m-2">B</label>
                                         <input type="radio" value="B" @if (json_decode($datas->answer_json)->eng == 'B')
                                         checked="checked"
                                     @endif name="engRadio">
-                                    <input type="text" value="{{json_decode($datas->option_json)->eng->B->text}}" class="form-control m-2" name="engOptionB" required>
+                                    <input type="text" value="{{json_decode($datas->option_json)->eng->B->text}}" class="form-control m-2" name="engOptionB" >
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionB">
@@ -87,12 +87,12 @@
                                       </div>
                              </div>
                             
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                     <label for="engOptionC" class="m-2">C</label>
                                         <input type="radio" value="C" @if (json_decode($datas->answer_json)->eng == 'C')
                                         checked="checked"
                                     @endif name="engRadio">
-                                    <input type="text" value="{{json_decode($datas->option_json)->eng->C->text}}" class="form-control m-2" name="engOptionC" required>
+                                    <input type="text" value="{{json_decode($datas->option_json)->eng->C->text}}" class="form-control m-2" name="engOptionC" >
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionC">
@@ -100,12 +100,12 @@
                                       </div> 
                             </div>
 
-                            <div class="form-inline">
+                            <div class="form-inline o">
                                     <label for="engOptionD" class="m-2">D</label>
                                         <input type="radio" value="D" @if (json_decode($datas->answer_json)->eng == 'D')
                                         checked="checked"
                                     @endif name="engRadio">
-                                    <input type="text" value="{{json_decode($datas->option_json)->eng->D->text}}" class="form-control m-2" name="engOptionD" required>
+                                    <input type="text" value="{{json_decode($datas->option_json)->eng->D->text}}" class="form-control m-2" name="engOptionD" >
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionD">
@@ -137,7 +137,7 @@
                                       </div>
                                 </div>
 
-                                <div class="form-inline">
+                                <div class="form-inline o">
                                         <label for="hindiOptionA" class="m-2">क</label>
                                             <input type="radio" value="A"  @if (json_decode($datas->answer_json)->hindi == 'A')
                                             checked="checked"
@@ -150,7 +150,7 @@
                                           </div>
                                     </div>
         
-                                    <div class="form-inline">
+                                    <div class="form-inline o">
                                             <label for="hindiOptionB" class="m-2">ख</label>
                                                 <input type="radio" value="B" @if (json_decode($datas->answer_json)->hindi == 'B')
                                                 checked="checked"
@@ -163,7 +163,7 @@
                                               </div> 
                                      </div>
                                     
-                                    <div class="form-inline">
+                                    <div class="form-inline o">
                                             <label for="hindiOptionC" class="m-2">ग</label>
                                                 <input type="radio"  @if (json_decode($datas->answer_json)->hindi == 'C')
                                                 checked="checked"
@@ -176,7 +176,7 @@
                                               </div>
                                     </div>
         
-                                    <div class="form-inline">
+                                    <div class="form-inline o">
                                             <label for="hindiOptionD" class="m-2">घ</label>
                                                 <input type="radio" value="D"  @if (json_decode($datas->answer_json)->hindi == 'D')
                                                 checked="checked"
@@ -210,5 +210,43 @@
               
         </form>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+          if($('#section_name_select_newQuestion').children("option:selected").val()==7){
+                  $('.o').hide();
+              }
+              else{
+                  $('.o').show();
+              }
+  
+            
+  
+            $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected_newQuestion"));
+              $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected_newQuestion"));
+  
+              $("#test_name_select_newQuestion").change(function(){
+                console.log("Testname changed");
+                $test_id_selected_newQuestion = $(this).children("option:selected").val()
+                localStorage.setItem("test_id_selected_newQuestion", $test_id_selected_newQuestion);
+  
+              });
+             
+              $("#section_name_select_newQuestion").change(function(){
+                console.log("Sectionname changed");
+                $section_id_selected_newQuestion = $(this).children("option:selected").val()
+             localStorage.setItem("section_id_selected_newQuestion", $section_id_selected_newQuestion);
+  
+              if($(this).children("option:selected").val()==7){
+                  $('.o').hide();
+              }
+              else{
+                  $('.o').show();
+              }
+  
+              });
+  
+          })
+      </script>
 
 @endsection

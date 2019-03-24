@@ -24,6 +24,11 @@
                         <input type="number" min="0" value="0" class="form-control" id="price" name="price">
                        
                       </div>
+                      <div class="form-group">
+                            <label for="expDate">Validity :</label>
+                            <input type="date" min="0" value="" class="form-control" id="expDate" name="expDate" required>
+                            
+                            </div>
                   @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
