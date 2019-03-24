@@ -22,7 +22,8 @@ class QuestionSetController extends Controller
 INNER JOIN `package_tab` ON `package_tab`.`package_id` = `test_info_tab`.`package_id` */
 $data =DB::table('test_info_tab')
 ->select('test_info_tab.test_name as title','test_info_tab.test_info_id as infoID','test_info_tab.pic','test_info_tab.enroll_stud_count as count',
-'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package')
+'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
+'test_info_tab.status','test_info_tab.expDate')
 ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
 ->get();
 return view('QuestionSet.index',['data'=>$data]);
@@ -35,7 +36,8 @@ return view('QuestionSet.index',['data'=>$data]);
 INNER JOIN `package_tab` ON `package_tab`.`package_id` = `test_info_tab`.`package_id` */
 $data =DB::table('test_info_tab')
 ->select('test_info_tab.test_name as title','test_info_tab.test_info_id as infoID','test_info_tab.pic','test_info_tab.enroll_stud_count as count',
-'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package')
+'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
+'test_info_tab.status','test_info_tab.expDate')
 ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
 ->get();
 return $data;
@@ -156,6 +158,19 @@ return $data;
             'test_price'=>$request->price,
             'marks_on_correct'=>$request->correct,
             'marks_on_incorrect'=>$request->incorrect,
+       ];
+
+        QuestionS::where('test_info_id',$id)->update($update);
+          return redirect('QuestionS');
+    }
+
+    public function Activate(Request $request,$id)
+    {
+        
+      
+        $update= [
+            'status'=>$request->status,
+           
        ];
 
         QuestionS::where('test_info_id',$id)->update($update);

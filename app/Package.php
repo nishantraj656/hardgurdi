@@ -17,6 +17,8 @@ class Package extends Model
         'package_id',
         'test_cat_id',
         'subcat_name',
-        'package_price'
+        'package_price',
+        'status',
+        'expDate',
    ];
 }
