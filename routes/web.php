@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/cpanel', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    return view('Website/index');
 });
 
 Route::post('Question/filter', 'Test\\QuestionController@filter');
