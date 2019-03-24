@@ -27,7 +27,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
       
       
@@ -72,7 +72,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
       
         
@@ -91,7 +91,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
       
 
@@ -221,7 +221,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
     {
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]);
        
        $datas=Question::where(['question_id'=>$id])->first();
