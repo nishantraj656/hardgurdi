@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 #for category and sub categroy
 Route::post('cat_sub_cat_get', 'TestAPI\CatSubCat_C@index');
 Route::post('render_TestList_HD', 'TestAPI\TestList_C@TestList');
+Route::post('render_TestDetails_HD', 'TestAPI\TestDetails_C@TestDetails');
