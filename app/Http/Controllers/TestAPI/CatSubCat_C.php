@@ -20,7 +20,7 @@ class CatSubCat_C extends Controller
         $cat_sub_cat_arr_final = [];
         foreach ($category_list as $key => $value) {
             $subcategory_list = DB::table('package_tab')
-                ->select('package_id','subcat_name')
+                ->select('package_id','subcat_name','status','package_price')
                 ->where('test_cat_id',$value->test_cat_id)
                 ->get();
 
@@ -30,6 +30,8 @@ class CatSubCat_C extends Controller
                 $tmp = [];
                 $tmp["key"] = $subcategory->package_id;
                 $tmp["value"] = $subcategory->subcat_name;
+                $tmp["status"] = $subcategory->status;
+                $tmp["rate"] = $subcategory->package_price;
                 array_push($subcategory_arr, $tmp);
             }
             

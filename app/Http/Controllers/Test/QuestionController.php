@@ -27,8 +27,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Latter/Eassay',"id"=>7],["title"=>'Paragraph',"id"=>6]);
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
       
       
         
@@ -72,8 +72,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Latter/Eassay',"id"=>7],["title"=>'Paragraph',"id"=>6]);
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
       
         
         
@@ -91,9 +91,9 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
-        ,["title"=>'Latter/Eassay',"id"=>7],["title"=>'Paragraph',"id"=>6]);
+        ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
       
 
         return view('Question.create',["list"=>$list,'section'=>$section]);
@@ -223,8 +223,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
     {
         $list =new QuestionSetController();
         $list = $list->list();
-        $section =array(["title"=>'English',"id"=>1],["title"=>'Math',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Latter/Eassay',"id"=>7],["title"=>'Paragraph',"id"=>6]);
+        $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
        
        $datas=Question::where(['question_id'=>$id])->first();
       // var_dump(json_decode($datas->answer_json)->hindi);

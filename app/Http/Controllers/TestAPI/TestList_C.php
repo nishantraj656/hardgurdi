@@ -22,6 +22,7 @@ class TestList_C extends Controller
                     'pic as avtar_url',
                     'time_duration as minutes',
                     'test_price as rate',
+                    'status',
                     DB::raw('(SELECT COUNT(*) FROM `question_tab` WHERE test_info_id = test_info_tab.test_info_id) as noofquestion')
                   )
                   ->where('package_id', '=', $subcatID)
