@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+ 
+Route::get('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
 #for category and sub categroy
 Route::post('cat_sub_cat_get', 'TestAPI\CatSubCat_C@index');
