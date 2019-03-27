@@ -16,8 +16,8 @@ class QuestionController extends Controller
          * `explaination` FROM `question_tab` WHERE `test_info_id`=9 */
        $datas = DB::table('question_tab')
         ->select('question_id as questionID','test_info_id','section_id','question_json as question','option_json as option','answer_json','explaination')
-        ->where('test_info_id','=',9)
-        ->get();
+        ->where('test_info_id','=',$request->testID)
+         ->simplePaginate(2);
 
         // $hindi=[];
         // $english=[];
