@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,7 @@ Route::get('/weareadmin', function () {
 Route::get('/', function () {
     return view('Website/index');
 });
+
 
 Route::post('Question/filter', 'Test\\QuestionController@filter');
 
