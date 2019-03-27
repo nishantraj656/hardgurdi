@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/cpanel', function () {
+Route::get('/weareadmin', function () {
     return view('welcome');
 });
 
@@ -42,5 +42,6 @@ Route::resource('/QuestionS','Test\\QuestionSetController')->middleware('auth');
 
 #for payment 
 // payment
-Route::post('/PaymentStatus','TestAPI\payuPayment@payment_success_fail');
+Route::post('/payment_failed','TestAPI\payuPayment@payment_success_fail');
+Route::post('/payment_success','TestAPI\payuPayment@payment_success_fail');
 Route::get('/payment_getway/{purchaseType_HD1}/{productID_HD2}/{userID_HD3}/','TestAPI\payuPayment@openPaymentGateway');

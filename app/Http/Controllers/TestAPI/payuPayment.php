@@ -120,8 +120,8 @@ class payuPayment extends Controller
 
          //initilizing post aaray to sending request to the payment gateway
 
-        $_POST['surl'] = url('/')."/PaymentStatus";
-        $_POST['furl'] = url('/')."/PaymentStatus";
+        $_POST['surl'] = url('/')."/payment_success";
+        $_POST['furl'] = url('/')."/payment_failed";
         $_POST['key'] = env("MERCHANT_KEY",$MERCHANT_KEY);
         $_POST['service_provider'] = env("PAYMENT_GATEWAY_PROVIDER","payu");
 
@@ -315,7 +315,13 @@ class payuPayment extends Controller
         // 123
         // var_dump($_POST);
 
-        return view('payment.PaymentStatus',['status'=>$status,'amount'=>$amount,'productinfo'=>$productinfo,'payment_id'=>$payuMoneyId,'mode'=>$mode]);
+        if ($status == "success") {
+            return view('payment.payment_success',['status'=>$status,'amount'=>$amount,'productinfo'=>$productinfo,'payment_id'=>$payuMoneyId,'mode'=>$mode]);
+
+        }else if($status == "failure"){
+            return view('payment.payment_failed',['status'=>$status,'amount'=>$amount,'productinfo'=>$productinfo,'payment_id'=>$payuMoneyId,'mode'=>$mode]);
+        }
+        
     }
 } 
 
