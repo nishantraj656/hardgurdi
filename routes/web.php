@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+// // for overriding register root
+// Route::get('/register', function () {	
+//     return view('welcome');
+// });
 
 Route::get('/weareadmin', function () {
     return view('welcome');
@@ -28,7 +34,6 @@ Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate');
 
 Route::post('Package/{Test}/a', 'Test\\packageController@Activate');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
