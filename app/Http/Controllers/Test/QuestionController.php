@@ -194,6 +194,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
               'option_json'=>json_encode($option), 
               'answer_json'=>json_encode($answer), 
               'explaination'=>json_encode($explaination),
+              'ispuzzle' => ($request->checkBoxPuzzel == '1' ? '1': '0'),
+              
            ]);
 
            $request->session()->flash('status', 'Task was successful!');
@@ -323,6 +325,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
                'option_json'=>json_encode($option), 
                'answer_json'=>json_encode($answer), 
                'explaination'=>json_encode($explaination),
+                'ispuzzle' => ($request->checkBoxPuzzel == '1' ? '1': '0'),
+
             ]);
             $request->session()->flash('status', ' Notes updated successfully');
           return redirect('Question');

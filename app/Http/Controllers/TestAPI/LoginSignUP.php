@@ -84,7 +84,7 @@ class LoginSignUP extends Controller
         $email = $request->json()->all()['email'];
         $password = $request->json()->all()['password'];
         $c_password = $request->json()->all()['c_password'];
-        $phone = $request->json()->all()['phone'];
+        $phone = $request->json()->all()['phoneno'];
         $user_type = $request->json()->all()['user_type'];
 
 
@@ -112,7 +112,7 @@ class LoginSignUP extends Controller
 
 
         //fetching user id of the inserted data in users table 
-        $wor_info_id = DB::table('users')->select('id','phone')
+        $wor_info_id = DB::table('users')->select('id','phoneno')
                         ->where('email', '=', $email)
                         ->get();
         $userID = $wor_info_id[0]->id; 
@@ -174,8 +174,8 @@ class LoginSignUP extends Controller
       $data["status"] = true;
       $dataInput = $request->json()->all();
       // checking for phone no
-      if($dataInput["check"] == 'phone'){
-        $phone = $dataInput["phone"];
+      if($dataInput["check"] == 'phoneno'){
+        $phone = $dataInput["phoneno"];
         $countArr = DB::table('users')
             ->select('phoneno')
             ->where('phoneno',$phone)

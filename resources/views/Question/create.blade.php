@@ -239,9 +239,17 @@
                        
                     </div>
             </div>
-              
+            
             <div class="row">
-                    <button type="submit" class="btn btn-primary ml-4">Submit</button>
+              <div class="form-check">
+                <input type="checkbox" name="checkBoxPuzzel" value="1" class="form-check-input" id="checkBoxPuzzel">
+                <label class="form-check-label" for="checkBoxPuzzel">is this Puzzel?</label>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <button type="submit" class="btn btn-primary ml-4 btn-lg btn-block">Submit</button>      
             </div>
             
               
