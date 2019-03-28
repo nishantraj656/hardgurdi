@@ -23,6 +23,8 @@ Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 Route::post('cat_sub_cat_get', 'TestAPI\CatSubCat_C@index');
 Route::post('render_TestList_HD', 'TestAPI\TestList_C@TestList');
 Route::post('render_TestDetails_HD', 'TestAPI\TestDetails_C@TestDetails');
+Route::post('render_renderNotiList_US', 'TestAPI\NotiList_C@NotiList');
+Route::post('render_userTestHist_HD', 'TestAPI\HistoryList_C@HistList');
 
 
 // ?LoginSignUP
@@ -37,3 +39,5 @@ Route::post('change_password_HD', 'TestAPI\LoginSignUP@change_password_fun');
 
 
 
+Route::get('test', 'TestAPI\TestList_C@TestList');
+Route::get('test1', 'TestAPI\HistoryList_C@HistList');
