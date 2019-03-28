@@ -47,7 +47,10 @@ class payuPayment extends Controller
         ->select('name', 'email','phoneno')
         ->where('id', '=', $userID_HD3)
         ->first();
-
+        if ($users_data == null) {
+            echo "Invalid User";
+            return;
+        }
         // findign product information
         $product_data = null ;
 
@@ -67,7 +70,7 @@ class payuPayment extends Controller
         }
         
         if ($product_data == null) {
-            echo "Somthing goes wrong";
+            echo "Invalid Product";
             return;
         }
 
@@ -294,6 +297,31 @@ class payuPayment extends Controller
                     'paymentTime' => $paymentTime,
                     'cardnum' => $cardnum
                 ]);
+
+                $txnid_arr = explode('-',$txnid );
+                // making purchsed test entry in test purchesed table
+                if ($txnid_arr[0] == 'pack') {
+                    $arrOfTest =  DB::table('test_info_tab')
+                        ->select('test_info_id','expDate')
+                        ->where('package_id', $txnid_arr[1])
+                        ->get();
+
+                    foreach ($arrOfTest as $key => $value) {
+                        DB::table('purchased_test_tab')->insert([
+                            'test_info_id' => $value->test_info_id,
+                            'user_id' => $txnid_arr[2],
+                            'transaction_id' => $txnid
+                        ]);
+                    }
+
+
+                }else if ($txnid_arr[0] == 'test') {
+                    DB::table('purchased_test_tab')->insert([
+                            'test_info_id' => $txnid_arr[1],
+                            'user_id' => $txnid_arr[2],
+                            'transaction_id' => $txnid
+                    ]);
+                }
         }elseif ($status == "failure") {
             DB::table('payment_tab')
                 ->where('transaction_id', $txnid)
