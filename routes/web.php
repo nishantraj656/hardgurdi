@@ -37,7 +37,7 @@ Route::post('Package/{Test}/a', 'Test\\packageController@Activate');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Route::get('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
 Route::resource('/Test','Test\\TestController')->middleware('auth');;
 Route::resource('/Exam','Test\\ExameTypeController')->middleware('auth');;
