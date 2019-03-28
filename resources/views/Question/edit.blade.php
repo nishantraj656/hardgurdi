@@ -250,6 +250,20 @@
                     </div>
             </div>
               
+
+
+            <div class="row">
+              <div class="form-check">
+                <input type="checkbox" name="checkBoxPuzzel" value="1" class="form-check-input" id="checkBoxPuzzel" 
+
+                @if($datas->ispuzzle == '1') {{"checked"}} @endif>
+                <label class="form-check-label" for="checkBoxPuzzel">is this Puzzel?</label>
+              </div>
+            </div>
+            <br>
+
+
+
             <div class="row">
                     <button type="submit" class="btn btn-primary ml-4">Submit</button>
             </div>

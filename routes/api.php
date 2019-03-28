@@ -31,6 +31,15 @@ Route::post('render_TestList_HD', 'TestAPI\TestList_C@TestList');
 Route::post('render_TestDetails_HD', 'TestAPI\TestDetails_C@TestDetails');
 
 
+// ?LoginSignUP
+
+Route::post('login_HD', 'TestAPI\LoginSignUP@login'); 
+Route::post('register_HD', 'TestAPI\LoginSignUP@register');
+Route::post('AvilEmail_HD', 'TestAPI\LoginSignUP@avilEmail');
+Route::post('AvilPhone_HD', 'TestAPI\LoginSignUP@avilPhone');
+
+Route::post('send_OTP_HD', 'TestAPI\LoginSignUP@send_OTP_fun');
+Route::post('change_password_HD', 'TestAPI\LoginSignUP@change_password_fun');
 
 
 

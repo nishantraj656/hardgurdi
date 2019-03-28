@@ -21,6 +21,7 @@ class Question extends Model
       'option_json', 
       'answer_json', 
       'explaination',
+      'ispuzzle',
    ];
 }
  
