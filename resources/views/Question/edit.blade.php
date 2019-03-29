@@ -1,4 +1,11 @@
 @extends('layouts.app')
+<style >
+    img {
+        height:100px;
+        width: 100px;
+    }
+</style>
+
 <script type="text/javascript" src="https://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
@@ -103,6 +110,12 @@
                             <div class="form-group">
                                 <label for="pic">Insert Pic:</label>
                                 <input type="file" name="picEng">
+                                <input name="npicEng" value="{{json_decode($datas->question_json)->eng->pic}}" type="hidden"/>
+                             
+                                @if(json_decode($datas->question_json)->eng->pic!=null)
+                               <img src="{{asset(json_decode($datas->question_json)->eng->pic)}}" class ="img-thumbnail"/>
+                               
+                                 @endif
                                
                               </div>
                         
@@ -116,6 +129,11 @@
                                 <div class="form-group">
                                     <label for="pic">Insert Pic:</label>
                                     <input type="file" name="picEngOptionA">
+                                    <input name="npicEngOptionA" value="{{json_decode($datas->option_json)->eng->A->pic}}" type="hidden"/>
+                             
+                                    @if(json_decode($datas->option_json)->eng->A->pic!=null)
+                                    <img src="{{asset(json_decode($datas->option_json)->eng->A->pic)}}" class ="img-thumbnail"/>
+                                    @endif
                                    
                                   </div>
 
@@ -131,6 +149,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionB">
+                                        <input name="npicEngOptionB" value="{{json_decode($datas->option_json)->eng->B->pic}}" type="hidden"/>
+                             
+                                        @if(json_decode($datas->option_json)->eng->B->pic!=null)
+                                    <img src="{{asset(json_decode($datas->option_json)->eng->B->pic)}}" class ="img-thumbnail"/>
+                                    @endif
                                        
                                       </div>
                              </div>
@@ -144,6 +167,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionC">
+                                        <input name="npicEngOptionC" value="{{json_decode($datas->option_json)->eng->C->pic}}" type="hidden"/>
+                             
+                                        @if(json_decode($datas->option_json)->eng->C->pic!=null)
+                                        <img src="{{asset(json_decode($datas->option_json)->eng->C->pic)}}" class ="img-thumbnail"/>
+                                        @endif
                                        
                                       </div> 
                             </div>
@@ -157,7 +185,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionD">
-                                       
+                                        <input name="npicEngOptionD" value="{{json_decode($datas->option_json)->eng->D->pic}}" type="hidden"/>
+                             
+                                        @if(json_decode($datas->option_json)->eng->D->pic!=null)
+                                    <img src="{{asset(json_decode($datas->option_json)->eng->D->pic)}}" class ="img-thumbnail"/>
+                                    @endif
                                       </div>
                             </div>
 
@@ -168,7 +200,10 @@
                                 <div class="form-group">
                                     <label for="pic">Insert Pic:</label>
                                     <input type="file" name="picEngExplaination">
-                                   
+                                    <input name="npicEngExplaination" value="{{json_decode($datas->explaination)->eng->pic}}" type="hidden"/>
+                                    @if(json_decode($datas->explaination)->eng->pic!=null)
+                                    <img src="{{asset(json_decode($datas->explaination)->eng->pic)}}" class ="img-thumbnail"/>
+                                    @endif
                                   </div>
                     </div>
                     
@@ -181,6 +216,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picHindi">
+                                    <input name="npicHindi" value="{{json_decode($datas->question_json)->hindi->pic}}" type="hidden"/>
+                                   
+                                        @if(json_decode($datas->question_json)->hindi->pic!=null)
+                                        <img src="{{asset(json_decode($datas->question_json)->hindi->pic)}}" class ="img-thumbnail"/>
+                                        @endif
                                        
                                       </div>
                                 </div>
@@ -192,9 +232,13 @@
                                         @endif name="hindiRadio">
                                         <input type="text" class="form-control m-2" value="{{json_decode($datas->option_json)->hindi->A->text}}" name="hindiOptionA" id= "hindiOptionA">
                                         <div class="form-group">
-                                            <label for="pic">Insert Pic:</label>
-                                            <input type="file" name="picHindiOptionA">
-                                           
+                                            <label for="pichindiOptionA">Insert Pic:</label>
+                                            <input type="file" name="pichindiOptionA"/>
+                                            <input name="npichindiOptionA" value="{{json_decode($datas->option_json)->hindi->A->pic}}" type="hidden"/>
+                                   
+                                            @if(json_decode($datas->option_json)->hindi->A->pic!=null)
+                                            <img src="{{asset(json_decode($datas->option_json)->hindi->A->pic)}}" class ="img-thumbnail"/>
+                                            @endif
                                           </div>
                                     </div>
         
@@ -207,7 +251,11 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionB">
-                                               
+                                                <input name="npichindiOptionB" value="{{json_decode($datas->option_json)->hindi->B->pic}}" type="hidden"/>
+                                   
+                                                @if(json_decode($datas->option_json)->hindi->B->pic!=null)
+                                            <img src="{{asset(json_decode($datas->option_json)->hindi->B->pic)}}" class ="img-thumbnail"/>
+                                            @endif
                                               </div> 
                                      </div>
                                     
@@ -220,7 +268,11 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionC">
-                                               
+                                                <input name="npichindiOptionC" value="{{json_decode($datas->option_json)->hindi->C->pic}}" type="hidden"/>
+                                   
+                                                @if(json_decode($datas->option_json)->hindi->C->pic!=null)
+                                            <img src="{{asset(json_decode($datas->option_json)->hindi->C->pic)}}" class ="img-thumbnail"/>
+                                            @endif
                                               </div>
                                     </div>
         
@@ -233,7 +285,11 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionD">
-                                               
+                                                <input name="npichindiOptionD" value="{{json_decode($datas->option_json)->hindi->D->pic}}" type="hidden"/>
+                                   
+                                                @if(json_decode($datas->option_json)->hindi->D->pic!=null)
+                                            <img src="{{asset(json_decode($datas->option_json)->hindi->D->pic)}}" class ="img-thumbnail"/>
+                                            @endif
                                               </div>
                                     </div>
 
@@ -243,6 +299,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picHindiExplaination">
+                                        <input name="npicHindiExplaination" value="{{json_decode($datas->explaination)->hindi->pic}}" type="hidden"/>
+                                   
+                                        @if(json_decode($datas->explaination)->hindi->pic!=null)
+                                        <img src="{{asset(json_decode($datas->explaination)->hindi->pic)}}" class ="img-thumbnail"/>
+                                        @endif
                                        
                                       </div> 
                                 </div>

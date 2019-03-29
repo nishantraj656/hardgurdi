@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Test\QuestionSetController;
+use Illuminate\Support\Facades\Storage;
 
 class QuestionController extends Controller
 {
@@ -127,53 +128,53 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
         $picEngpath = $request->file('picEng');
         if($picEngpath != null)
-            $picEngpath = $picEngpath->store('Question');
+            $picEngpath =$this->imagePath( $picEngpath->store('public/Question','public'));
         else
             var_dump($picEngpath);
 
         $picEngOptionApath = $request->file('picEngOptionA');
         if($picEngOptionApath != null)
-            $picEngOptionApath = $picEngOptionApath->store('Set');
+            $picEngOptionApath = $this->imagePath($picEngOptionApath->store('Set','public'));
 
         $picEngOptionBpath = $request->file('picEngOptionB');
         if($picEngOptionBpath != null)
-            $picEngOptionBpath = $picEngOptionBpath->store('Set');
+            $picEngOptionBpath = $this->imagePath( $picEngOptionBpath->store('Set','public'));
 
         $picEngOptionCpath = $request->file('picEngOptionC');
         if($picEngOptionCpath != null)
-            $picEngOptionCpath = $picEngOptionCpath->store('Set');
+            $picEngOptionCpath = $this->imagePath($picEngOptionCpath->store('Set','public'));
         
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
-            $picEngOptionDpath = $picEngOptionDpath->store('Set');
+            $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('Set','public'));
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
-            $picHindipath = $picHindipath->store('Set');
+            $picHindipath = $this->imagePath($picHindipath->store('Set','public'));
 
         $picHindiOptionApath = $request->file('picHindiOptionA');
         if($picHindiOptionApath != null)
-            $picHindiOptionApath = $picHindiOptionApath->store('Set');
+            $picHindiOptionApath = $this->imagePath($picHindiOptionApath->store('Set','public'));
 
         $picHindiOptionBpath = $request->file('picHindiOptionB');
         if($picHindiOptionBpath != null)
-            $picHindiOptionBpath = $picHindiOptionBpath->store('Set');
+            $picHindiOptionBpath = $this->imagePath($picHindiOptionBpath->store('Set','public'));
 
         $picHindiOptionCpath = $request->file('picHindiOptionC');
         if($picHindiOptionCpath != null)
-            $picHindiOptionCpath = $picHindiOptionCpath->store('Set');
+            $picHindiOptionCpath = $this->imagePath($picHindiOptionCpath->store('Set','public'));
 
         $picHindiOptionDpath = $request->file('picHindiOptionD');
         if($picHindiOptionDpath != null)
-            $picHindiOptionDpath = $picHindiOptionDpath->store('Set');
+            $picHindiOptionDpath = $this->imagePath($picHindiOptionDpath->store('Set','public'));
 
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
-            $picHindiExplainationpath = $picHindiExplainationpath->store('Set');
+            $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('Set','public'));
 
         $picEngExplainationpath = $request->file('picEngExplaination');
         if($picEngExplainationpath != null)
-            $picEngExplainationpath = $picEngExplainationpath->store('Set');
+            $picEngExplainationpath = $this->imagePath($picEngExplainationpath->store('Set','public'));
 
     
 
@@ -229,14 +230,39 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
        
        $datas=Question::where(['question_id'=>$id])->first();
-      // var_dump(json_decode($datas->answer_json)->hindi);
 
-    //    var_dump($datas);
-    //    var_dump($list);
-    //    var_dump($section);
+    
+
        return view('Question.edit',['datas'=>$datas,"list"=>$list,'section'=>$section]);
     }
 
+    private function imagePath($pic)
+    {
+        $imagePath =$pic;//json_decode($datas->question_json)->eng->pic;
+        $imageFullPath='/';
+        if($imagePath !=null)
+        {
+            $pathArray= explode('/',$imagePath);
+            for($i =0;$i< sizeof($pathArray);$i++)
+            {
+                if($pathArray[$i] == 'public')
+                {
+                     $imageFullPath = $imageFullPath.'storage';
+                }
+                else
+                {
+                  $imageFullPath = $imageFullPath.'/'.$pathArray[$i]; 
+                }
+            }
+
+        }
+        else
+        {
+            $imageFullPath =null;
+        }
+        echo "Path ".$imageFullPath;
+        return $imageFullPath;
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -260,56 +286,101 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
          $picEngpath = $request->file('picEng');
         if($picEngpath != null){
-            $picEngpath = $picEngpath->store('Question');
+            $picEngpath = $this->imagePath($picEngpath->store('public/Question'));
            
-            }
+        }
+        else
+        {
+            $picEngpath = $request->npicEng;
+        }
       
 
         $picEngOptionApath = $request->file('picEngOptionA');
         if($picEngOptionApath != null){     
-            $picEngOptionApath = $picEngOptionApath->store('Set');
+            $picEngOptionApath = $this->imagePath($picEngOptionApath->store('public/Set'));
           
         }
+        else
+        {
+            $picEngOptionApath = $request->npicEngOptionA;
+        }
+      
 
         $picEngOptionBpath = $request->file('picEngOptionB');
         if($picEngOptionBpath != null)
-            $picEngOptionBpath = $picEngOptionBpath->store('Set');
+            $picEngOptionBpath = $this->imagePath($picEngOptionBpath->store('public/Set'));
+            else
+            {
+                $picEngOptionBpath = $request->npicEngOptionB;
+            }
 
         $picEngOptionCpath = $request->file('picEngOptionC');
         if($picEngOptionCpath != null)
-            $picEngOptionCpath = $picEngOptionCpath->store('Set');
+            $picEngOptionCpath = $this->imagePath($picEngOptionCpath->store('public/Set'));
+            else
+            {
+                $picEngOptionCpath = $request->npicEngOptionC;
+            }
         
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
-            $picEngOptionDpath = $picEngOptionDpath->store('Set');
+            $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('public/Set'));
+            else
+            {
+                $picEngOptionDpath = $request->npicEngOptionD;
+            }
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
-            $picHindipath = $picHindipath->store('Set');
+            $picHindipath = $this->imagePath($picHindipath->store('public/Set'));
+            else
+            {
+                $picHindipath = $request->npicHindi;
+            }
 
         $picHindiOptionApath = $request->file('picHindiOptionA');
         if($picHindiOptionApath != null)
-            $picHindiOptionApath = $picHindiOptionApath->store('Set');
+            $picHindiOptionApath = $this->imagePath($picHindiOptionApath->store('public/Set'));
+            else
+            {
+                $picHindiOptionApath = $request->npicHindiOptionA;
+            }
 
         $picHindiOptionBpath = $request->file('picHindiOptionB');
         if($picHindiOptionBpath != null)
-            $picHindiOptionBpath = $picHindiOptionBpath->store('Set');
-
+            $picHindiOptionBpath = $this->imagePath($picHindiOptionBpath->store('public/Set'));
+            else
+            {
+                $picHindiOptionBpath = $request->npicHindiOptionB;
+            }
         $picHindiOptionCpath = $request->file('picHindiOptionC');
         if($picHindiOptionCpath != null)
-            $picHindiOptionCpath = $picHindiOptionCpath->store('Set');
-
+            $picHindiOptionCpath = $this->imagePath($picHindiOptionCpath->store('public/Set'));
+            else
+            {
+                $picHindiOptionCpath = $request->npicHindiOptionC;
+            }
         $picHindiOptionDpath = $request->file('picHindiOptionD');
         if($picHindiOptionDpath != null)
-            $picHindiOptionDpath = $picHindiOptionDpath->store('Set');
-
+            $picHindiOptionDpath = $this->imagePath($picHindiOptionDpath->store('public/Set'));
+            else
+            {
+                $picHindiOptionDpath = $request->npicHindiOptionD;
+            }
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
-            $picHindiExplainationpath = $picHindiExplainationpath->store('Set');
-
+            $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('public/Set'));
+            else
+            {
+                $picHindiExplainationpath = $request->npicHindiExplainationpath;
+            }
         $picEngExplainationpath = $request->file('picEngExplaination');
         if($picEngExplainationpath != null)
-            $picEngExplainationpath = $picEngExplainationpath->store('Set');
+            $picEngExplainationpath = $this->imagePath($picEngExplainationpath->store('public/Set'));
+            else
+            {
+                $picEngExplainationpath = $request->npicEngExplainationpath;
+            }
 
    /**{eng:{text:'',pic:''},hindi:{text:'',pic:''}} */
    $question=array("eng"=>array("text"=>$request->eng,"pic"=>$picEngpath),"hindi"=>array("text"=>$request->hindi,"pic"=>$picHindipath));

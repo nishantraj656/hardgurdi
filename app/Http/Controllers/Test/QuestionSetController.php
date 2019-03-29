@@ -79,7 +79,7 @@ return $data;
              ]);
        $path = $request->file('pic');
             if($path != null)
-                $path = $path->store('Set');
+                $path = $this->imagePath($path->store('public/Set'));
            
                 
       
@@ -98,6 +98,35 @@ return $data;
    ]);
     return redirect('QuestionS');
     }
+
+    private function imagePath($pic)
+    {
+        $imagePath =$pic;//json_decode($datas->question_json)->eng->pic;
+        $imageFullPath='/';
+        if($imagePath !=null)
+        {
+            $pathArray= explode('/',$imagePath);
+            for($i =0;$i< sizeof($pathArray);$i++)
+            {
+                if($pathArray[$i] == 'public')
+                {
+                     $imageFullPath = $imageFullPath.'storage';
+                }
+                else
+                {
+                  $imageFullPath = $imageFullPath.'/'.$pathArray[$i]; 
+                }
+            }
+
+        }
+        else
+        {
+            $imageFullPath =null;
+        }
+        echo "Path ".$imageFullPath;
+        return $imageFullPath;
+    }
+
 
     /**
      * Display the specified resource.
@@ -150,12 +179,19 @@ return $data;
             'incorrect'=>'required|numeric',
             'Time'=>'required'
                  ]);
+
+            $path = $request->file('pic');
+            if($path != null)
+                $path = $this->imagePath($path->store('public/Set'));
+            else
+                $path = $request->npic;
+        
     
         $update= [
             'package_id'=>$request->pid,
             'test_name'=>$request->setname,
             'descrption'=>$request->descrption,
-           
+            'pic'=>$path, 
            
             'enroll_stud_count'=>0,
             'test_price'=>$request->price,

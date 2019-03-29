@@ -20,9 +20,10 @@
                           </tr>
                         </thead>
                         <tbody>
+                            @php $i=0;  @endphp
                             @foreach ($data as $value)
-                              <tr class="@if($value->status == 0) text-warning @endif">
-                                <td></td>
+                              <tr class="@if($value->status == 0) text-danger @endif">
+                              <td>{{++$i}}</td>
                                
                                 <td>{{$value->sname}}</td>
                                 <td>{{$value->cname}}</td>
