@@ -44,7 +44,7 @@
                       
                         <div class="form-group">
                             <label for="Time">Test Time :</label>
-                            <input type="time" value="0" min="0" class="form-control" id="Time" name="Time" required>
+                            <input type="number" value="0" min="0" class="form-control" id="Time" name="Time" required>
                            
                           </div>
                       
