@@ -1,8 +1,15 @@
 @extends('layouts.app')
+<style >
+    img {
+        height:100px;
+        width: 150px;
+    }
+</style>
  @section('content')
+ 
     <div class="container">
         <div class="row">
-            <form action="{{url('QuestionS',$data->test_info_id)}}" method="POST">
+            <form action="{{url('QuestionS',$data->test_info_id)}}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="setname">Set Name:</label>
                 <input type="text" class="form-control" id="setname" value="{{$data->test_name}}" name="setname" required>
@@ -48,7 +55,7 @@
 
                         <div class="form-group">
                                 <label for="Time">Test Time :</label>
-                                <input type="time" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
+                                <input type="number" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
                                
                               </div>
                           
@@ -61,6 +68,12 @@
                         <div class="form-group">
                                 <label for="pic">Insert Pic:</label>
                                 <input type="file" name="pic">
+                                <input name="npic" value="{{$data->pic}}" type="hidden"/>
+                             
+                                @if($data->pic!=null)
+                               <img src="{{asset($data->pic)}}" class ="img-thumbnail"/>
+                               
+                                 @endif
                                
                               </div>
                   @if ($errors->any())
