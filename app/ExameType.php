@@ -14,6 +14,7 @@ class ExameType extends Model
      */
     public $fillable = [
         'test_cat_id',
-         'cat_name'
+         'cat_name',
+         'pic'
     ];
 }
