@@ -10,26 +10,25 @@
   
   <!-- PLUGINS CSS STYLE -->
   <!-- Bootstrap -->
+ 
 
+	<!-- HardiGurdi Font -->  
+	<link href="{{ asset('plugins/HardiGurdi-font/style.css') }}" rel="stylesheet">
+
+	<!-- CUSTOM CSS -->
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link href="{{ url('favicon.ico') }}" rel="shortcut icon">
+
+
+
+   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <!-- HardiGurdi Font -->  
-  <link href="{{ asset('plugins/HardiGurdi-font/style.css') }}" rel="stylesheet">
-  <!-- Slick Carousel -->
-  <link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
-  <!-- Slick Carousel Theme -->
-  <link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
-  
-  <!-- CUSTOM CSS -->
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-
-  <!-- FAVICON -->
-  <link href="{{ url('images/favicon.png') }}" rel="shortcut icon">
 
 </head>
 
@@ -38,37 +37,46 @@
 
 <nav class="navbar main-nav fixed-top navbar-expand-lg">
   <div class="container">
-      <a class="navbar-brand" href="homepage.html">
-      	<!-- <img src="images/logo.png" alt="logo"> -->
-      	<H3 style="color: white;">HardiGurdi</H3>
-      </a>
+		<H3>
+			<a class="navbar-brand" href="homepage.html">
+				<img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		  		<span style="color: white; font-size: 1em">HardiGurdi</span>
+		 	</a>
+		</H3>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="tf-ion-android-menu"></span>
-      </button>
+	    <span style="color: white; font-size: 1em"><i class="fas fa-bars"></i></span>
+	  </button>
+
+
+
+
+
       <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#feature">Why US?</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link scrollTo" href="#pricing">Pricing</a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link scrollTo" href="#team">Team</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#contact">Contact</a>
-        </li>
-      </ul>
+	      <ul class="navbar-nav ">
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#home">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#about">About</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#feature">Why US?</a>
+	        </li>
+	        <!-- <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#pricing">Pricing</a>
+	        </li> -->
+	        <!-- <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#team">Team</a>
+	        </li> -->
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#contact">Contact</a>
+	        </li>
+	      </ul>
       </div>
   </div>
 </nav>
+
 
 
 
@@ -85,33 +93,12 @@
 			<div class="col-md-8 align-self-center">
 				<!-- Contents -->
 				<div class="content-block">
-					<!-- <h1>Amazing App Best for business</h1>
-					<h5>Let you track everything in your life with a simple way</h5> -->
 
 					<blockquote>
 					  Luck is what happens when preparation meets opportunity.
 					  <H3><span>Seneca</span></H3>
 					</blockquote>
 
-
-
-					<!-- <blockquote>
-					  <h3></h3>
-					  <span class="author"><i> Seneca</i></span>
-					</blockquote> -->
-
-
-					<!-- App Badge -->
-					<!-- <div class="app-badge">
-						<ul class="list-inline">
-							<li class="list-inline-item">
-								<a href="#"><img class="img-fluid" src="images/app-badge/google-play.png" alt="google-play"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href="#"><img class="img-fluid" src="images/app-badge/app-store.png" alt="app-store"></a>
-							</li>
-						</ul>
-					</div> -->
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -214,89 +201,6 @@
 
 <!--====  End of About  ====-->
 
-<!--==============================
-=            Features            =
-===============================-->
-<!-- 
-<section class="section feature" id="feature">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2>App Features</h2>
-					<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-				</div>
-			</div>
-		</div>
-		<div class="row bg-elipse">
-			<div class="col-lg-4 align-self-center text-center text-lg-right">
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-circle-compass"></i>
-					</div>
-					<div class="content">
-						<h5>Beautiful Interface Design</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-tools-2"></i>
-					</div>
-					<div class="content">
-						<h5>Unlimited Features</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 text-center">
-				<div class="feature-item mb-0">
-					<div class="icon">
-						<i class="tf-chat"></i>
-					</div>
-					<div class="content">
-						<h5>Full  chat</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-				<div class="app-screen">
-					<img class="img-fluid" src="images/phones/i-phone-screen.png" alt="app-screen">
-				</div>
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-hourglass"></i>
-					</div>
-					<div class="content">
-						<h5>24/7 support by real people</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 text-center text-lg-left align-self-center">
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-mobile"></i>
-					</div>
-					<div class="content">
-						<h5>Retina ready greaphics</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-layers"></i>
-					</div>
-					<div class="content">
-						<h5>IOS & android version </h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<!--====  End of Features  ====-->
 
 <!--=================================
 =            Promo Video            =
@@ -472,9 +376,9 @@
 		    </div>
 		    <div class="col-md-8">
 		      <div class="card-body">
-		        <h5 class="card-title">We are Launching..</h5>
-		        <p class="card-text">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
-		        <p class="card-text"><small class="text-muted">CEO HardiGurdi</small></p>
+		        <h5 class="card-title card-title-adv">We are Launching..</h5>
+		        <p class="card-text card-text-adv">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
+		        <p class="card-text card-text-adv"><small class="text-muted">By CEO HardiGurdi</small></p>
 		      </div>
 		    </div>
 		  </div>
@@ -492,9 +396,9 @@
 		    </div>
 		    <div class="col-md-8">
 		      <div class="card-body">
-		        <h5 class="card-title">We are Launching..</h5>
-		        <p class="card-text">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
-		        <p class="card-text"><small class="text-muted">CEO HardiGurdi</small></p>
+		        <h5 class="card-title card-title-adv"> On App Store</h5>
+		        <p class="card-text card-text-adv">Available on Google play store & for Apple I store comming soon.</p>
+		        <p class="card-text card-text-adv"><small class="text-muted">By CEO HardiGurdi</small></p>
 		      </div>
 		    </div>
 		  </div>
@@ -513,8 +417,8 @@
 		    </div>
 		    <div class="col-md-8">
 		      <div class="card-body">
-		        <h5 class="card-title">RRB Tips</h5>
-		         <p class="card-text">
+		        <h5 class="card-title card-title-adv">RRB Tips</h5>
+		         <p class="card-text card-text-adv">
 			        in RRB exam questions are some bit trickier and harder to solve.But anything can achieved and conquered by constant effort and practice.For this I will give you some important tips.
 				        <ol>
 				        	<li>What are the topics much important?</li>
@@ -522,7 +426,7 @@
 				        	<li>Begin to write online mock tests for all aptitude topics.</li>
 				        </ol>
 		        </p>
-		        <p class="card-text"><small class="text-muted">By HardiGurdi Team</small></p>
+		        <p class="card-text card-text-adv"><small class="text-muted">By Team HardiGurdi</small></p>
 		      </div>
 		    </div>
 		  </div>
@@ -586,268 +490,6 @@
 
 <!--====  End of Counter  ====-->
 
-<!--==========================
-=            Team            =
-===========================-->
-<!-- 
-<section class="section team bg-shape-two" id="team">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2>Our Creative Team</h2>
-					<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-one.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>Johnny Depp</h5>
-						</div>
-						<div class="position">
-							<p>Production Designer</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="85%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>85%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-two.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>cristin milioti</h5>
-						</div>
-						<div class="position">
-							<p>UX Researcher</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="95%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>95%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-three.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>john doe</h5>
-						</div>
-						<div class="position">
-							<p>Head of Ideas</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="80%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>80%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-four.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>mario gotze</h5>
-						</div>
-						<div class="position">
-							<p>UX/UI designer</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="75%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>75%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<!--====  End of Team  ====-->
-
-<!--=================================
-=            Testimonial            =
-==================================-->
-
-<!-- <section class="section testimonial bg-primary-shape" id="testimonial">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2 class="text-white">Our Happy Customers</h2>
-					<p class="text-white">Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-8 m-auto">
-				
-						<div class="testimonial-item">
-							<div class="content">
-								<div class="name">
-									<h5>Kris lazy Cistin Miloti</h5>
-								</div>
-								<div class="pos-in-com">
-									<p>CEO at <span>HardiGurdi</span></p>
-								</div>
-								<div class="speech">
-									<p>Explain to you how all this mistaken idea of denouncing tis pleasure and praising pain was born and I will give you a complete praising the account is account the. </p>
-								</div>
-								<ul class="rating list-inline">
-									<li class="list-inline-item">
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-									</li>
-								</ul>		</div>
-							<div class="image">
-								<img class="img-fluid" src="images/testimonial/review-person-one.png" alt="testimonial-person">
-							</div>
-						</div>
-						<div class="testimonial-item">
-							<div class="content">
-								<div class="name">
-									<h5>Kris lazy Cistin Miloti</h5>
-								</div>
-								<div class="pos-in-com">
-									<p>CEO at<span>HardiGurdi</span></p>
-								</div>
-								<div class="speech">
-									<p>Explain to you how all this mistaken idea of denouncing tis pleasure and praising pain was born and I will give you a complete praising the account is account the. </p>
-								</div>
-								<div class="rating">
-									<ul class="rating list-inline">
-										<li class="list-inline-item">
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="image">
-								<img class="img-fluid" src="images/testimonial/review-person-one.png" alt="testimonial-person">
-							</div>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-
-<!--====  End of Testimonial  ====-->
-<!-- 
-<section class="section cta-subscribe" id="contact">
-	<div class="container">
-		<div class="row bg-elipse-red">
-			<div class="col-lg-4">
-				<div class="image"><img src="images/phones/iphone-banner.png" alt="iphone-app"></div>
-			</div>
-			<div class="col-lg-8 align-self-center">
-				<div class="content">
-					<div class="title">
-						<h2>Subscribe Our Newsletter</h2>
-					</div>
-					<div class="description">
-						<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-					</div>
-					<form action="#">
-						<div class="input-group">
-						    <input type="text" class="form-control main" placeholder="Enter your email address">
-						    <span class="input-group-addon tf-ion-android-send" id="btnGroupAddon"></span>
-						  </div>
-					</form>
-					<div class="subscription-tag text-right">
-						<p>Subscribe To Our Newsletter & Stay Updated</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-
-
-
 
 <!--============================
 =            Contact us            =
@@ -862,16 +504,16 @@
 				<div class="form-row">
 				    <div class="form-group col-md-6">
 				      <label for="inputEmail4">Name</label>
-				      <input type="text" class="form-control" id="inputName4" placeholder="Name">
+				      <input type="text" class="form-control" id="inputName4" placeholder="Name" required>
 				    </div>
 				    <div class="form-group col-md-6">
-				      <label for="inputPassword4">email</label>
-				      <input type="email" class="form-control" id="inputemail4" placeholder="email">
+				      <label for="inputPassword4">Email</label>
+				      <input type="Email" class="form-control" id="inputemail4" placeholder="email" required>
 				    </div>
 				  </div>
 			    <div class="form-group">
 				    <label for="message">Message</label>
-				    <textarea class="form-control" id="message" rows="3"></textarea>
+				    <textarea class="form-control" id="message" rows="3" required></textarea>
 				  </div>
 				<button type="button" class="btn btn-primary btn-lg btn-block">Send</button>
 			</form>
@@ -891,42 +533,61 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mr-auto">
+          
           <div class="footer-logo">
             <H3 style="color: white;">HardiGurdi</H3>
           </div>
+          
           <div class="copyright">
-            <p>@2018 HardiGurdi All Rights Reserved  |  Design By : <a href="https://HardiGurdi.com/" target="_blank">HardiGurdi</a>  Team
-              <!-- <br>Get More <a href="https://HardiGurdi.com/-bootstrap-templates/" target="_blank"> Bootstrap Templates</a> -->
+            <p>@2018 HardiGurdi All Rights Reserved  |  Design By : <a href="https://HardiGurdi.com/" target="_blank">Team HardiGurdi</a> 
             </p>
           </div>
+          
+          <div class="footer-logo">
+            <H1 >
+            	<a href="mailto:support@hardigurdi.com" style="color: white; font-size: 25px; font-weight: bold">
+            		<span style="font-size: 2em; color: white;">
+					  <i class="far fa-envelope-open "></i>
+					</span>
+					 support@hardigurdi.com          		
+	          	</a>
+	          </H1>
+          </div>
+
+          <div class="row">
+          	
+          </div>
+
         </div>
         <div class="col-lg-6 text-lg-right">
           <!-- Social Icons -->
           <ul class="social-icons list-inline">
-            <li class="list-inline-item">
+       <!--      <li class="list-inline-item">
               <a href=""><i class="tf-ion-social-facebook"></i></a>
             </li>
             <li class="list-inline-item">
               <a href=""><i class="tf-ion-social-twitter"></i></a>
-            </li>
+            </li> -->
             <li class="list-inline-item">
-              <a href=""><i class="tf-ion-social-linkedin"></i></a>
+              <a href="https://www.youtube.com/channel/UCKCEfG7MyziSnjA1Ds3CuHQ"><i class="tf-ion-social-youtube"></i></a>
             </li>
-            <li class="list-inline-item">
+           <!--  <li class="list-inline-item">
               <a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-            </li>
+            </li> -->
           </ul>
           <!-- Footer Links -->
           <ul class="footer-links list-inline">
             <li class="list-inline-item">
-              <a href="#">ABOUT</a>
+              <a href="#about">ABOUT</a>
             </li>
             <li class="list-inline-item">
-              <a href="#">TEAM</a>
+              <a href="#feature">Why US?</a>
             </li>
             <li class="list-inline-item">
-              <a href="#">CONTACT</a>
+              <a href="#contact">CONTACT</a>
             </li>
+
+
           </ul>
         </div>
       </div>
@@ -936,21 +597,35 @@
 
 
   <!-- JAVASCRIPTS -->
-  
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI14J_PNWVd-m0gnUBkjmhoQyNyd7nllA" async defer></script> -->
+  <!-- 
 
-  <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
-  <script src="{{ asset('plugins/popper/popper.min.js') }}"></script>
-  <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
-  <script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
-  <script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
+<script src="{{ asset('plugins/popper/popper.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
+<script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+	
+
+
+
+ -->
+
+
+
+
   <script type="text/javascript">
   		$(function () {
 			$('.downloadapp-popover').popover({
 				container: 'body'
 			});
+			$("ul.dropdown-menu").on("click", "[data-keepOpenOnClick]", function(e) {
+		        e.stopPropagation();
+		    });
 		})
   </script>
   
