@@ -63,7 +63,7 @@ class ExameTypeController extends Controller
             'name' => 'required', ]);
 
       ExameType::create(['cat_name'=>$request->name]);
-      return redirect('Exame');
+      return redirect('Exam');
 
     }
 
@@ -108,7 +108,7 @@ class ExameTypeController extends Controller
         $update = ['cat_name'=>$request->title];
         ExameType::where('test_cat_id',$id)->update($update);
    
-        return Redirect::to('Exame')
+        return Redirect::to('Exam')
        ->with('success','Great! Notes updated successfully');
     }
 
@@ -122,7 +122,7 @@ class ExameTypeController extends Controller
     {
         ExameType::where('test_cat_id',$examID)->delete();
    
-        return Redirect::to('/Exame')->with('success','Note deleted successfully');
+        return Redirect::to('/Exam')->with('success','Note deleted successfully');
       
     }
 }

@@ -48,6 +48,20 @@
               </div>
             </div>
       </div>
+
+      <div class="col-sm-4 mt-5">
+        <div class="card">
+            <div class="card-header bg-dark text-white">Section </div>
+            <div class="card-body">
+                  <div class="row">
+                          Active Package : {{$set}}
+                      </div>  
+                </div> 
+             <div class="card-footer">
+                <a class="nav-link" href="{{url('/SectionS')}}">More</a>
+            </div>
+          </div>
+    </div>
       {{---<div class="col-sm-4 mt-5">
           <div class="card">
               <div class="card-header bg-dark text-white">Section</div>

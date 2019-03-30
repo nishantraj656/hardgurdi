@@ -29,7 +29,7 @@ $data =DB::table('test_info_tab')
 return view('QuestionSet.index',['data'=>$data]);
     }
 
-    public function list()
+    public function list() 
     {
           /**SELECT `test_info_tab`.`test_name`,`test_info_tab`.`test_name`,`test_info_tab`.`pic`,`test_info_tab`.`enroll_stud_count`,
 `test_info_tab`.`test_price`,`test_info_tab`.`marks_on_correct`,`test_info_tab`.`marks_on_incorrect`,`package_tab`.`subcat_name` from `test_info_tab`
