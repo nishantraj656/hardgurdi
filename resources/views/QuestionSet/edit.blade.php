@@ -5,7 +5,7 @@
         width: 150px;
     }
 </style>
- @section('content')
+ @section('content') 
  
     <div class="container">
         <div class="row">
@@ -15,7 +15,7 @@
                 <input type="text" class="form-control" id="setname" value="{{$data->test_name}}" name="setname" required>
                    
                   </div>
-                  <div class="form-group">
+                  <div class="form-group"> 
                     <label for="sel1">Select Package:</label>
                     <select class="form-control" id="sel1"  name="pid">
                     @foreach ($list as $l )
