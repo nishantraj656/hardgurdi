@@ -11,7 +11,7 @@
         <div class="alert alert-success">
                 <strong>Success!</strong> {{session('status')}}.
               </div>         
-    @endif
+    @endif 
 
         <form method="POST" action="{{url('Question/filter')}}">
         <div class="row m-2">
@@ -80,7 +80,14 @@
                 <td>{{$value->question_id}} ({{$i}})</td>
                  
                   <td>{{json_decode($value->question_json)->eng->text}}</td>
-                  <td>{{$value->section_id}}</td>
+                  <td>
+                      @foreach ($section as $list)
+                          @if ($list['id'] == $value->section_id)
+                          {{$list['title']}}
+                           @endif
+                      @endforeach
+                    </td>
+                    
                   <td>{{$value->test_name}}</td>
                   
                     <td>

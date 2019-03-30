@@ -38,6 +38,7 @@ class QuestionS extends Model
         'status',
         'expDate',
         'time',
+        'issectional'
    ];
 }
  

@@ -30,6 +30,9 @@ Route::get('/', function () {
 
 Route::post('Question/filter', 'Test\\QuestionController@filter');
 
+Route::post('SectionS/filter', 'Test\\SectionController@filter');
+
+
 Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate');
 
 Route::post('Package/{Test}/a', 'Test\\packageController@Activate');
@@ -44,7 +47,8 @@ Route::resource('/Exam','Test\\ExameTypeController')->middleware('auth');;
 Route::resource('/Package','Test\\packageController')->middleware('auth');;
 Route::resource('/Question','Test\\QuestionController')->middleware('auth');;
 Route::resource('/Section','Test\\SectionController')->middleware('auth');;
-Route::resource('/QuestionS','Test\\QuestionSetController')->middleware('auth');;
+Route::resource('/QuestionS','Test\\QuestionSetController')->middleware('auth');
+Route::resource('/SectionS','SectionalPackageController')->middleware('auth');
 
 
 
