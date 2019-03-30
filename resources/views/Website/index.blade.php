@@ -130,20 +130,20 @@
 =            About            =
 ============================-->
 
-<section class="about section bg-2" id="about">
+<section class="about section bg-about" id="about">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<div class="section-title">
-					<h2>About US</h2>
+				<div class="section-title" >
+					<h2 style="color: white;">About US</h2>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div >
 				<h1>
-					<p style="font-size: 45; color: black;">
-					Hardi Gurdi© was conceptualized amidst the same struggle faced by millions of aspirants in a country where the hallowed sarkari naukri never goes out of vogue.  Public sector jobs in India have always enjoyed an almost sacred position amongst job seekers. In a country which is currently experiencing a demographic spring, employment with the State guarantees adequate support, security, and coveted prestige.   The architects of Hardi Gurdi© have had the first-hand experience of the same and have tasted wide success. It is thus their wish to share the experience of their journey and impart guidance to thousands of such candidates who may find themselves lost.
+					<p style="font-size: 25px; color: white; margin: 10px;">
+					Hardi Gurdi<sup>©</sup> was conceptualized amidst the same struggle faced by millions of aspirants in a country where the hallowed sarkari naukri never goes out of vogue.  Public sector jobs in India have always enjoyed an almost sacred position amongst job seekers. In a country which is currently experiencing a demographic spring, employment with the State guarantees adequate support, security, and coveted prestige.   The architects of Hardi Gurdi<sup>©</sup> have had the first-hand experience of the same and have tasted wide success. It is thus their wish to share the experience of their journey and impart guidance to thousands of such candidates who may find themselves lost.
 					</p>
 				</h1>
 				
@@ -151,6 +151,9 @@
 		</div>
 	</div>
 </section>
+
+
+
 
 
 
@@ -180,7 +183,7 @@
 						</div>
 						<div class="content">
 							<h5>Creative Design</h5>
-							<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete accounta</p>
+
 						</div>
 					</div>
 					<!-- About 02 -->
@@ -190,7 +193,7 @@
 						</div>
 						<div class="content">
 							<h5>Easy to Use</h5>
-							<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete accounta</p>
+
 						</div>
 					</div>
 					<!-- About 03 -->
@@ -200,7 +203,7 @@
 						</div>
 						<div class="content">
 							<h5>Best User Experience</h5>
-							<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete accounta</p>
+
 						</div>
 					</div>
 				</div>
@@ -406,7 +409,7 @@
 
 
 <section id="feature">
-	<dir class="container-fluid" style="color: white;" >
+	<dir class="container" style="color: white;" >
 
 		<div class="card text-white bg-primary mb-12" >
 		  <div class="card-body">
@@ -419,9 +422,9 @@
 		    <p class="card-title" style="color: white;">Tests and mock practices have become essentials for all the students, given the cut-throat competition public sector employment is suffering with right now. We have come up with most popular and hassle free method of providing a platform for the candidates to access information and mock practices through our mobile application. We only offer our services via this app and upon no other platform or website.</p>
 
 
-		    <p class="card-title" style="color: white;">The Hardi Gurdi© Mobile App. has been specially designed in the most creative, interesting, and user-friendly fashion. The seamless interface with most relevant and updated data makes the mobile-app a delight to use. Hardi Gurdi© offers tests which have been especially curated by academicians and experts who have successfully competed and contributed in a wide range of government exams, recruitments, and interviews for state and central agencies. Their rich experience and unique knack of accuracy is easily evident with number success stories and testimonials numerous candidates have shared over time on different platforms in praise and gratitude of Hardi Gurdi© and its mentors.</p>
+		    <p class="card-title" style="color: white;">The Hardi Gurdi<sup>©</sup> Mobile App. has been specially designed in the most creative, interesting, and user-friendly fashion. The seamless interface with most relevant and updated data makes the mobile-app a delight to use. Hardi Gurdi<sup>©</sup> offers tests which have been especially curated by academicians and experts who have successfully competed and contributed in a wide range of government exams, recruitments, and interviews for state and central agencies. Their rich experience and unique knack of accuracy is easily evident with number success stories and testimonials numerous candidates have shared over time on different platforms in praise and gratitude of Hardi Gurdi<sup>©</sup> and its mentors.</p>
 
-		    <p class="card-title" style="color: white;">Hardi Gurdi© test series is currently being offered at a nominal introductory price. We wish to maintain our costs as affordable as possible for all our aspirants. We are confident by the virtue of our dedicated mentors and unprecedented response of the successful candidates that every single candidate who opts for our test series will find oneself comprehensively better prepared for their upcoming examination. </p>
+		    <p class="card-title" style="color: white;">Hardi Gurdi<sup>©</sup> test series is currently being offered at a nominal introductory price. We wish to maintain our costs as affordable as possible for all our aspirants. We are confident by the virtue of our dedicated mentors and unprecedented response of the successful candidates that every single candidate who opts for our test series will find oneself comprehensively better prepared for their upcoming examination. </p>
 		  </div>
 		</div>
 	</dir>
@@ -459,34 +462,75 @@
 </section>
 
 
-<section>
+
+<section style="margin-top: 2rem; margin-bottom: 2rem; ">
 	<div class="container">
-		<div class="row">
-			<div class="card mb-12">
-			  <div class="row no-gutters">
-			    <div class="col-md-4" style="max-width: 250px;">
-			      <img  src="images/phones/rrb.jpeg" class="card-img" alt="...">
-			    </div>
-			    <div class="col-md-8">
-			      <div class="card-body">
-			        <h5 class="card-title">RRB Tips</h5>
-			        <p class="card-text">
+		<div class="card mb-12 shadow-lg bg-white rounded" >
+		  <div class="row no-gutters">
+		    <div class="col-md-4">
+		      <img src="images/backgrounds/cs.jpg" class="card-img img-fluid" alt="...">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title">We are Launching..</h5>
+		        <p class="card-text">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
+		        <p class="card-text"><small class="text-muted">CEO HardiGurdi</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>	
+</section>
+
+
+<section style="margin-top: 2rem; margin-bottom: 2rem; ">
+	<div class="container">
+		<div class="card mb-12 shadow-lg bg-white rounded" >
+		  <div class="row no-gutters">
+		    <div class="col-md-4">
+		      <img src="images/backgrounds/apple-android-store-icons.png" class="card-img img-fluid" alt="...">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title">We are Launching..</h5>
+		        <p class="card-text">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
+		        <p class="card-text"><small class="text-muted">CEO HardiGurdi</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>	
+</section>
+
+
+
+<section style="margin-top: 2rem; margin-bottom: 2rem; ">
+	<div class="container">
+		<div class="card mb-12 shadow-lg bg-white rounded" >
+		  <div class="row no-gutters">
+		    <div class="col-md-4">
+		      <img src="images/phones/rrb.jpg" class="card-img img-fluid" alt="...">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title">RRB Tips</h5>
+		         <p class="card-text">
 			        in RRB exam questions are some bit trickier and harder to solve.But anything can achieved and conquered by constant effort and practice.For this I will give you some important tips.
 				        <ol>
 				        	<li>What are the topics much important?</li>
 				        	<li>Put daily 4–5 hours for solving aptitude questions.</li>
 				        	<li>Begin to write online mock tests for all aptitude topics.</li>
 				        </ol>
-			        </p>
-			        <p class="card-text"><small class="text-muted">By HardiGurdi Team</small></p>
-			      </div>
-			    </div>
-			  </div>
-			</div>	
-		</div>	
-	</div>
-	
+		        </p>
+		        <p class="card-text"><small class="text-muted">By HardiGurdi Team</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>	
 </section>
+
+
 
 
 <blockquote class="quote-box">
