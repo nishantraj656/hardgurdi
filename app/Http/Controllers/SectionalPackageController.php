@@ -222,6 +222,19 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
            
     }
 
+    public function Activate(Request $request, $id)
+    {
+       
+
+                    SectionalPackage::where('section_info_id',$id)->update( [
+                        
+                        'status'=>$request->status
+                       
+                   ]);
+                    return redirect('SectionS');
+           
+    }
+
     /**
      * Remove the specified resource from storage.
      *

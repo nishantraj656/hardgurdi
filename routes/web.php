@@ -33,6 +33,8 @@ Route::post('Question/filter', 'Test\\QuestionController@filter');
 Route::post('SectionS/filter', 'Test\\SectionController@filter');
 
 
+Route::post('SectionS/{Test}/a', 'SectionalPackageController@Activate');
+
 Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate');
 
 Route::post('Package/{Test}/a', 'Test\\packageController@Activate');
