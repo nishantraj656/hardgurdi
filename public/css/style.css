@@ -1081,7 +1081,7 @@ a:focus, a:hover {
 
 .cta-download {
   position: relative;
-  padding: 165px 0;
+  padding: 300px 0;
 }
 
 .cta-download .image-block {
@@ -2383,3 +2383,90 @@ a:focus, a:hover {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*blocke quteo*/
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+blockquote{
+  font-size: 2.4em;
+  width:100%;
+  /*margin:50px auto;*/
+  font-family:Open Sans;
+  font-style:italic;
+  color: #555555;
+  padding:1.2em 30px 1.2em 75px;
+  border-left:8px solid #78C0A8 ;
+  line-height:1.6;
+  position: relative;
+  background:#EDEDED;
+}
+
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#78C0A8;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+blockquote span{
+  font-size: 1em;
+  display:block;
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1.5em;
+}
+
+
+/*lower block quutoe*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*conatact us*/
+
+
+
+
+#contact{
+    
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color : #fff;    
+}
