@@ -30,6 +30,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137367922-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-137367922-1');
+	</script>
+
+
 </head>
 
 <body class="body-wrapper">
@@ -78,10 +90,25 @@
 </nav>
 
 
+<div class="alert alert-danger" role="alert">
+  Welcome HardiGurdi.com
+</div>
 
+@if (session('status'))
+	<div class="alert alert-success" role="alert">
+		<strong>Success!</strong> {{session('status')}}.
+	</div>         
+@endif
 
-
-
+@if ($errors->any())
+	<div class="alert alert-danger" role="alert">
+	    <ul>
+	        @foreach ($errors->all() as $error)
+	            <strong><li>Error!!{{ $error }}</li></strong>
+	        @endforeach
+	    </ul>
+	</div>
+@endif
 
 <!--=====================================
 =            Homepage Banner            =
@@ -155,12 +182,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-5 mr-auto">
+			<div class="col-lg-5 col-md-5 m-md-auto align-self-center ml-auto">
 				<!-- Image Content -->
 				<div class="image-block">
-					<img src="images/phones/iphone-feature.png" alt="iphone-feature" class="img-fluid">
+					<img src="images/phones/phone2.png" alt="iphone-feature" class="img-fluid">
 				</div>
 			</div>
+
 			<div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
 				<div class="about-block">
 					<!-- About 01 -->
@@ -447,7 +475,7 @@
       <hr>
       <div class="blog-post-actions">
         <p class="blog-post-bottom pull-left">
-          <h5>HardiGurdi Team</h5>
+          <h5>Team HardiGurdi </h5>
         </p>
       </div>
     </blockquote>
@@ -499,23 +527,34 @@
 	<div class="container" >
 		<div class="row" >
   
-			<form style="align-self: center;align-content: center;align-items: center; margin: 50px; " class="col-md-12">
+			<form 
+					style="
+						align-self: center;
+						align-content: center;
+						align-items: center; 
+						margin: 50px;" 
+					class="col-md-12"
+					action="{{url('submitFeedback')}}" 
+					method="POST"
+
+				>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<div class="form-row">
 				    <div class="form-group col-md-6">
 				      <label for="inputEmail4">Name</label>
-				      <input type="text" class="form-control" id="inputName4" placeholder="Name" required>
+				      <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
 				    </div>
 				    <div class="form-group col-md-6">
 				      <label for="inputPassword4">Email</label>
-				      <input type="Email" class="form-control" id="inputemail4" placeholder="email" required>
+				      <input type="Email" class="form-control" id="email" name="email" placeholder="email" required>
 				    </div>
 				  </div>
 			    <div class="form-group">
 				    <label for="message">Message</label>
-				    <textarea class="form-control" id="message" rows="3" required></textarea>
+				    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
 				  </div>
-				<button type="button" class="btn btn-primary btn-lg btn-block">Send</button>
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
 			</form>
 		</div>
 	</div>
@@ -628,7 +667,21 @@
 		    });
 		})
   </script>
-  
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+		s1.async=true;
+		s1.src='https://embed.tawk.to/5c9fbd771de11b6e3b0605da/default';
+		s1.charset='UTF-8';
+		s1.setAttribute('crossorigin','*');
+		s0.parentNode.insertBefore(s1,s0);
+		})();
+
+	</script>
+	<!--End of Tawk.to Script-->
 </body>
 
 </html>
