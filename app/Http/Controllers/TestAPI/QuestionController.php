@@ -50,9 +50,9 @@ class QuestionController extends Controller
             
          }
 
-        //  var_dump($tempArray);
+       // var_dump($tempArray);
       
-       return response()->json(['received'=>'yes','data'=>$data,'section'=>$tempArray]);
+     return response()->json(['received'=>'yes','data'=>$data,'section'=>$tempArray]);
 
     }
 

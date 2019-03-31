@@ -1,0 +1,55 @@
+Object {
+  "data": Array [
+    Object {
+      "answer_json": "{\"eng\":\"A\",\"hindi\":\"A\"}",
+      "explaination": Object {
+        "eng": Object {
+          "pic": null,
+          "text": null,
+        },
+        "hindi": Object {
+          "pic": null,
+          "text": null,
+        },
+      },
+      "option": "{\"eng\":{\"A\":{\"text\":\"Guru Gobind Singh\",\"pic\":null},\"B\":{\"text\":\"Guru Arjan\",\"pic\":null},\"C\":{\"text\":\"Guru Har Rai\",\"pic\":null},\"D\":{\"text\":\"Guru Amar Das\",\"pic\":null}},\"hindi\":{\"A\":{\"text\":\"\\u0917\\u0941\\u0930\\u0941 \\u0917\\u094b\\u0935\\u093f\\u0902\\u0926 \\u0938\\u093f\\u0902\\u0939\",\"pic\":null},\"B\":{\"text\":\"\\u0917\\u0941\\u0930\\u0941 \\u0905\\u0930\\u094d\\u091c\\u0928\",\"pic\":null},\"C\":{\"text\":\"\\u0917\\u0941\\u0930\\u0941 \\u0939\\u0930 \\u0930\\u093e\\u0907\",\"pic\":null},\"D\":{\"text\":\"\\u0917\\u0941\\u0930\\u0941 \\u0905\\u092e\\u0930 \\u0926\\u0938\",\"pic\":null}}}",
+      "question": "{\"eng\":{\"text\":\"Who is the 10th or last of 10 Sikh gurus?\",\"pic\":null},\"hindi\":{\"text\":\"10 \\u0935\\u093e\\u0901 \\u0938\\u093f\\u0916 \\u0917\\u0941\\u0930\\u0941 \\u092f\\u093e \\u0905\\u0902\\u0924\\u093f\\u092e \\u0938\\u093f\\u0916 \\u0917\\u0941\\u0930\\u0941 \\u0915\\u094c\\u0928 \\u0939\\u0948\\u0902?\",\"pic\":null}}",
+      "questionID": "36",
+      "section_id": "5",
+      "test_info_id": "9",
+    },
+    Object {
+      "answer_json": "{\"eng\":\"C\",\"hindi\":\"C\"}",
+      "explaination": Object {
+        "eng": Object {
+          "pic": null,
+          "text": null,
+        },
+        "hindi": Object {
+          "pic": null,
+          "text": null,
+        },
+      },
+      "option": "{\"eng\":{\"A\":{\"text\":\"Sarojini Naidu\",\"pic\":null},\"B\":{\"text\":\"Mother Teresa\",\"pic\":null},\"C\":{\"text\":\"Florence Nightangle\",\"pic\":null},\"D\":{\"text\":\"Mamata Banerjee\",\"pic\":null}},\"hindi\":{\"A\":{\"text\":\"\\u0938\\u0930\\u094b\\u091c\\u093f\\u0928\\u0940 \\u0928\\u093e\\u092f\\u0921\\u0942\",\"pic\":null},\"B\":{\"text\":\"\\u092e\\u0926\\u0930 \\u091f\\u0947\\u0930\\u0947\\u0938\\u093e\",\"pic\":null},\"C\":{\"text\":\"\\u092b\\u094d\\u0932\\u094b\\u0930\\u0947\\u0902\\u0938 \\u0928\\u093e\\u0907\\u091f\\u0947\\u0902\\u0917\\u0932\",\"pic\":null},\"D\":{\"text\":\"\\u092e\\u092e\\u0924\\u093e \\u092c\\u0928\\u0930\\u094d\\u091c\\u0940\",\"pic\":null}}}",
+      "question": "{\"eng\":{\"text\":\"Who is known as the \\\"Lady with the lamp\\\" ?\",\"pic\":null},\"hindi\":{\"text\":\"\\\"\\u0932\\u0947\\u0921\\u0940 \\u0935\\u093f\\u0926 \\u0926 \\u0932\\u0948\\u0902\\u092a\\\" \\u0915\\u0947 \\u0930\\u0942\\u092a \\u092e\\u0947\\u0902 \\u0915\\u093f\\u0938\\u0947 \\u091c\\u093e\\u0928\\u093e \\u091c\\u093e\\u0924\\u093e \\u0939\\u0948?\",\"pic\":null}}",
+      "questionID": "32",
+      "section_id": "5",
+      "test_info_id": "9",
+    },
+  ],
+  "received": "yes",
+  "section": Array [
+    Object {
+      "id": 1,
+      "title": "English",
+    },
+    Object {
+      "id": 5,
+      "title": "General Knowledge",
+    },
+    Object {
+      "id": 3,
+      "title": "Reasoning",
+    },
+  ],
+}
