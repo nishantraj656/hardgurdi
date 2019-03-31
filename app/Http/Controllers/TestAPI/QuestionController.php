@@ -143,10 +143,13 @@ class QuestionController extends Controller
        // var_dump($strings);
        if($strings->pic !=null)
        {
-           $file =file_get_contents(asset($strings->pic));
-
-           if(file_exists($file))   
-             return array("text"=>$strings->text,"pic"=>base64_encode($file));
+          
+           if(file_exists(asset($strings->pic))) 
+		   {
+			    $file =file_get_contents(asset($strings->pic));
+				return array("text"=>$strings->text,"pic"=>base64_encode($file));
+            
+		   }
             else
             return array("text"=>$strings->text,"pic"=>null);
           
