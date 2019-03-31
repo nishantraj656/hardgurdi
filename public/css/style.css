@@ -2433,9 +2433,7 @@ blockquote::before{
   top:-10px;
 }
 
-blockquote::after{
-  content: '';
-}
+
 
 blockquote span{
   font-size: 1em;

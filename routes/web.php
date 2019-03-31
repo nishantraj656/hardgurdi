@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // // for overriding register root
-// Route::get('/register', function () {	
-//     return view('welcome');
-// });
+Route::get('/register', function () {	
+    return view('welcome');
+});
 
 Route::get('/weareadmin', function () {
     return view('welcome');
