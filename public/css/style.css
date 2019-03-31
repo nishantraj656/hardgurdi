@@ -130,7 +130,7 @@ ul.rating li {
   box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.05);
 }
 
-.transition, .main-nav, .main-nav .navbar-brand {
+.transition, .main-nav, .main-nav  {
   transition: .3s ease;
 }
 
@@ -147,6 +147,12 @@ ul.rating li {
 a:focus, a:hover {
   color: #7d71d3;
   text-decoration: none;
+}
+
+.bg-about{
+
+    background: url(../images/backgrounds/shape-overlay-bg.jpg) no-repeat;
+    background-size: cover;
 }
 
 .bg-1 {
@@ -512,7 +518,7 @@ a:focus, a:hover {
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-.main-nav .navbar-brand {
+.main-nav  {
   padding: 0;
 }
 
@@ -2469,4 +2475,16 @@ blockquote span{
   background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color : #fff;    
+}
+
+
+.card-title-adv{
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.card-text-adv{
+  color: #4b4747;
+  font-size: 15px;
+  font-weight: bold;
 }

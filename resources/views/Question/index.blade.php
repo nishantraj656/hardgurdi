@@ -79,7 +79,11 @@
                 
                 <td>{{$value->question_id}} ({{$i}})</td>
                  
-                  <td>{{json_decode($value->question_json)->eng->text}}</td>
+                  <td>
+                    {{json_decode($value->question_json)->eng->text}}
+                    <br><hr>
+                    {{json_decode($value->question_json)->hindi->text}}
+                  </td>
                   <td>
                       @foreach ($section as $list)
                           @if ($list['id'] == $value->section_id)
@@ -88,7 +92,7 @@
                       @endforeach
                     </td>
                     
-                  <td>{{$value->test_name}}</td>
+                  <td>{{trim($value->test_name)}}</td>
                   
                     <td>
                     <div class="row">

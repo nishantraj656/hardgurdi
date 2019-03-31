@@ -6,30 +6,41 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hardigurdi (self Belive) | A Online Test Series</title>
+  <title>Hardigurdi (Self Belief) | A Online Test Series</title>
   
   <!-- PLUGINS CSS STYLE -->
   <!-- Bootstrap -->
+ 
 
+	<!-- HardiGurdi Font -->  
+	<link href="{{ asset('plugins/HardiGurdi-font/style.css') }}" rel="stylesheet">
+
+	<!-- CUSTOM CSS -->
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+	<!-- FAVICON -->
+	<link href="{{ url('favicon.ico') }}" rel="shortcut icon">
+
+
+
+   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <!-- HardiGurdi Font -->  
-  <link href="{{ asset('plugins/HardiGurdi-font/style.css') }}" rel="stylesheet">
-  <!-- Slick Carousel -->
-  <link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
-  <!-- Slick Carousel Theme -->
-  <link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
-  
-  <!-- CUSTOM CSS -->
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-  <!-- FAVICON -->
-  <link href="{{ url('images/favicon.png') }}" rel="shortcut icon">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137367922-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-137367922-1');
+	</script>
+
 
 </head>
 
@@ -38,42 +49,66 @@
 
 <nav class="navbar main-nav fixed-top navbar-expand-lg">
   <div class="container">
-      <a class="navbar-brand" href="homepage.html">
-      	<!-- <img src="images/logo.png" alt="logo"> -->
-      	<H3 style="color: white;">HardiGurdi</H3>
-      </a>
+		<H3>
+			<a class="navbar-brand" href="homepage.html">
+				<img src="images/icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+		  		<span style="color: white; font-size: 1em">HardiGurdi</span>
+		 	</a>
+		</H3>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="tf-ion-android-menu"></span>
-      </button>
+	    <span style="color: white; font-size: 1em"><i class="fas fa-bars"></i></span>
+	  </button>
+
+
+
+
+
       <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#feature">Why US?</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link scrollTo" href="#pricing">Pricing</a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link scrollTo" href="#team">Team</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link scrollTo" href="#contact">Contact</a>
-        </li>
-      </ul>
+	      <ul class="navbar-nav ">
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#home">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#about">About</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#feature">Why US?</a>
+	        </li>
+	        <!-- <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#pricing">Pricing</a>
+	        </li> -->
+	        <!-- <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#team">Team</a>
+	        </li> -->
+	        <li class="nav-item">
+	          <a class="nav-link scrollTo" href="#contact">Contact</a>
+	        </li>
+	      </ul>
       </div>
   </div>
 </nav>
 
 
+<div class="alert alert-danger" role="alert">
+  Welcome HardiGurdi.com
+</div>
 
+@if (session('status'))
+	<div class="alert alert-success" role="alert">
+		<strong>Success!</strong> {{session('status')}}.
+	</div>         
+@endif
 
-
+@if ($errors->any())
+	<div class="alert alert-danger" role="alert">
+	    <ul>
+	        @foreach ($errors->all() as $error)
+	            <strong><li>Error!!{{ $error }}</li></strong>
+	        @endforeach
+	    </ul>
+	</div>
+@endif
 
 <!--=====================================
 =            Homepage Banner            =
@@ -85,33 +120,12 @@
 			<div class="col-md-8 align-self-center">
 				<!-- Contents -->
 				<div class="content-block">
-					<!-- <h1>Amazing App Best for business</h1>
-					<h5>Let you track everything in your life with a simple way</h5> -->
 
 					<blockquote>
 					  Luck is what happens when preparation meets opportunity.
 					  <H3><span>Seneca</span></H3>
 					</blockquote>
 
-
-
-					<!-- <blockquote>
-					  <h3></h3>
-					  <span class="author"><i> Seneca</i></span>
-					</blockquote> -->
-
-
-					<!-- App Badge -->
-					<!-- <div class="app-badge">
-						<ul class="list-inline">
-							<li class="list-inline-item">
-								<a href="#"><img class="img-fluid" src="images/app-badge/google-play.png" alt="google-play"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href="#"><img class="img-fluid" src="images/app-badge/app-store.png" alt="app-store"></a>
-							</li>
-						</ul>
-					</div> -->
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -130,20 +144,20 @@
 =            About            =
 ============================-->
 
-<section class="about section bg-2" id="about">
+<section class="about section bg-about" id="about">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<div class="section-title">
-					<h2>About US</h2>
+				<div class="section-title" >
+					<h2 style="color: white;">About US</h2>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div >
 				<h1>
-					<p style="font-size: 45; color: black;">
-					Hardi Gurdi© was conceptualized amidst the same struggle faced by millions of aspirants in a country where the hallowed sarkari naukri never goes out of vogue.  Public sector jobs in India have always enjoyed an almost sacred position amongst job seekers. In a country which is currently experiencing a demographic spring, employment with the State guarantees adequate support, security, and coveted prestige.   The architects of Hardi Gurdi© have had the first-hand experience of the same and have tasted wide success. It is thus their wish to share the experience of their journey and impart guidance to thousands of such candidates who may find themselves lost.
+					<p style="font-size: 25px; color: white; margin: 10px;">
+					Hardi Gurdi<sup>©</sup> was conceptualized amidst the same struggle faced by millions of aspirants in a country where the hallowed sarkari naukri never goes out of vogue.  Public sector jobs in India have always enjoyed an almost sacred position amongst job seekers. In a country which is currently experiencing a demographic spring, employment with the State guarantees adequate support, security, and coveted prestige.   The architects of Hardi Gurdi<sup>©</sup> have had the first-hand experience of the same and have tasted wide success. It is thus their wish to share the experience of their journey and impart guidance to thousands of such candidates who may find themselves lost.
 					</p>
 				</h1>
 				
@@ -151,6 +165,9 @@
 		</div>
 	</div>
 </section>
+
+
+
 
 
 
@@ -165,12 +182,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-5 mr-auto">
+			<div class="col-lg-5 col-md-5 m-md-auto align-self-center ml-auto">
 				<!-- Image Content -->
 				<div class="image-block">
-					<img src="images/phones/iphone-feature.png" alt="iphone-feature" class="img-fluid">
+					<img src="images/phones/phone2.png" alt="iphone-feature" class="img-fluid">
 				</div>
 			</div>
+
 			<div class="col-lg-6 col-md-10 m-md-auto align-self-center ml-auto">
 				<div class="about-block">
 					<!-- About 01 -->
@@ -180,7 +198,7 @@
 						</div>
 						<div class="content">
 							<h5>Creative Design</h5>
-							<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete accounta</p>
+
 						</div>
 					</div>
 					<!-- About 02 -->
@@ -190,7 +208,7 @@
 						</div>
 						<div class="content">
 							<h5>Easy to Use</h5>
-							<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete accounta</p>
+
 						</div>
 					</div>
 					<!-- About 03 -->
@@ -200,7 +218,7 @@
 						</div>
 						<div class="content">
 							<h5>Best User Experience</h5>
-							<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete accounta</p>
+
 						</div>
 					</div>
 				</div>
@@ -211,89 +229,6 @@
 
 <!--====  End of About  ====-->
 
-<!--==============================
-=            Features            =
-===============================-->
-<!-- 
-<section class="section feature" id="feature">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2>App Features</h2>
-					<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-				</div>
-			</div>
-		</div>
-		<div class="row bg-elipse">
-			<div class="col-lg-4 align-self-center text-center text-lg-right">
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-circle-compass"></i>
-					</div>
-					<div class="content">
-						<h5>Beautiful Interface Design</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-tools-2"></i>
-					</div>
-					<div class="content">
-						<h5>Unlimited Features</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 text-center">
-				<div class="feature-item mb-0">
-					<div class="icon">
-						<i class="tf-chat"></i>
-					</div>
-					<div class="content">
-						<h5>Full  chat</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-				<div class="app-screen">
-					<img class="img-fluid" src="images/phones/i-phone-screen.png" alt="app-screen">
-				</div>
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-hourglass"></i>
-					</div>
-					<div class="content">
-						<h5>24/7 support by real people</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 text-center text-lg-left align-self-center">
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-mobile"></i>
-					</div>
-					<div class="content">
-						<h5>Retina ready greaphics</h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="icon">
-						<i class="tf-layers"></i>
-					</div>
-					<div class="content">
-						<h5>IOS & android version </h5>
-						<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<!--====  End of Features  ====-->
 
 <!--=================================
 =            Promo Video            =
@@ -406,7 +341,7 @@
 
 
 <section id="feature">
-	<dir class="container-fluid" style="color: white;" >
+	<dir class="container" style="color: white;" >
 
 		<div class="card text-white bg-primary mb-12" >
 		  <div class="card-body">
@@ -419,9 +354,9 @@
 		    <p class="card-title" style="color: white;">Tests and mock practices have become essentials for all the students, given the cut-throat competition public sector employment is suffering with right now. We have come up with most popular and hassle free method of providing a platform for the candidates to access information and mock practices through our mobile application. We only offer our services via this app and upon no other platform or website.</p>
 
 
-		    <p class="card-title" style="color: white;">The Hardi Gurdi© Mobile App. has been specially designed in the most creative, interesting, and user-friendly fashion. The seamless interface with most relevant and updated data makes the mobile-app a delight to use. Hardi Gurdi© offers tests which have been especially curated by academicians and experts who have successfully competed and contributed in a wide range of government exams, recruitments, and interviews for state and central agencies. Their rich experience and unique knack of accuracy is easily evident with number success stories and testimonials numerous candidates have shared over time on different platforms in praise and gratitude of Hardi Gurdi© and its mentors.</p>
+		    <p class="card-title" style="color: white;">The Hardi Gurdi<sup>©</sup> Mobile App. has been specially designed in the most creative, interesting, and user-friendly fashion. The seamless interface with most relevant and updated data makes the mobile-app a delight to use. Hardi Gurdi<sup>©</sup> offers tests which have been especially curated by academicians and experts who have successfully competed and contributed in a wide range of government exams, recruitments, and interviews for state and central agencies. Their rich experience and unique knack of accuracy is easily evident with number success stories and testimonials numerous candidates have shared over time on different platforms in praise and gratitude of Hardi Gurdi<sup>©</sup> and its mentors.</p>
 
-		    <p class="card-title" style="color: white;">Hardi Gurdi© test series is currently being offered at a nominal introductory price. We wish to maintain our costs as affordable as possible for all our aspirants. We are confident by the virtue of our dedicated mentors and unprecedented response of the successful candidates that every single candidate who opts for our test series will find oneself comprehensively better prepared for their upcoming examination. </p>
+		    <p class="card-title" style="color: white;">Hardi Gurdi<sup>©</sup> test series is currently being offered at a nominal introductory price. We wish to maintain our costs as affordable as possible for all our aspirants. We are confident by the virtue of our dedicated mentors and unprecedented response of the successful candidates that every single candidate who opts for our test series will find oneself comprehensively better prepared for their upcoming examination. </p>
 		  </div>
 		</div>
 	</dir>
@@ -459,34 +394,75 @@
 </section>
 
 
-<section>
+
+<section style="margin-top: 2rem; margin-bottom: 2rem; ">
 	<div class="container">
-		<div class="row">
-			<div class="card mb-12">
-			  <div class="row no-gutters">
-			    <div class="col-md-4" style="max-width: 250px;">
-			      <img  src="images/phones/rrb.jpeg" class="card-img" alt="...">
-			    </div>
-			    <div class="col-md-8">
-			      <div class="card-body">
-			        <h5 class="card-title">RRB Tips</h5>
-			        <p class="card-text">
+		<div class="card mb-12 shadow-lg bg-white rounded" >
+		  <div class="row no-gutters">
+		    <div class="col-md-4">
+		      <img src="images/backgrounds/cs.jpg" class="card-img img-fluid" alt="...">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title card-title-adv">We are Launching..</h5>
+		        <p class="card-text card-text-adv">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
+		        <p class="card-text card-text-adv"><small class="text-muted">By CEO HardiGurdi</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>	
+</section>
+
+
+<section style="margin-top: 2rem; margin-bottom: 2rem; ">
+	<div class="container">
+		<div class="card mb-12 shadow-lg bg-white rounded" >
+		  <div class="row no-gutters">
+		    <div class="col-md-4">
+		      <img src="images/backgrounds/apple-android-store-icons.png" class="card-img img-fluid" alt="...">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title card-title-adv"> On App Store</h5>
+		        <p class="card-text card-text-adv">Available on Google play store & for Apple I store comming soon.</p>
+		        <p class="card-text card-text-adv"><small class="text-muted">By CEO HardiGurdi</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>	
+</section>
+
+
+
+<section style="margin-top: 2rem; margin-bottom: 2rem; ">
+	<div class="container">
+		<div class="card mb-12 shadow-lg bg-white rounded" >
+		  <div class="row no-gutters">
+		    <div class="col-md-4">
+		      <img src="images/phones/rrb.jpg" class="card-img img-fluid" alt="...">
+		    </div>
+		    <div class="col-md-8">
+		      <div class="card-body">
+		        <h5 class="card-title card-title-adv">RRB Tips</h5>
+		         <p class="card-text card-text-adv">
 			        in RRB exam questions are some bit trickier and harder to solve.But anything can achieved and conquered by constant effort and practice.For this I will give you some important tips.
 				        <ol>
 				        	<li>What are the topics much important?</li>
 				        	<li>Put daily 4–5 hours for solving aptitude questions.</li>
 				        	<li>Begin to write online mock tests for all aptitude topics.</li>
 				        </ol>
-			        </p>
-			        <p class="card-text"><small class="text-muted">By HardiGurdi Team</small></p>
-			      </div>
-			    </div>
-			  </div>
-			</div>	
-		</div>	
-	</div>
-	
+		        </p>
+		        <p class="card-text card-text-adv"><small class="text-muted">By Team HardiGurdi</small></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>	
 </section>
+
+
 
 
 <blockquote class="quote-box">
@@ -499,7 +475,7 @@
       <hr>
       <div class="blog-post-actions">
         <p class="blog-post-bottom pull-left">
-          <h5>HardiGurdi Team</h5>
+          <h5>Team HardiGurdi </h5>
         </p>
       </div>
     </blockquote>
@@ -542,268 +518,6 @@
 
 <!--====  End of Counter  ====-->
 
-<!--==========================
-=            Team            =
-===========================-->
-<!-- 
-<section class="section team bg-shape-two" id="team">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2>Our Creative Team</h2>
-					<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-one.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>Johnny Depp</h5>
-						</div>
-						<div class="position">
-							<p>Production Designer</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="85%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>85%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-two.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>cristin milioti</h5>
-						</div>
-						<div class="position">
-							<p>UX Researcher</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="95%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>95%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-three.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>john doe</h5>
-						</div>
-						<div class="position">
-							<p>Head of Ideas</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="80%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>80%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-					<div class="team-member text-center">
-						<div class="image">
-							<img class="img-fluid" src="images/team/member-four.jpg" alt="team-member">
-						</div>
-						<div class="name">
-							<h5>mario gotze</h5>
-						</div>
-						<div class="position">
-							<p>UX/UI designer</p>
-						</div>
-						<div class="skill-bar">
-							<div class="progress" data-percent="75%">
-							  	<div class="progress-bar"></div>
-							</div>
-							<span>75%</span>
-						</div>
-						<ul class="social-icons list-inline">
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-facebook"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-twitter"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-linkedin"></i></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-							</li>
-						</ul>
-					</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<!--====  End of Team  ====-->
-
-<!--=================================
-=            Testimonial            =
-==================================-->
-
-<!-- <section class="section testimonial bg-primary-shape" id="testimonial">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2 class="text-white">Our Happy Customers</h2>
-					<p class="text-white">Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-8 m-auto">
-				
-						<div class="testimonial-item">
-							<div class="content">
-								<div class="name">
-									<h5>Kris lazy Cistin Miloti</h5>
-								</div>
-								<div class="pos-in-com">
-									<p>CEO at <span>HardiGurdi</span></p>
-								</div>
-								<div class="speech">
-									<p>Explain to you how all this mistaken idea of denouncing tis pleasure and praising pain was born and I will give you a complete praising the account is account the. </p>
-								</div>
-								<ul class="rating list-inline">
-									<li class="list-inline-item">
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-										<i class="tf-ion-android-star"></i>
-									</li>
-								</ul>		</div>
-							<div class="image">
-								<img class="img-fluid" src="images/testimonial/review-person-one.png" alt="testimonial-person">
-							</div>
-						</div>
-						<div class="testimonial-item">
-							<div class="content">
-								<div class="name">
-									<h5>Kris lazy Cistin Miloti</h5>
-								</div>
-								<div class="pos-in-com">
-									<p>CEO at<span>HardiGurdi</span></p>
-								</div>
-								<div class="speech">
-									<p>Explain to you how all this mistaken idea of denouncing tis pleasure and praising pain was born and I will give you a complete praising the account is account the. </p>
-								</div>
-								<div class="rating">
-									<ul class="rating list-inline">
-										<li class="list-inline-item">
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-											<i class="tf-ion-android-star"></i>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="image">
-								<img class="img-fluid" src="images/testimonial/review-person-one.png" alt="testimonial-person">
-							</div>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-
-<!--====  End of Testimonial  ====-->
-<!-- 
-<section class="section cta-subscribe" id="contact">
-	<div class="container">
-		<div class="row bg-elipse-red">
-			<div class="col-lg-4">
-				<div class="image"><img src="images/phones/iphone-banner.png" alt="iphone-app"></div>
-			</div>
-			<div class="col-lg-8 align-self-center">
-				<div class="content">
-					<div class="title">
-						<h2>Subscribe Our Newsletter</h2>
-					</div>
-					<div class="description">
-						<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
-					</div>
-					<form action="#">
-						<div class="input-group">
-						    <input type="text" class="form-control main" placeholder="Enter your email address">
-						    <span class="input-group-addon tf-ion-android-send" id="btnGroupAddon"></span>
-						  </div>
-					</form>
-					<div class="subscription-tag text-right">
-						<p>Subscribe To Our Newsletter & Stay Updated</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-
-
-
 
 <!--============================
 =            Contact us            =
@@ -813,23 +527,34 @@
 	<div class="container" >
 		<div class="row" >
   
-			<form style="align-self: center;align-content: center;align-items: center; margin: 50px; " class="col-md-12">
+			<form 
+					style="
+						align-self: center;
+						align-content: center;
+						align-items: center; 
+						margin: 50px;" 
+					class="col-md-12"
+					action="{{url('submitFeedback')}}" 
+					method="POST"
+
+				>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 				<div class="form-row">
 				    <div class="form-group col-md-6">
 				      <label for="inputEmail4">Name</label>
-				      <input type="text" class="form-control" id="inputName4" placeholder="Name">
+				      <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
 				    </div>
 				    <div class="form-group col-md-6">
-				      <label for="inputPassword4">email</label>
-				      <input type="email" class="form-control" id="inputemail4" placeholder="email">
+				      <label for="inputPassword4">Email</label>
+				      <input type="Email" class="form-control" id="email" name="email" placeholder="email" required>
 				    </div>
 				  </div>
 			    <div class="form-group">
 				    <label for="message">Message</label>
-				    <textarea class="form-control" id="message" rows="3"></textarea>
+				    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
 				  </div>
-				<button type="button" class="btn btn-primary btn-lg btn-block">Send</button>
+				<button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
 			</form>
 		</div>
 	</div>
@@ -847,42 +572,61 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 mr-auto">
+          
           <div class="footer-logo">
             <H3 style="color: white;">HardiGurdi</H3>
           </div>
+          
           <div class="copyright">
-            <p>@2018 HardiGurdi All Rights Reserved  |  Design By : <a href="https://HardiGurdi.com/" target="_blank">HardiGurdi</a>  Team
-              <!-- <br>Get More <a href="https://HardiGurdi.com/-bootstrap-templates/" target="_blank"> Bootstrap Templates</a> -->
+            <p>@2018 HardiGurdi All Rights Reserved  |  Design By : <a href="https://HardiGurdi.com/" target="_blank">Team HardiGurdi</a> 
             </p>
           </div>
+          
+          <div class="footer-logo">
+            <H1 >
+            	<a href="mailto:support@hardigurdi.com" style="color: white; font-size: 25px; font-weight: bold">
+            		<span style="font-size: 2em; color: white;">
+					  <i class="far fa-envelope-open "></i>
+					</span>
+					 support@hardigurdi.com          		
+	          	</a>
+	          </H1>
+          </div>
+
+          <div class="row">
+          	
+          </div>
+
         </div>
         <div class="col-lg-6 text-lg-right">
           <!-- Social Icons -->
           <ul class="social-icons list-inline">
-            <li class="list-inline-item">
+       <!--      <li class="list-inline-item">
               <a href=""><i class="tf-ion-social-facebook"></i></a>
             </li>
             <li class="list-inline-item">
               <a href=""><i class="tf-ion-social-twitter"></i></a>
-            </li>
+            </li> -->
             <li class="list-inline-item">
-              <a href=""><i class="tf-ion-social-linkedin"></i></a>
+              <a href="https://www.youtube.com/channel/UCKCEfG7MyziSnjA1Ds3CuHQ"><i class="tf-ion-social-youtube"></i></a>
             </li>
-            <li class="list-inline-item">
+           <!--  <li class="list-inline-item">
               <a href=""><i class="tf-ion-social-instagram-outline"></i></a>
-            </li>
+            </li> -->
           </ul>
           <!-- Footer Links -->
           <ul class="footer-links list-inline">
             <li class="list-inline-item">
-              <a href="#">ABOUT</a>
+              <a href="#about">ABOUT</a>
             </li>
             <li class="list-inline-item">
-              <a href="#">TEAM</a>
+              <a href="#feature">Why US?</a>
             </li>
             <li class="list-inline-item">
-              <a href="#">CONTACT</a>
+              <a href="#contact">CONTACT</a>
             </li>
+
+
           </ul>
         </div>
       </div>
@@ -892,24 +636,52 @@
 
 
   <!-- JAVASCRIPTS -->
-  
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI14J_PNWVd-m0gnUBkjmhoQyNyd7nllA" async defer></script> -->
+  <!-- 
 
-  <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
-  <script src="{{ asset('plugins/popper/popper.min.js') }}"></script>
-  <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
-  <script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
-  <script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
+<script src="{{ asset('plugins/popper/popper.min.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
+<script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+	
+
+
+
+ -->
+
+
+
+
   <script type="text/javascript">
   		$(function () {
 			$('.downloadapp-popover').popover({
 				container: 'body'
 			});
+			$("ul.dropdown-menu").on("click", "[data-keepOpenOnClick]", function(e) {
+		        e.stopPropagation();
+		    });
 		})
   </script>
-  
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		
+		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+		(function(){
+		var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+		s1.async=true;
+		s1.src='https://embed.tawk.to/5c9fbd771de11b6e3b0605da/default';
+		s1.charset='UTF-8';
+		s1.setAttribute('crossorigin','*');
+		s0.parentNode.insertBefore(s1,s0);
+		})();
+
+	</script>
+	<!--End of Tawk.to Script-->
 </body>
 
 </html>
