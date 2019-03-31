@@ -25,7 +25,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
  
 Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
-Route::post('SaveResult','TestAPI\\ResultController@saveResult');
+
+Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
+
+Route::post('getResult','TestAPI\\ResultController@getResult'); //get Result
 
 #for category and sub categroy
 Route::post('cat_sub_cat_get', 'TestAPI\CatSubCat_C@index');
