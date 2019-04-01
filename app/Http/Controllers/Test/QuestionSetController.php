@@ -17,7 +17,7 @@ class QuestionSetController extends Controller
      */
     public function index()
     {
-          /**SELECT `test_info_tab`.`test_name`,`test_info_tab`.`test_name`,`test_info_tab`.`pic`,`test_info_tab`.`enroll_stud_count`,
+           /**SELECT `test_info_tab`.`test_name`,`test_info_tab`.`test_name`,`test_info_tab`.`pic`,`test_info_tab`.`enroll_stud_count`,
 `test_info_tab`.`test_price`,`test_info_tab`.`marks_on_correct`,`test_info_tab`.`marks_on_incorrect`,`package_tab`.`subcat_name` from `test_info_tab`
 INNER JOIN `package_tab` ON `package_tab`.`package_id` = `test_info_tab`.`package_id` */
 $data =DB::table('test_info_tab')

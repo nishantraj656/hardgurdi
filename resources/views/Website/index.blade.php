@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hardigurdi (Self Belief) | A Online Test Series</title>
+  <title>Hardigurdi (Self Belief) | An Online Test Series</title>
   
   <!-- PLUGINS CSS STYLE -->
   <!-- Bootstrap -->
@@ -240,11 +240,11 @@
 			<div class="col-12">
 				<!-- Promo Video -->
 				<div class="video">
-					<img class="img-fluid" src="images/backgrounds/promo-video-bg.jpg" alt="video-thumbnail">
+					<img class="img-fluid" src="images/backgrounds/promo-video-bg.jpeg" alt="video-thumbnail">
 					<div class="video-button video-box">
 						<!-- Video Play Button -->
 						<a href="javascript:void(0)">
-							<span class="icon" data-video="https://www.youtube.com/embed/g3-VxLQO7do?autoplay=1">
+							<span class="icon" data-video="https://www.youtube.com/embed/tPASI1rGd-Q?autoplay=1">
 								<i class="tf-ion-ios-play-outline"></i>
 							</span>
 						</a>
@@ -347,16 +347,16 @@
 		  <div class="card-body">
 		  	<div class="card-header">
 		  		<div class="">
-					<h1 class="display-4"  style="color: white;">Why HardiGurdi?</h1>
+					<h1 class="section-title"  style="color: white; font-size: 48px">Why HardiGurdi?</h1>
 					
 				</div>
 		  	</div>
-		    <p class="card-title" style="color: white;">Tests and mock practices have become essentials for all the students, given the cut-throat competition public sector employment is suffering with right now. We have come up with most popular and hassle free method of providing a platform for the candidates to access information and mock practices through our mobile application. We only offer our services via this app and upon no other platform or website.</p>
+		    <p class="card-title" style="color: white; font-size: 25px;" >Tests and mock practices have become essentials for all the students, given the cut-throat competition public sector employment is suffering with right now. We have come up with most popular and hassle free method of providing a platform for the candidates to access information and mock practices through our mobile application. We only offer our services via this app and upon no other platform or website.</p>
 
 
-		    <p class="card-title" style="color: white;">The Hardi Gurdi<sup>©</sup> Mobile App. has been specially designed in the most creative, interesting, and user-friendly fashion. The seamless interface with most relevant and updated data makes the mobile-app a delight to use. Hardi Gurdi<sup>©</sup> offers tests which have been especially curated by academicians and experts who have successfully competed and contributed in a wide range of government exams, recruitments, and interviews for state and central agencies. Their rich experience and unique knack of accuracy is easily evident with number success stories and testimonials numerous candidates have shared over time on different platforms in praise and gratitude of Hardi Gurdi<sup>©</sup> and its mentors.</p>
+		    <p class="card-title" style="color: white;font-size: 25px;">The Hardi Gurdi<sup>©</sup> Mobile App. has been specially designed in the most creative, interesting, and user-friendly fashion. The seamless interface with most relevant and updated data makes the mobile-app a delight to use. Hardi Gurdi<sup>©</sup> offers tests which have been especially curated by academicians and experts who have successfully competed and contributed in a wide range of government exams, recruitments, and interviews for state and central agencies. Their rich experience and unique knack of accuracy is easily evident with number success stories and testimonials numerous candidates have shared over time on different platforms in praise and gratitude of Hardi Gurdi<sup>©</sup> and its mentors.</p>
 
-		    <p class="card-title" style="color: white;">Hardi Gurdi<sup>©</sup> test series is currently being offered at a nominal introductory price. We wish to maintain our costs as affordable as possible for all our aspirants. We are confident by the virtue of our dedicated mentors and unprecedented response of the successful candidates that every single candidate who opts for our test series will find oneself comprehensively better prepared for their upcoming examination. </p>
+		    <p class="card-title" style="color: white;font-size: 25px;">Hardi Gurdi<sup>©</sup> test series is currently being offered at a nominal introductory price. We wish to maintain our costs as affordable as possible for all our aspirants. We are confident by the virtue of our dedicated mentors and unprecedented response of the successful candidates that every single candidate who opts for our test series will find oneself comprehensively better prepared for their upcoming examination. </p>
 		  </div>
 		</div>
 	</dir>
@@ -375,7 +375,9 @@
 					<!-- Title -->
 					<h2> Download Now</h2>
 					<!-- Desctcription -->
-					<p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of denouncing pleasure and praising</p>
+					<p>
+						Success is not final; failure is not fatal: It is the courage to continue that counts.<br> It is better to fail in originality than to succeed in imitation.
+					</p>
 					<!-- App Badge -->
 					<div class="app-badge" >
 						<ul class="list-inline" >
@@ -547,7 +549,7 @@
 				    </div>
 				    <div class="form-group col-md-6">
 				      <label for="inputPassword4">Email</label>
-				      <input type="Email" class="form-control" id="email" name="email" placeholder="email" required>
+				      <input type="Email" class="form-control" id="email" name="email" placeholder="Email" required>
 				    </div>
 				  </div>
 			    <div class="form-group">
@@ -636,23 +638,25 @@
 
 
   <!-- JAVASCRIPTS -->
-  <!-- 
+  
 
 <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
 <script src="{{ asset('plugins/popper/popper.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+
 <script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
 <script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
-<link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
+
+<!-- <link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 	
-
-
-
  -->
+
+
+
 
 
 
