@@ -31,17 +31,17 @@
                               <tr class="@if($value->status == 0) text-danger @endif">
                               <td>{{++$i}}</td>
                                
-                                <td>{{$value->name}}</td>
-                                <td>{{$value->subcat_name}}</td>
+                                <td>{{$value->title}}</td>
+                                <td>{{$value->package}}</td>
                                 <td>@if($value->price == 0)<p style="color:green"> Free</p>                                   
                                   @else
                                         {{$value->price}}
                                     @endif
                                 </td>
-                                    <td>{{$value->test_name}}</td>
+                                    <td>{{$value->pid}}</td>
                                     <td>
                                       @foreach ($lists as $list)
-                                          @if ($list['id'] == $value->section_id)
+                                          @if ($list['id'] == $value->issectional)
                                           {{$list['title']}}
                                            @endif
                                       @endforeach
@@ -49,7 +49,7 @@
                                   <td>
                                   <div class="row">
                                     <div class="ml-1">
-                                      <form class="form-inline" action="{{url('SectionS',[$value->section_info_id])}}" method="POST" onsubmit="return deleteQuestion()">
+                                      <form class="form-inline" action="{{url('SectionS',[$value->infoID])}}" method="POST" onsubmit="return deleteQuestion()">
                                           <input type="hidden" name="_method" value="DELETE">
                                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                           
@@ -62,7 +62,7 @@
                                     {{-- <form class="form-inline" action="{{url('Exame/'.$value->examID.'/edit')}}" method="GET">
                                       <button type="submit" class="btn btn-success ml-4">Edit</button>
                                     </form>  --}}
-                                    <a href="{{ URL::to('SectionS/' .$value->section_info_id. '/edit') }}">
+                                    <a href="{{ URL::to('SectionS/' .$value->infoID. '/edit') }}">
                                         <button type="button" class="btn btn-success ml-4">Edit</button>
                                     </a>&nbsp;
                                     </div>
@@ -72,7 +72,7 @@
                                     
                                           
                                       
-                                      <form action="{{url('SectionS/'.$value->section_info_id.'/a')}}" method="POST">
+                                      <form action="{{url('SectionS/'.$value->infoID.'/a')}}" method="POST">
                                         <input type="hidden" name="status" value='0'/>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <Button id="status" type="submit" class="btn btn-warning">Deactivate</Button>
@@ -81,7 +81,7 @@
                                    @else
                                     
                                     <div class="ml-1 mt-1">
-                                      <form action="{{url('SectionS/'.$value->section_info_id.'/a')}}" method="POST">
+                                      <form action="{{url('SectionS/'.$value->infoID.'/a')}}" method="POST">
                                         <input type="hidden" name="status" value='1'/>
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <Button id="status" type="submit" class="btn btn-primary ">Activate</Button>
