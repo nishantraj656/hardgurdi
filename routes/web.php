@@ -32,10 +32,6 @@ Route::post('Question/filter', 'Test\\QuestionController@filter');
 
 Route::post('SectionS/filter', 'Test\\SectionController@filter');
 
-
-Route::get('SaveResult/r','TestAPI\\ResultController@getResult');
-
-
 Route::post('SectionS/{Test}/a', 'SectionalPackageController@Activate');
 
 Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate');
