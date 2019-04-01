@@ -19,7 +19,7 @@ class SectionalPackageController extends Controller
     {
        /**
         * SELECT `sectional_packages`.`section_info_id`, `test_info_tab`.`test_name`,
-        `package_tab`.`subcat_name`, `sectional_packages`.`name`, `sectional_packages`.
+        `package_tab`.`subcat_name`, `sectional_packages`.`test_name`, `sectional_packages`.tes
         `descrption`, `sectional_packages`.`pic`, `sectional_packages`.`price`,
          `sectional_packages`.`marks_on_correct`, `sectional_packages`.`marks_on_incorrect`,
           `sectional_packages`.`status`, `sectional_packages`.`time`,
@@ -39,6 +39,10 @@ WHERE 1
           ->join('package_tab','sectional_packages.package_id','=','package_tab.package_id')
           ->join('test_info_tab','test_info_tab.test_info_id','=','sectional_packages.test_info_id')
           ->simplePaginate(100);
+
+
+
+
 
           $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
@@ -120,16 +124,16 @@ WHERE 1
           $path = $request->file('pic');
                 if($path != null)
                     $path = $this->imagePath($path->store('public/Set'));
-           
+            
                    
           SectionalPackage::create( [
             'package_id'=>$request->pid,
-            'name'=>$request->sectionname,
+            'test_name'=>$request->sectionname,
             'descrption'=>$request->descrption,
             'pic'=>$path,       
-           'test_info_id'=>$request->setid,
-           'section_id'=>$request->sectionId,
-            'price'=>$request->price,
+           'parent_test_info_id'=>$request->setid,
+           'issectional'=>$request->sectionId,
+            'test_price'=>$request->price,
             'marks_on_correct'=>$request->correct,
             'marks_on_incorrect'=>$request->incorrect,
             'status'=>0,
@@ -206,12 +210,12 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
 
                     SectionalPackage::where('section_info_id',$id)->update( [
                         'package_id'=>$request->pid,
-                        'name'=>$request->sectionname,
+                        'test_name'=>$request->sectionname,
                         'descrption'=>$request->descrption,
                         'pic'=>$path,       
-                       'test_info_id'=>$request->setid,
-                       'section_id'=>$request->sectionId,
-                        'price'=>$request->price,
+                       'parent_test_info_id'=>$request->setid,
+                       'issectional'=>$request->sectionId,
+                        'test_price'=>$request->price,
                         'marks_on_correct'=>$request->correct,
                         'marks_on_incorrect'=>$request->incorrect,
                         'status'=>0,

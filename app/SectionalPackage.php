@@ -6,18 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class SectionalPackage extends Model
 {
+    protected $table = 'test_info_tab'; 
+
     public $fillable=[
-    'section_info_id',
-     'test_info_id', 
-     'package_id', 
-     'section_id',
-     'name',
+      'parent_test_info_id', 
+      'package_id', 
+      'issectional',
+      'test_name',
       'descrption',
-       'pic', 
-       'price', 
-       'marks_on_correct', 
-       'marks_on_incorrect', 
-       'status', 
-       'time',
-        'expDate'];
+      'pic', 
+      'test_price', 
+      'marks_on_correct', 
+      'marks_on_incorrect', 
+      'status', 
+      'time',
+      'expDate'
+    ];
+
+
 }

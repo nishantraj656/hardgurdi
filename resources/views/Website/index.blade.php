@@ -549,7 +549,7 @@
 				    </div>
 				    <div class="form-group col-md-6">
 				      <label for="inputPassword4">Email</label>
-				      <input type="Email" class="form-control" id="email" name="email" placeholder="email" required>
+				      <input type="Email" class="form-control" id="email" name="email" placeholder="Email" required>
 				    </div>
 				  </div>
 			    <div class="form-group">
