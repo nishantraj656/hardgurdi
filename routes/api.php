@@ -65,5 +65,6 @@ Route::post('change_password_HD', 'TestAPI\LoginSignUP@change_password_fun');
 
 
 
-Route::get('test', 'Testing@testing');
+Route::get('test', 'TestAPI\HistoryList_C@HistList');
 Route::get('test1', 'TestAPI\PaymentHist@getPayHist');
+Route::get('test3', 'TestAPI\TestList_C@purchasedTestList');
