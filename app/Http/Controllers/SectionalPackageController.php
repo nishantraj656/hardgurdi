@@ -17,28 +17,21 @@ class SectionalPackageController extends Controller
      */
     public function index()
     {
-       /**
-        * SELECT `sectional_packages`.`section_info_id`, `test_info_tab`.`test_name`,
-        `package_tab`.`subcat_name`, `sectional_packages`.`test_name`, `sectional_packages`.tes
-        `descrption`, `sectional_packages`.`pic`, `sectional_packages`.`price`,
-         `sectional_packages`.`marks_on_correct`, `sectional_packages`.`marks_on_incorrect`,
-          `sectional_packages`.`status`, `sectional_packages`.`time`,
-           `sectional_packages`.`expDate`, `sectional_packages`.`section_id` 
-           FROM `sectional_packages`
-INNER JOIN `package_tab` ON `sectional_packages`.`package_id` = `package_tab`.`package_id`
-INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `sectional_packages`.`test_info_id`
-WHERE 1
-        */
-       $datas = DB::table('sectional_packages')
-       ->select( 'sectional_packages.section_info_id', 'test_info_tab.test_name',
-       'package_tab.subcat_name', 'sectional_packages.name', 'sectional_packages.descrption', 
-       'sectional_packages.pic', 'sectional_packages.price',
-        'sectional_packages.marks_on_correct', 'sectional_packages.marks_on_incorrect',
-         'sectional_packages.status', 'sectional_packages.time',
-          'sectional_packages.expDate', 'sectional_packages.section_id')
-          ->join('package_tab','sectional_packages.package_id','=','package_tab.package_id')
-          ->join('test_info_tab','test_info_tab.test_info_id','=','sectional_packages.test_info_id')
-          ->simplePaginate(100);
+       /***
+   SELECT `test_info_tab`.`test_name`,`test_info_tab`.`test_name`,`test_info_tab`.`pic`,
+        `test_info_tab`.`enroll_stud_count`, `test_info_tab`.`test_price`,`test_info_tab`.`marks_on_correct`,
+        `test_info_tab`.`marks_on_incorrect`, `package_tab`.`subcat_name`,
+         (Select `test_name` from `test_info_tab` WHERE `parent_test_info_id` = `test_info_id`) as name 
+         from `test_info_tab` INNER JOIN `package_tab` ON `package_tab`.`package_id` = 
+         `test_info_tab`.`package_id` WHERE `test_info_tab`.`issectional` != 0      
+     */
+    $datas =DB::table('test_info_tab')
+    ->select('test_info_tab.test_name as title','test_info_tab.test_info_id as infoID','test_info_tab.pic','test_info_tab.enroll_stud_count as count',
+    'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
+    'test_info_tab.status','test_info_tab.expDate','test_info_tab.issectional','test_info_tab.parent_test_info_id as pid')
+    ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
+    ->where('test_info_tab.issectional','!=', 0)
+    ->get();
 
 
 
@@ -230,7 +223,7 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
     {
        
 
-                    SectionalPackage::where('section_info_id',$id)->update( [
+                    SectionalPackage::where('test_info_id',$id)->update( [
                         
                         'status'=>$request->status
                        

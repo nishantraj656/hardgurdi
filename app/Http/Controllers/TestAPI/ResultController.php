@@ -14,16 +14,13 @@ class ResultController extends Controller
 {
     public function saveResult(Request $request)
     {
-        $userID =  $request->userID;
+        $userID = $request->userID;
         $datas = $request->data;
         $testID = $request->testID;
-        $correct =0;
+        $correct = 0;
         $attempt = 0;
-        $incorrect =0;
-        
-
-
-
+        $incorrect = 0;
+		
         foreach($datas as $value)
         {
             $answer = json_decode($value["answer_json"]);
@@ -45,30 +42,59 @@ class ResultController extends Controller
         }
 
        $MarksInfo = $this->marksCalculation($testID);
+	   
+	   if($MarksInfo != null)
+	   {
 
-        $totalMarks = sizeof($datas) * $MarksInfo['PositiveMarking'];
+			$totalMarks = sizeof($datas) * $MarksInfo['PositiveMarking'];
 
-        $obtain = ($correct * $MarksInfo['PositiveMarking']) - ($incorrect * $MarksInfo['NegativeMarking']);
+			$obtain = ($correct * $MarksInfo['PositiveMarking']) - ($incorrect * $MarksInfo['NegativeMarking']);
 
-        $data = Result::create([       
-            'test_info_id'=>$testID,
-            'user_id'=>$userID,
-            'stud_answer_json'=>json_encode($datas),
-            'total_marks'=>$totalMarks,
-            'obtain_marks'=>$obtain            
-             ]);
+			$data = Result::create([       
+				'test_info_id'=>$testID,
+				'user_id'=>$userID,
+				'stud_answer_json'=>json_encode($datas),
+				'total_marks'=>$totalMarks,
+				'obtain_marks'=>$obtain            
+				 ]);
 
-            $id = $data->id;
+			$id = $data->id;
+	return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain]);
+		}
+		else
+		{
+	return response()->json(['received'=>'no']);	
+		}
 
        /***  $datas = DB::table('result_tab')
         ->select('result_id as resultID', 'test_info_id as testID', 'stud_answer_json as answers', 'total_marks as total', 'obtain_marks as obtain')
         ->where('result_id','=',$id)
         ->get();*/
 
-return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain]);
+		
     }
 
-    public function getResult(Request $request)
+    public function marksCalculation($testID)
+    {
+        $data = DB::table('test_info_tab')
+        ->select('marks_on_correct as PositiveMarking','marks_on_incorrect as NegativeMarking')
+        ->where('test_info_id', '=', $testID)
+        ->get();
+
+		if($data == null)
+		{	
+			return null;
+		}
+		else
+		{
+			$newData = $data[0];
+
+			return ["PositiveMarking"=>$newData->PositiveMarking,"NegativeMarking"=>$newData->NegativeMarking];
+		}
+
+    }
+	
+	 public function getResult(Request $request)
     {
         $id =$request->rid;
         $datas = DB::table('result_tab')
@@ -77,24 +103,5 @@ return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalM
                 ->get();
 
         return response()->json(['received'=>'yes',"data"=>$datas]);
-    }
-
-    public function marksCalculation($testID)
-    {
-        $data = DB::table('test_info_tab')
-        ->select(
-          'descrption as descrption',
-          'marks_on_correct as PositiveMarking',
-          'marks_on_incorrect as NegativeMarking',
-          'expDate as expDate',
-          'created_at as created_at'
-        )
-        ->where('test_info_id', '=', $testID)
-        ->get();
-
-        $newData = $data[0];
-
-        return ["PositiveMarking"=>$newData->PositiveMarking,"NegativeMarking"=>$newData->NegativeMarking];
-
     }
 }
