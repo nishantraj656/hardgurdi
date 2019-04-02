@@ -19,6 +19,7 @@ class HistoryList_C extends Controller
         $data = DB::table('result_tab')
         		  ->join('test_info_tab', 'test_info_tab.test_info_id', '=', 'result_tab.test_info_id')
                   ->select(
+                    'result_tab.result_id as result_id',
                     'test_name as name',
                     'pic as avtar_url',
                     'time as minutes',
