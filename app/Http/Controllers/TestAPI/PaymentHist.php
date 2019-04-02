@@ -12,9 +12,11 @@ class PaymentHist extends Controller
     public $successStatus = 200;
 	function getPayHist(Request $request)
 	{
-		// $user_id = $request->user_id;
-		$user_id = 138;
-		$data = DB::table('payment_tab')
+		$user_id = $request->user_id;
+		// $user_id = 138;
+		
+
+    $data = DB::table('payment_tab')
 				// ->join('test_info_tab', 'test_info_tab.test_info_id', '=', 'payment_tab.product_id')
 				// ->join('package_tab', 'package_tab.package_id', '=', 'payment_tab.product_id')
 				->select(
@@ -37,6 +39,6 @@ class PaymentHist extends Controller
 
 
 
-        return response()->json(['received'=>'yes','data'=>$data],$this->successStatus);
+        return response()->json(['received'=>'yes','data'=>$data,'return'=>$user_id],$this->successStatus);
 	}
 }

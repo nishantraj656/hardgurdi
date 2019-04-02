@@ -14,34 +14,53 @@ use Illuminate\Http\Request;
 */
 
 
-Route::group(['middleware' => 'auth:api'], function(){
+// Route::group(['middleware' => 'auth:api'], function(){
 
-	Route::post('details', 'APITest\UserController@details');
 
-});
+// });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
- 
-Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
-
-Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
-
-Route::post('getResult','TestAPI\\ResultController@getResult'); //get Result
-
 
 Route::group(['middleware' => 'auth:api'], function(){
+
+
+
+	Route::post('details', 'APITest\UserController@details');
+
+
+
+
+
+
+	Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
+
+	Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
+
+	Route::post('getResult','TestAPI\\ResultController@getResult'); //get Result
+
+
+
+
+
+
 
 	// for category and sub categroy
 	Route::post('cat_sub_cat_get', 'TestAPI\CatSubCat_C@index');
 	Route::post('render_TestList_HD', 'TestAPI\TestList_C@TestList');
+	Route::post('render_upcomingTestList_HD', 'TestAPI\TestList_C@TestList');
 	Route::post('render_TestDetails_HD', 'TestAPI\TestDetails_C@TestDetails');
 	Route::post('render_renderNotiList_US', 'TestAPI\NotiList_C@NotiList');
 	Route::post('render_userTestHist_HD', 'TestAPI\HistoryList_C@HistList');
 	Route::post('render_paymentHist_HD', 'TestAPI\HistoryList_C@HistList');
 
 
+
+
+	Route::post('test', 'TestAPI\HistoryList_C@HistList');
+	Route::post('render_paymentHist_HD', 'TestAPI\PaymentHist@getPayHist');
+	Route::post('render_purchasedTestList', 'TestAPI\TestList_C@purchasedTestList');
 
 
 });

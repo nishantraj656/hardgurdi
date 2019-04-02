@@ -12,8 +12,8 @@ class HistoryList_C extends Controller
     public $successStatus = 200;
 
     public function HistList(Request $request){
-        // $userID = $request->json()->all()['userID'];
-        $userID = 124;
+        $userID = $request->userID;
+        // $userID = 124;
     	// $subcatID = 5;
 
         $data = DB::table('result_tab')

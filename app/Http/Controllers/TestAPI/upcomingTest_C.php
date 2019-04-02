@@ -14,13 +14,8 @@ class TestList_C extends Controller
     public function TestList(Request $request){
         $subcatID = $request->json()->all()['subcategoryID'];
         $userID = $request->json()->all()['userID'];
-        $sendSectional = $request->json()->all()['sendSectional'];
+        $issectional = $request->json()->all()['issectional'];
     	// $subcatID = 5;
-        if ($sendSectional != 'true') {
-          $comp = '=';
-        }else{
-          $comp = '!=';
-        }
 
         $data = DB::table('test_info_tab')
                   ->select(
@@ -30,9 +25,6 @@ class TestList_C extends Controller
                     'time as minutes',
                     'test_price as rate',
                     'status',
-                    'parent_test_info_id as parent_id',
-                    'issectional',
-
                     DB::raw('(SELECT COUNT(*) FROM `question_tab` WHERE test_info_id = test_info_tab.test_info_id) as noofquestion'),
                     DB::raw('
                       (
@@ -45,9 +37,8 @@ class TestList_C extends Controller
                       ) as isPurchased'
                     ) 
                   )
-
                   ->where('package_id', '=', $subcatID)
-                  ->where('issectional', $comp, '-1')
+                  ->where('issectional', '=', $issectional)
                   
                   // ->whereRaw('DATE(expDate) > CURRENT_TIMESTAMP')
                   ->orderBy('test_name', 'ASC')
@@ -59,16 +50,12 @@ class TestList_C extends Controller
     }
     function purchasedTestList(Request $request)
     {
+        // $issectional = $request->json()->all()['issectional'];
 
-        $userID = $request->json()->all()['userID'];
-        $sendSectional = $request->json()->all()['sendSectional'];
-
-        if ($sendSectional != 'true') {
-          $comp = '=';
-        }else{
-          $comp = '!=';
-        }
-
+        // $userID = $request->json()->all()['userID'];
+      // $subcatID = 5;
+        $issectional = 0;
+        $userID = 140;
         $data = DB::table('purchased_test_tab')
                   ->join('test_info_tab', 'test_info_tab.test_info_id', '=', 'purchased_test_tab.test_info_id')
                   ->select(
@@ -78,9 +65,6 @@ class TestList_C extends Controller
                     'time as minutes',
                     'test_price as rate',
                     'status',
-                    'parent_test_info_id as parent_id',
-                    'issectional',
-                    
                     DB::raw('(SELECT COUNT(*) FROM `question_tab` WHERE test_info_id = test_info_tab.test_info_id) as noofquestion'),
                     DB::raw('
                       (
@@ -93,10 +77,11 @@ class TestList_C extends Controller
                       ) as isPurchased'
                     ) 
                   )
+                  ->where('status', '=', '0')
                   ->where('given_status', '=', '0')
                   ->where('user_id', '=', $userID)
 
-                  ->where('issectional', $comp, '-1')
+                  ->where('issectional', '=', $issectional)
                   
                   // ->whereRaw('DATE(expDate) > CURRENT_TIMESTAMP')
                   ->orderBy('purchased_test_tab.test_info_id', 'ASC')
