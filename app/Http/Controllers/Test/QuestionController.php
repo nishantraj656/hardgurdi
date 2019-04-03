@@ -129,8 +129,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picEngpath = $request->file('picEng');
         if($picEngpath != null)
             $picEngpath =$this->imagePath( $picEngpath->store('public/Question'));
-        else
-            echo "In Else part ";
+       
         
 
         $picEngOptionApath = $request->file('picEngOptionA');
@@ -201,8 +200,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
            ]);
 
            $request->session()->flash('status', 'Task was successful!');
-        //   return redirect('Question/create')
-         //  ->with('success','Great! Notes updated successfully');
+          return redirect('Question/create')
+          ->with('success','Great! Notes updated successfully');
            
     }
 
@@ -261,7 +260,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         {
             $imageFullPath =null;
         }
-        echo "Path ".$imageFullPath;
+       // echo "Path ".$imageFullPath;
         return $imageFullPath;
     }
     /**
@@ -402,7 +401,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
             ]);
             $request->session()->flash('status', ' Notes updated successfully');
-         // return redirect('Question');
+        return redirect('Question');
     }
 
     /**

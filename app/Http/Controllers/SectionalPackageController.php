@@ -165,7 +165,7 @@ class SectionalPackageController extends Controller
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
       
 
-        $where = array('section_info_id' => $id);
+        $where = array('test_info_id' => $id);
         $sectionalPackage= SectionalPackage::where($where)->first();
        // var_dump($sectionalPackage);
       
@@ -201,7 +201,7 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
                 else
                     $path = $request->npic;
 
-                    SectionalPackage::where('section_info_id',$id)->update( [
+                    SectionalPackage::where('test_info_id',$id)->update( [
                         'package_id'=>$request->pid,
                         'test_name'=>$request->sectionname,
                         'descrption'=>$request->descrption,
@@ -215,7 +215,8 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
                         'expDate'=>$request->expDate,
                         'time'=>$request->Time,
                    ]);
-                    return redirect('SectionS');
+                 
+                 //  return redirect('SectionS');
            
     }
 

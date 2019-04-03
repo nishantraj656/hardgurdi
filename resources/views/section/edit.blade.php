@@ -3,13 +3,11 @@
  
     <div class="container">
        
-            <form action="{{url('SectionS',$data['section_info_id'])}}" method="POST" enctype="multipart/form-data">
-              <input type="hidden" name="_method" value="PUT">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              
+            <form action="{{url('SectionS',$data['package_id'])}}" method="POST" enctype="multipart/form-data">
+             
                 <div class="form-group">
                     <label for="sectionname">Section Package Name :</label>
-                <input type="text" value="{{$data['name']}}" class="form-control" id="setname" name="sectionname" required>
+                <input type="text" value="{{$data['test_name']}}" class="form-control" id="setname" name="sectionname" required>
                    
                   </div>
                   <div class="form-group">
@@ -29,7 +27,7 @@
                       <label for="sel1">Select Test Set Name:</label>
                       <select class="form-control" id="sel1" name="setid">
                       @foreach ($qSet as $l )
-                      <option value="{{$l->infoID}}" @if ($l->infoID == $data['test_info_id'])
+                      <option value="{{$l->infoID}}" @if ($l->infoID == $data['parent_test_info_id'])
                         selected="selected"  
                       @endif >{{$l->title}}</option>
                       @endforeach
@@ -58,7 +56,7 @@
 
                   <div class="form-group">
                         <label for="price">Test Price :</label>
-                        <input type="number" value="{{$data['price']}}" min="0" class="form-control" id="price" name="price" required>
+                        <input type="number" value="{{$data['test_price']}}" min="0" class="form-control" id="price" name="price" required>
                        
                       </div>
 
@@ -95,6 +93,10 @@
                                 @endif
                                
                               </div>
+
+                              <input type="hidden" name="_method" value="PUT">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                
                   @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
