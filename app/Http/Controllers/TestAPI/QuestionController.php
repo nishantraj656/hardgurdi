@@ -15,6 +15,12 @@ class QuestionController extends Controller
 
     public function getTestQuestion(Request $request)
     {
+
+        $where = array(['test_info_id','=',$request->testID]);
+
+        if($request->section != null)
+          array_push($request,['section_id','=',$request->section]);
+       
         $sectionArray =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
         ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
@@ -23,7 +29,7 @@ class QuestionController extends Controller
          * `explaination` FROM `question_tab` WHERE `test_info_id`=9 */
        $datas = DB::table('question_tab')
         ->select('question_id as questionID','test_info_id','section_id','question_json as question','option_json as option','answer_json','explaination')
-        ->where('test_info_id','=',$request->testID)
+        ->where($where)
        ->orderBy('question', 'desc')
          ->simplePaginate(200);
 
@@ -43,8 +49,7 @@ class QuestionController extends Controller
          {
             foreach($sectionArray as $el)
             {
-                // var_dump($section);
-                if($el['id'] == $section->section_id)
+              if($el['id'] == $section->section_id)
                 array_push($tempArray,$el);
             }
             
@@ -140,28 +145,19 @@ class QuestionController extends Controller
 
     public function imageBase64Converter($strings)
     {
-       // var_dump($strings);
+	//	$pic = $strings->pic;
        if($strings->pic !=null)
        {
-          
-           if(file_exists(asset($strings->pic))) 
+		   if(file_exists(asset($strings->pic))) 
 		   {
 			    $file =file_get_contents(asset($strings->pic));
-				return array("text"=>$strings->text,"pic"=>base64_encode($file));
-            
+				return array("text"=>$strings->text,"pic"=>base64_encode($file));            
 		   }
             else
             return array("text"=>$strings->text,"pic"=>null);
-          
-       }
-      
-      else
-      return array("text"=>$strings->text,"pic"=>$strings->pic);
-     
-        
-
-        
-
-    }
+        }
+		else
+		  return array("text"=>$strings->text,"pic"=>null);
+	}
 }
  

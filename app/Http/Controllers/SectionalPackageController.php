@@ -17,14 +17,13 @@ class SectionalPackageController extends Controller
      */
     public function index()
     {
-       /***
-   SELECT `test_info_tab`.`test_name`,`test_info_tab`.`test_name`,`test_info_tab`.`pic`,
-        `test_info_tab`.`enroll_stud_count`, `test_info_tab`.`test_price`,`test_info_tab`.`marks_on_correct`,
-        `test_info_tab`.`marks_on_incorrect`, `package_tab`.`subcat_name`,
-         (Select `test_name` from `test_info_tab` WHERE `parent_test_info_id` = `test_info_id`) as name 
-         from `test_info_tab` INNER JOIN `package_tab` ON `package_tab`.`package_id` = 
-         `test_info_tab`.`package_id` WHERE `test_info_tab`.`issectional` != 0      
-     */
+       /***SELECT `test_info_tab`.`test_name`,`test_info_tab`.`test_name`,`test_info_tab`.`pic`,
+            `test_info_tab`.`enroll_stud_count`, `test_info_tab`.`test_price`,`test_info_tab`.`marks_on_correct`,
+            `test_info_tab`.`marks_on_incorrect`, `package_tab`.`subcat_name`,
+            (Select `test_name` from `test_info_tab` WHERE `parent_test_info_id` = `test_info_id`) as name 
+            from `test_info_tab` INNER JOIN `package_tab` ON `package_tab`.`package_id` = 
+            `test_info_tab`.`package_id` WHERE `test_info_tab`.`issectional` != 0      
+        */
     $datas =DB::table('test_info_tab')
     ->select('test_info_tab.test_name as title','test_info_tab.test_info_id as infoID','test_info_tab.pic','test_info_tab.enroll_stud_count as count',
     'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
@@ -32,17 +31,12 @@ class SectionalPackageController extends Controller
     ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
     ->where('test_info_tab.issectional','!=', 0)
     ->get();
-
-
-
-
-
-          $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
-      
-        // var_dump($datas);
-
-        return view('section.index',['datas'=>$datas,'lists'=>$section]);
+    
+    $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
+    ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],
+    ["title"=>'puzzle',"id"=>6]);
+     
+     return view('section.index',['datas'=>$datas,'lists'=>$section]);
 
     }
 
