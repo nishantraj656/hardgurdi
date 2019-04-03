@@ -49,7 +49,6 @@ Route::group(['middleware' => 'auth:api'], function(){
 	// for category and sub categroy
 	Route::post('cat_sub_cat_get', 'TestAPI\CatSubCat_C@index');
 	Route::post('render_TestList_HD', 'TestAPI\TestList_C@TestList');
-	Route::post('render_upcomingTestList_HD', 'TestAPI\TestList_C@TestList');
 	Route::post('render_TestDetails_HD', 'TestAPI\TestDetails_C@TestDetails');
 	Route::post('render_renderNotiList_US', 'TestAPI\NotiList_C@NotiList');
 	Route::post('render_userTestHist_HD', 'TestAPI\HistoryList_C@HistList');
@@ -87,3 +86,9 @@ Route::post('change_password_HD', 'TestAPI\LoginSignUP@change_password_fun');
 Route::get('test', 'TestAPI\HistoryList_C@HistList');
 Route::get('test1', 'TestAPI\PaymentHist@getPayHist');
 Route::get('test3', 'TestAPI\TestList_C@purchasedTestList');
+
+
+
+
+
+Route::get('render_upcomingTestList_HD', 'TestAPI\upcomingTest_C@upcomingTestList');
