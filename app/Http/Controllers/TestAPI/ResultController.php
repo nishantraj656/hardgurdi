@@ -104,4 +104,24 @@ class ResultController extends Controller
 
         return response()->json(['received'=>'yes',"data"=>$datas]);
     }
+    function getAIR($user_id,$test_info_id)
+    {
+
+        // $user_id = 139;
+        // $test_info_id = 17;
+        
+        $statement = DB::statement("SET @row_number = 0 ");
+        $datas = DB::select('
+                    SELECT rownum as AIRrank from (
+
+                        SELECT   (@row_number:=@row_number + 1) AS rownum,obtain_marks,user_id,test_info_id,created_at FROM `result_tab`    
+                        ORDER BY `result_tab`.`obtain_marks`  DESC
+                    ) as resultList WHERE user_id = '.$user_id.' and test_info_id = '.$test_info_id.' ORDER by created_at DESC LIMIT 1 
+                ');
+
+        $data = $datas[0]->AIRrank;
+
+        return($data);
+        // return response()->json(['received'=>'yes',"data"=>$data]);
+    }
 }
