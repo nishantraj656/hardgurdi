@@ -83,12 +83,14 @@ Route::post('change_password_HD', 'TestAPI\LoginSignUP@change_password_fun');
 
 
 
-Route::get('test', 'TestAPI\HistoryList_C@HistList');
-Route::get('test1', 'TestAPI\PaymentHist@getPayHist');
+Route::get('render_upcomingTestList_HD', 'TestAPI\upcomingTest_C@upcomingTestList');
+
+
+
+
+Route::get('test', 'TestAPI\\ResultController@getResult');
+Route::get('test1', 'TestAPI\\QuestionController@getTestQuestion');
 Route::get('test3', 'TestAPI\ResultController@getAIR');
 
 
 
-
-
-Route::get('render_upcomingTestList_HD', 'TestAPI\upcomingTest_C@upcomingTestList');
