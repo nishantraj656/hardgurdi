@@ -58,14 +58,16 @@ class ResultController extends Controller
 				'obtain_marks'=>$obtain            
 				 ]);
 
-			$id = $data->id; /*** Latest result id */
-			
-			
-	return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain]);
+			$id = $data->id;
+
+
+            $AIR = $this->getAIR($userID,$testID);
+	       return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
+
 		}
 		else
 		{
-	return response()->json(['received'=>'no']);	
+	       return response()->json(['received'=>'no']);	
 		}
 
        /***  $datas = DB::table('result_tab')
