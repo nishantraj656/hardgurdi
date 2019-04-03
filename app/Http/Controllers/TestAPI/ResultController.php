@@ -58,7 +58,9 @@ class ResultController extends Controller
 				'obtain_marks'=>$obtain            
 				 ]);
 
-			$id = $data->id;
+			$id = $data->id; /*** Latest result id */
+			
+			
 	return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain]);
 		}
 		else
