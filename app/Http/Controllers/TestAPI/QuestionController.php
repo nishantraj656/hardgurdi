@@ -16,11 +16,18 @@ class QuestionController extends Controller
     public function getTestQuestion(Request $request)
     {
 
+<<<<<<< HEAD
         $where = array(['test_info_id','=',$request->testID]);
 
         if($request->section != null)
           array_push($request,['section_id','=',$request->section]);
        
+=======
+        $request['testID'] = 21;
+
+
+
+>>>>>>> 1f96ca55fcf2c9ed78cf14bc17220bcf5809ff7b
         $sectionArray =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
         ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
@@ -143,15 +150,46 @@ class QuestionController extends Controller
         return $tempArray;
     }
 
+    function isfileAvilable($filename)  
+    {
+        // Your code here!
+        // $filename = 'https://ichef.bbci.co.uk/news/2048/cpsprodpb/0288/production/_105284600_44935b21-9f20-4727-a2c0-84bef85a4548.jpg';
+
+
+        $ch = curl_init($filename);
+
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_exec($ch);
+        $retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        // $retcode >= 400 -> not found, $retcode = 200, found.
+        
+        if ($retcode == 200) {
+            return(true);
+        }else{
+            return(false);
+        }
+        // var_dump($retcode);
+    }
+
     public function imageBase64Converter($strings)
     {
 	//	$pic = $strings->pic;
        if($strings->pic !=null)
        {
+<<<<<<< HEAD
 		   if(file_exists(asset($strings->pic))) 
 		   {
 			    $file =file_get_contents(asset($strings->pic));
 				return array("text"=>$strings->text,"pic"=>base64_encode($file));            
+=======
+           if($this->isfileAvilable(asset($strings->pic))) 
+		   {
+			    $file =file_get_contents(asset($strings->pic));
+
+				return array("text"=>$strings->text,"pic"=>base64_encode($file));
+            
+>>>>>>> 1f96ca55fcf2c9ed78cf14bc17220bcf5809ff7b
 		   }
             else
             return array("text"=>$strings->text,"pic"=>null);
