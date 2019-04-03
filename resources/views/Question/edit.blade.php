@@ -232,9 +232,9 @@
                                         @endif name="hindiRadio">
                                         <input type="text" class="form-control m-2" value="{{json_decode($datas->option_json)->hindi->A->text}}" name="hindiOptionA" id= "hindiOptionA">
                                         <div class="form-group">
-                                            <label for="pichindiOptionA">Insert Pic:</label>
-                                            <input type="file" name="pichindiOptionA"/>
-                                            <input name="npichindiOptionA" value="{{json_decode($datas->option_json)->hindi->A->pic}}" type="hidden"/>
+                                            <label for="picHindiOptionA">Insert Pic:</label>
+                                            <input type="file" name="picHindiOptionA"/>
+                                            <input name="npicHindiOptionA" value="{{json_decode($datas->option_json)->hindi->A->pic}}" type="hidden"/>
                                    
                                             @if(json_decode($datas->option_json)->hindi->A->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->A->pic)}}" class ="img-thumbnail"/>
@@ -251,7 +251,7 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionB">
-                                                <input name="npichindiOptionB" value="{{json_decode($datas->option_json)->hindi->B->pic}}" type="hidden"/>
+                                                <input name="npicHindiOptionB" value="{{json_decode($datas->option_json)->hindi->B->pic}}" type="hidden"/>
                                    
                                                 @if(json_decode($datas->option_json)->hindi->B->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->B->pic)}}" class ="img-thumbnail"/>
@@ -268,7 +268,7 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionC">
-                                                <input name="npichindiOptionC" value="{{json_decode($datas->option_json)->hindi->C->pic}}" type="hidden"/>
+                                                <input name="npicHindiOptionC" value="{{json_decode($datas->option_json)->hindi->C->pic}}" type="hidden"/>
                                    
                                                 @if(json_decode($datas->option_json)->hindi->C->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->C->pic)}}" class ="img-thumbnail"/>
@@ -285,7 +285,7 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionD">
-                                                <input name="npichindiOptionD" value="{{json_decode($datas->option_json)->hindi->D->pic}}" type="hidden"/>
+                                                <input name="npicHindiOptionD" value="{{json_decode($datas->option_json)->hindi->D->pic}}" type="hidden"/>
                                    
                                                 @if(json_decode($datas->option_json)->hindi->D->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->D->pic)}}" class ="img-thumbnail"/>

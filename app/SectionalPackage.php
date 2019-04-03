@@ -9,6 +9,7 @@ class SectionalPackage extends Model
     protected $table = 'test_info_tab'; 
 
     public $fillable=[
+      'test_info_id',
       'parent_test_info_id', 
       'package_id', 
       'issectional',

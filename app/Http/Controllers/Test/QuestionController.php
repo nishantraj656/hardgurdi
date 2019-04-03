@@ -128,53 +128,54 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
         $picEngpath = $request->file('picEng');
         if($picEngpath != null)
-            $picEngpath =$this->imagePath( $picEngpath->store('public/Question','public'));
+            $picEngpath =$this->imagePath( $picEngpath->store('public/Question'));
         else
-            var_dump($picEngpath);
+            echo "In Else part ";
+        
 
         $picEngOptionApath = $request->file('picEngOptionA');
         if($picEngOptionApath != null)
-            $picEngOptionApath = $this->imagePath($picEngOptionApath->store('Set','public'));
+            $picEngOptionApath = $this->imagePath($picEngOptionApath->store('public/Set'));
 
         $picEngOptionBpath = $request->file('picEngOptionB');
         if($picEngOptionBpath != null)
-            $picEngOptionBpath = $this->imagePath( $picEngOptionBpath->store('Set','public'));
+            $picEngOptionBpath = $this->imagePath( $picEngOptionBpath->store('public/Set'));
 
         $picEngOptionCpath = $request->file('picEngOptionC');
         if($picEngOptionCpath != null)
-            $picEngOptionCpath = $this->imagePath($picEngOptionCpath->store('Set','public'));
+            $picEngOptionCpath = $this->imagePath($picEngOptionCpath->store('public/Set'));
         
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
-            $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('Set','public'));
+            $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('public/Set'));
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
-            $picHindipath = $this->imagePath($picHindipath->store('Set','public'));
+            $picHindipath = $this->imagePath($picHindipath->store('public/Set'));
 
         $picHindiOptionApath = $request->file('picHindiOptionA');
         if($picHindiOptionApath != null)
-            $picHindiOptionApath = $this->imagePath($picHindiOptionApath->store('Set','public'));
+            $picHindiOptionApath = $this->imagePath($picHindiOptionApath->store('public/Set'));
 
         $picHindiOptionBpath = $request->file('picHindiOptionB');
         if($picHindiOptionBpath != null)
-            $picHindiOptionBpath = $this->imagePath($picHindiOptionBpath->store('Set','public'));
+            $picHindiOptionBpath = $this->imagePath($picHindiOptionBpath->store('public/Set'));
 
         $picHindiOptionCpath = $request->file('picHindiOptionC');
         if($picHindiOptionCpath != null)
-            $picHindiOptionCpath = $this->imagePath($picHindiOptionCpath->store('Set','public'));
+            $picHindiOptionCpath = $this->imagePath($picHindiOptionCpath->store('public/Set'));
 
         $picHindiOptionDpath = $request->file('picHindiOptionD');
         if($picHindiOptionDpath != null)
-            $picHindiOptionDpath = $this->imagePath($picHindiOptionDpath->store('Set','public'));
+            $picHindiOptionDpath = $this->imagePath($picHindiOptionDpath->store('public/Set'));
 
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
-            $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('Set','public'));
+            $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('public/Set'));
 
         $picEngExplainationpath = $request->file('picEngExplaination');
         if($picEngExplainationpath != null)
-            $picEngExplainationpath = $this->imagePath($picEngExplainationpath->store('Set','public'));
+            $picEngExplainationpath = $this->imagePath($picEngExplainationpath->store('public/Set'));
 
     
 
@@ -200,8 +201,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
            ]);
 
            $request->session()->flash('status', 'Task was successful!');
-           return redirect('Question/create')
-           ->with('success','Great! Notes updated successfully');
+        //   return redirect('Question/create')
+         //  ->with('success','Great! Notes updated successfully');
            
     }
 
@@ -379,6 +380,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             $picEngExplainationpath = $this->imagePath($picEngExplainationpath->store('public/Set'));
             else
             {
+            
                 $picEngExplainationpath = $request->npicEngExplainationpath;
             }
 
@@ -400,7 +402,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
             ]);
             $request->session()->flash('status', ' Notes updated successfully');
-          return redirect('Question');
+         // return redirect('Question');
     }
 
     /**

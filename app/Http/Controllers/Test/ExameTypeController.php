@@ -62,7 +62,13 @@ class ExameTypeController extends Controller
         $request->validate([
             'name' => 'required', ]);
 
-      ExameType::create(['cat_name'=>$request->name]);
+            $pic = $request->file('pic');
+            if($pic != null)
+                $pic = $this->imagePath($pic->store('Set','public'));
+            
+    
+
+      ExameType::create(['cat_name'=>$request->name,'pic'=>$pic]);
       return redirect('Exam');
 
     }
@@ -94,7 +100,7 @@ class ExameTypeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. 
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -104,13 +110,51 @@ class ExameTypeController extends Controller
     {
         $request->validate([
             'title' => 'required', ]);
-         
-        $update = ['cat_name'=>$request->title];
+
+            $picpath = $request->file('pic'); 
+            if($picpath != null)
+                $picpath = $this->imagePath($picpath->store('public/Set'));
+                else
+                {
+                    $picpath = $request->npic;
+                    // echo $picpath;
+                }
+        
+        $update = ['cat_name'=>$request->title,'pic'=>$picpath];
         ExameType::where('test_cat_id',$id)->update($update);
    
-        return Redirect::to('Exam')
+       return Redirect::to('Exam')
        ->with('success','Great! Notes updated successfully');
     }
+
+    private function imagePath($pic)
+    {
+        $imagePath =$pic;//json_decode($datas->question_json)->eng->pic;
+        $imageFullPath='/';
+        if($imagePath !=null)
+        {
+            $pathArray= explode('/',$imagePath);
+            for($i =0;$i< sizeof($pathArray);$i++)
+            {
+                if($pathArray[$i] == 'public')
+                {
+                     $imageFullPath = $imageFullPath.'storage';
+                }
+                else
+                {
+                  $imageFullPath = $imageFullPath.'/'.$pathArray[$i]; 
+                }
+            }
+
+        }
+        else
+        {
+            $imageFullPath =null;
+        }
+        echo "Path ".$imageFullPath;
+        return $imageFullPath;
+    }
+
 
     /**
      * Remove the specified resource from storage.

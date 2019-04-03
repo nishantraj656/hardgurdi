@@ -2,9 +2,12 @@
  @section('content')
     <div class="container">
         <div class="row">
-            <form class="form-inline" action="{{url('Exam')}}" method="POST">
+            <form class="form-inline" action="{{url('Exam')}}" method="POST" enctype="multipart/form-data">
                 <label for="name">Name :</label>
-                <input type="name" class="form-control ml-4" name="name" id="name">
+                <input type="name" class="form-control ml-4 mr-4 mb-4" name="name" id="name">
+                <label for="name">Upload Cover :</label>
+                <input type="file" class="form-control ml-4 mb-4" name="pic" id="pic">
+                
                 @if ($errors->any())
                   <div class="alert alert-danger">
                       <ul>
