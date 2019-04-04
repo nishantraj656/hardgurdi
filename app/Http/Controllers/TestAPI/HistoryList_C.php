@@ -25,6 +25,7 @@ class HistoryList_C extends Controller
                     'time as minutes',
                     'total_marks',
                     'obtain_marks',
+                    'info',
                     'result_tab.created_at'
                   )
                   ->where('user_id', '=', $userID)

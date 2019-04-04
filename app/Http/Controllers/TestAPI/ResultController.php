@@ -108,7 +108,7 @@ class ResultController extends Controller
 
         return response()->json(['received'=>'yes',"data"=>$datas]);
     }
-    function getAIR($user_id,$test_info_id)
+    public function getAIR($user_id,$test_info_id)
     {
 
         // $user_id = 139;

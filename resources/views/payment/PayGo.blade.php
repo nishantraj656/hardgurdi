@@ -5,7 +5,7 @@
 	</head>
 	<body onload="document.payuform.submit();">
 		<h1>Please Wait While we redirect you to payment gateway...</h1>
-		<form action="https://sandboxsecure.payu.in/_payment"  name="payuform" method=POST >
+		<form action="{{$PAYU_BASE_URL}}"  name="payuform" method=POST >
 			<input type="hidden" name="key" value="{{$MERCHANT_KEY}}" />
 			<input type="hidden" name="hash_string" value="" />
 			<input type="hidden" name="hash" value="{{$hash}}" />
