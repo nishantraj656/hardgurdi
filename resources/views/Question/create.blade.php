@@ -266,30 +266,30 @@
 
           
 
-          $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected_newQuestion"));
-            $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected_newQuestion"));
+                $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected"));
+                  $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected"));
 
-            $("#test_name_select_newQuestion").change(function(){
-              console.log("Testname changed");
-              $test_id_selected_newQuestion = $(this).children("option:selected").val()
-              localStorage.setItem("test_id_selected_newQuestion", $test_id_selected_newQuestion);
+                  $("#test_name_select_newQuestion").change(function(){
+                    console.log("Testname changed");
+                    $test_id_selected = $(this).children("option:selected").val()
+                    localStorage.setItem("test_id_selected", $test_id_selected);
 
-            });
-           
-            $("#section_name_select_newQuestion").change(function(){
-              console.log("Sectionname changed");
-              $section_id_selected_newQuestion = $(this).children("option:selected").val()
-           localStorage.setItem("section_id_selected_newQuestion", $section_id_selected_newQuestion);
+                  });
+                 
+                  $("#section_name_select_newQuestion").change(function(){
+                    console.log("Sectionname changed");
+                    $section_id_selected = $(this).children("option:selected").val()
+                 localStorage.setItem("section_id_selected", $section_id_selected);
 
-            if($(this).children("option:selected").val()==7){
-                $('.o').hide();
-            }
-            else{
-                $('.o').show();
-            }
+                  if($(this).children("option:selected").val()==7){
+                      $('.o').hide();
+                  }
+                  else{
+                      $('.o').show();
+                  }
 
             });
 
         })
     </script>
-@endsection
+@endsection 
