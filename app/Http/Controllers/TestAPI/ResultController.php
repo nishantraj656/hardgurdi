@@ -20,6 +20,7 @@ class ResultController extends Controller
         $correct = 0;
         $attempt = 0;
         $incorrect = 0;
+		$skipped =0;
 		
         foreach($datas as $value)
         {
@@ -37,11 +38,16 @@ class ResultController extends Controller
                     $incorrect++; 
                 }
             }
+			else
+			{
+				$skipped++;
+			}
 
 
         }
 
        $MarksInfo = $this->marksCalculation($testID);
+         $info =json_encode(array('correct'=>$correct,'incorrect'=>$incorrect,'skipped'=>$skipped));
 	   
 	   if($MarksInfo != null)
 	   {
@@ -49,13 +55,15 @@ class ResultController extends Controller
 			$totalMarks = sizeof($datas) * $MarksInfo['PositiveMarking'];
 
 			$obtain = ($correct * $MarksInfo['PositiveMarking']) - ($incorrect * $MarksInfo['NegativeMarking']);
-
+            
+            $obtain = round($obtain,2);
 			$data = Result::create([       
 				'test_info_id'=>$testID,
 				'user_id'=>$userID,
 				'stud_answer_json'=>json_encode($datas),
 				'total_marks'=>$totalMarks,
-				'obtain_marks'=>$obtain            
+				'obtain_marks'=>$obtain,
+			'info'=>$info,
 				 ]);
 
 			$id = $data->id;
@@ -65,7 +73,10 @@ class ResultController extends Controller
             $MaxMarks = $this->getHighMarks($testID);
 
 
-	       return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,"MaxMarks"=>$MaxMarks]);
+	       return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,"MaxMarks"=>$MaxMarks,'info'=>$info]);
+          
+        //    $AIR = $this->getAIR($userID,$testID);
+	    //    return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
 
 		}
 		else
@@ -114,9 +125,6 @@ class ResultController extends Controller
     public function getAIR($user_id,$test_info_id)
     {
 
-        // $user_id = 139;
-        // $test_info_id = 17;
-        
         $statement = DB::statement("SET @row_number = 0 ");
         $datas = DB::select('
                     SELECT rownum as AIRrank from (

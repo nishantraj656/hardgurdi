@@ -36,7 +36,7 @@ class QuestionController extends Controller
        ->orderBy('question', 'desc')
          ->simplePaginate(200);
 
-        $data = $this->questionMixing($datas);
+        $data =$datas; //$this->questionMixing($datas);
 
        
 
@@ -48,15 +48,15 @@ class QuestionController extends Controller
          $tempArray=array();
 
 
-         foreach($sections as $section)
-         {
-            foreach($sectionArray as $el)
-            {
-              if($el['id'] == $section->section_id)
-                array_push($tempArray,$el);
-            }
+        //  foreach($sections as $section)
+        //  {
+        //     foreach($sectionArray as $el)
+        //     {
+        //       if($el['id'] == $section->section_id)
+        //         array_push($tempArray,$el);
+        //     }
             
-         }
+        //  }
 
        // var_dump($tempArray);
       
