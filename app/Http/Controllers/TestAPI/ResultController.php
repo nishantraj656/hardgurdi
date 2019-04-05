@@ -116,7 +116,7 @@ class ResultController extends Controller
 
         return response()->json(['received'=>'yes',"data"=>$datas]);
     }
-    function getAIR($user_id,$test_info_id)
+    public function getAIR($user_id,$test_info_id)
     {
 
         $statement = DB::statement("SET @row_number = 0 ");

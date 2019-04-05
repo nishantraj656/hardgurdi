@@ -13,7 +13,7 @@ class HistoryList_C extends Controller
 
     public function HistList(Request $request){
         $userID = $request->userID;
-        // $userID = 124;
+        // $userID = 139;
     	// $subcatID = 5;
 
         $data = DB::table('result_tab')
@@ -25,6 +25,7 @@ class HistoryList_C extends Controller
                     'time as minutes',
                     'total_marks',
                     'obtain_marks',
+                    'info',
                     'result_tab.created_at'
                   )
                   ->where('user_id', '=', $userID)
@@ -34,6 +35,6 @@ class HistoryList_C extends Controller
 
 
 
-        return response()->json(['received'=>'yes','data'=>$data],$this->successStatus);
+        return response()->json(['received'=>'yes','data'=>$data,'return'=>$userID],$this->successStatus);
     }
 }

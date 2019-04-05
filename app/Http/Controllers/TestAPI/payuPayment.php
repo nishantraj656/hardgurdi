@@ -14,20 +14,20 @@ class payuPayment extends Controller
      * 
      * @return \Illuminate\Http\Response 
     */ 
-    function makeHash(Request $request){
-        $key = $request->key;
-        $txnid = $request->txnid;
-        $amount = $request->amount;
-        $productinfo = $request->productinfo;
-        $firstname = $request->firstname;
-        $email = $request->email;
-        $salt = "XXXXXX"; //Please change the value with the live salt for production environment
+    // function makeHash(Request $request){
+    //     $key = $request->key;
+    //     $txnid = $request->txnid;
+    //     $amount = $request->amount;
+    //     $productinfo = $request->productinfo;
+    //     $firstname = $request->firstname;
+    //     $email = $request->email;
+    //     $salt = "XXXXXX"; //Please change the value with the live salt for production environment
         
-        $payhash_str = $key . '|' . $this->checkNull($txnid) . '|' . $this->checkNull($amount) . '|' . $this->checkNull($productinfo) . '|' . $this->checkNull($firstname) . '|' . $this->checkNull($email) . '|||||||||||' . $salt;
+    //     $payhash_str = $key . '|' . $this->checkNull($txnid) . '|' . $this->checkNull($amount) . '|' . $this->checkNull($productinfo) . '|' . $this->checkNull($firstname) . '|' . $this->checkNull($email) . '|||||||||||' . $salt;
         
-        $hash = strtolower(hash('sha512', $payhash_str));
-        return $hash;
-    }
+    //     $hash = strtolower(hash('sha512', $payhash_str));
+    //     return $hash;
+    // }
      
     function checkNull($value)
     {
@@ -107,15 +107,16 @@ class payuPayment extends Controller
 
 
 
-
+        $MERCHANT_KEY = env('MERCHANT_KEY', 'ds24jgkM');
+        $SALT = env('SALT', 's5P8PrWezj');
 
             
-        $MERCHANT_KEY = "QrJSX8h2";
-        $SALT = "J3G8tzrUnt";
+        // $MERCHANT_KEY = "QrJSX8h2";
+        // $SALT = "J3G8tzrUnt";
         // Merchant Key and Salt as provided by Payu.
 
-        $PAYU_BASE_URL = "https://sandboxsecure.payu.in";       // For Sandbox Mode
-        //private $PAYU_BASE_URL = "https://secure.payu.in";            // For Production Mode
+        // $PAYU_BASE_URL = "https://sandboxsecure.payu.in";       // For Sandbox Mode
+        $PAYU_BASE_URL = "https://secure.payu.in";            // For Production Mode
 
 
 
@@ -221,6 +222,7 @@ class payuPayment extends Controller
             echo "Form Submitation Error";
         }else{
             return view('payment.PayGo',[
+                                                "PAYU_BASE_URL"=>$action,
                                                 "MERCHANT_KEY"=>$MERCHANT_KEY,
                                                 "hash"=>$hash,
                                                 'txnid'=>$txnid,
