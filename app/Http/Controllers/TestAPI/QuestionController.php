@@ -16,12 +16,12 @@ class QuestionController extends Controller
     public function getTestQuestion(Request $request)
     {
 
-        // $request['testID'] = 21;
-      $where = array(['test_info_id','=',$request->testID]);
-      if($request->section != null)
-      {
-        array_push($where,['section_id','=',$request->section]);
-      }
+        $where = array(['test_info_id','=',$request->testID]);
+
+        if($request->section != null)
+          array_push($request,['section_id','=',$request->section]);
+       
+
 
 
         $sectionArray =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
@@ -36,7 +36,7 @@ class QuestionController extends Controller
        ->orderBy('question', 'desc')
          ->simplePaginate(200);
 
-        $data = $this->questionMixing($datas);
+        $data =$datas; //$this->questionMixing($datas);
 
        
 
@@ -48,16 +48,15 @@ class QuestionController extends Controller
          $tempArray=array();
 
 
-         foreach($sections as $section)
-         {
-            foreach($sectionArray as $el)
-            {
-                // var_dump($section);
-                if($el['id'] == $section->section_id)
-                array_push($tempArray,$el);
-            }
+        //  foreach($sections as $section)
+        //  {
+        //     foreach($sectionArray as $el)
+        //     {
+        //       if($el['id'] == $section->section_id)
+        //         array_push($tempArray,$el);
+        //     }
             
-         }
+        //  }
 
        // var_dump($tempArray);
       
@@ -171,7 +170,7 @@ class QuestionController extends Controller
 
     public function imageBase64Converter($strings)
     {
-       // var_dump($strings);
+	//	$pic = $strings->pic;
        if($strings->pic !=null)
        {
            if($this->isfileAvilable(asset($strings->pic))) 
@@ -183,16 +182,9 @@ class QuestionController extends Controller
 		   }
             else
             return array("text"=>$strings->text,"pic"=>null);
-          
-       }
-      
-      else
-      return array("text"=>$strings->text,"pic"=>$strings->pic);
-     
-        
-
-        
-
-    }
+        }
+		else
+		  return array("text"=>$strings->text,"pic"=>null);
+	}
 }
  

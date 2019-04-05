@@ -14,7 +14,7 @@ class CatSubCat_C extends Controller
     public function index(Request $request) 
     {
     	$category_list = DB::table('test_cat_tab')
-            ->select('cat_name','test_cat_id')
+            ->select('cat_name','test_cat_id','pic')
             ->get();
 
         $cat_sub_cat_arr_final = [];
@@ -36,6 +36,7 @@ class CatSubCat_C extends Controller
             }
             
             $intermediateArr["category"] = $value->cat_name;
+			$intermediateArr["pic"] = $value->pic;
             $intermediateArr["subcategory"] = $subcategory_arr;
             array_push($cat_sub_cat_arr_final, $intermediateArr);
         }
