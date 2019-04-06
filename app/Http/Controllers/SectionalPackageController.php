@@ -29,7 +29,7 @@ class SectionalPackageController extends Controller
     'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
     'test_info_tab.status','test_info_tab.expDate','test_info_tab.issectional','test_info_tab.parent_test_info_id as pid')
     ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
-    ->where('test_info_tab.issectional','!=', -1)
+    ->where('test_info_tab.issectional','=', -1)
     ->get();
     
     $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
@@ -113,22 +113,22 @@ class SectionalPackageController extends Controller
                     $path = $this->imagePath($path->store('public/Set'));
             
                    
-          SectionalPackage::create( [
-            'package_id'=>$request->pid,
-            'test_name'=>$request->sectionname,
-            'descrption'=>$request->descrption,
-            'pic'=>$path,       
-           'parent_test_info_id'=>$request->setid,
-           'issectional'=>$request->sectionId,
-            'test_price'=>$request->price,
-            'marks_on_correct'=>$request->correct,
-            'marks_on_incorrect'=>$request->incorrect,
-            'status'=>0,
-            'expDate'=>$request->expDate,
-            'time'=>$request->Time,
-       ]);
-        return redirect('SectionS');
-    }
+          SectionalPackage::create([
+                                        'package_id'=>$request->pid,
+                                        'test_name'=>$request->sectionname,
+                                        'descrption'=>$request->descrption,
+                                        'pic'=>$path,       
+                                        'parent_test_info_id'=>$request->setid,
+                                        'issectional'=>$request->sectionId,
+                                        'test_price'=>$request->price,
+                                        'marks_on_correct'=>$request->correct,
+                                        'marks_on_incorrect'=>$request->incorrect,
+                                        'status'=>0,
+                                        'expDate'=>$request->expDate,
+                                        'time'=>$request->Time
+                                    ]);
+                               // return redirect('SectionS');
+            }
 
     /**
      * Display the specified resource.
@@ -210,7 +210,7 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
                         'time'=>$request->Time,
                    ]);
                  
-                 //  return redirect('SectionS');
+                   return redirect('SectionS');
            
     }
 

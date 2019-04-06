@@ -31,7 +31,7 @@
          new google.elements.transliteration.TransliterationControl(options);
 
      // Enable transliteration in the textbox with id
-     // 'transliterateTextarea'.
+    
      control.makeTransliteratable(['hindi']);
      control.makeTransliteratable(['hindiOptionA']);
      control.makeTransliteratable(['hindiOptionB']);
@@ -41,19 +41,6 @@
    }
    google.setOnLoadCallback(onLoad);
 
-//    //Load the Language API.
-//    google.load("language", "1");
-
-//    //Call google.language.transliterate() 
-//    google.language.transliterate(["Namaste"], "en", "hi", function(result) {
-//      if (!result.error) {
-//        var container = document.getElementById("transliteration");
-//        if (result.transliterations && result.transliterations.length > 0 &&
-//            result.transliterations[0].transliteratedWords.length > 0) {
-//          console.log(result.transliterations[0].transliteratedWords[0]);
-//        }
-//      }
-//    });
  </script>
 @section('content')
 
@@ -326,7 +313,7 @@
 
 
             <div class="row">
-                    <button type="submit" class="btn btn-primary ml-4">Submit</button>
+                <button type="submit" class="btn btn-primary ml-4">Submit</button>
             </div>
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
