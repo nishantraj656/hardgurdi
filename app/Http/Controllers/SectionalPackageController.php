@@ -113,6 +113,7 @@ class SectionalPackageController extends Controller
                     $path = $this->imagePath($path->store('public/Set'));
             
                    
+<<<<<<< HEAD
           SectionalPackage::create([
                                         'package_id'=>$request->pid,
                                         'test_name'=>$request->sectionname,
@@ -129,6 +130,25 @@ class SectionalPackageController extends Controller
                                     ]);
                                // return redirect('SectionS');
             }
+=======
+          SectionalPackage::create( [
+            'package_id'=>$request->pid,
+            'test_name'=>$request->sectionname,
+            'descrption'=>$request->descrption,
+            'pic'=>$path,       
+           'parent_test_info_id'=>$request->setid,
+           'issectional'=>$request->sectionId,
+            'test_price'=>$request->price,
+            'marks_on_correct'=>$request->correct,
+            'marks_on_incorrect'=>$request->incorrect,
+            'status'=>0,
+            'issectional'=>0,
+            'expDate'=>$request->expDate,
+            'time'=>$request->Time,
+       ]);
+        return redirect('SectionS');
+    }
+>>>>>>> 353d0306d2c0bca644e311678422c70cb13dc736
 
     /**
      * Display the specified resource.

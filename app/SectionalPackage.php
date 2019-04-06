@@ -21,7 +21,8 @@ class SectionalPackage extends Model
       'marks_on_incorrect', 
       'status', 
       'time',
-      'expDate'
+      'expDate',
+      'issectional'
     ];
 
 

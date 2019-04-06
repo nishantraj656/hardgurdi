@@ -20,7 +20,18 @@ class CatSubCat_C extends Controller
         $cat_sub_cat_arr_final = [];
         foreach ($category_list as $key => $value) {
             $subcategory_list = DB::table('package_tab')
-                ->select('package_id','subcat_name','status','package_price')
+                ->select(
+                    'package_id',
+                    'subcat_name',
+                    'status',
+                    'package_price',
+                    //ispacksec returns 1 if sectioanl otherwise 0 
+                    DB::raw('
+                        (
+                            SELECT (count(*) = 0) as ispacksec FROM `test_info_tab` WHERE package_id = package_tab.package_id and issectional = -1   
+                        )as ispacksec'
+                    )
+                )
                 ->where('test_cat_id',$value->test_cat_id)
                 ->get();
 
@@ -32,6 +43,7 @@ class CatSubCat_C extends Controller
                 $tmp["value"] = $subcategory->subcat_name;
                 $tmp["status"] = $subcategory->status;
                 $tmp["rate"] = $subcategory->package_price;
+                $tmp["ispacksec"] = $subcategory->ispacksec;
                 array_push($subcategory_arr, $tmp);
             }
             

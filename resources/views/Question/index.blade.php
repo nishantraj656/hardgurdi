@@ -145,7 +145,7 @@
         }
 
         $(function(){
-
+ 
 
             $("#test_name_select").val(localStorage.getItem("test_id_selected"));
             $("#section_name_select").val(localStorage.getItem("section_id_selected"));
@@ -173,6 +173,6 @@
             });
 
         })
-      </script>
+      </script> 
  @endsection
 

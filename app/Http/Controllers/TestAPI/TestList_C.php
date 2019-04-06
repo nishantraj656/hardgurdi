@@ -50,10 +50,8 @@ class TestList_C extends Controller
                   ->where('issectional', $comp, '-1')
                   
                   // ->whereRaw('DATE(expDate) > CURRENT_TIMESTAMP')
-                  ->orderBy('test_name', 'ASC')
+                  ->orderBy('slno', 'ASC')
                   ->get();
-
-
 
         return response()->json(['received'=>'yes','data'=>$data,'return_test'=>$subcatID],$this->successStatus);
     }

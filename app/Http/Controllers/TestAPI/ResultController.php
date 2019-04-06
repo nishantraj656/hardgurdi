@@ -69,8 +69,14 @@ class ResultController extends Controller
 			$id = $data->id;
 
 
-          $AIR = $this->getAIR($userID,$testID);
-	       return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
+            $AIR = $this->getAIR($userID,$testID);
+            $MaxMarks = $this->getHighMarks($testID);
+
+
+	       return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,"MaxMarks"=>$MaxMarks,'info'=>$info]);
+          
+        //    $AIR = $this->getAIR($userID,$testID);
+	    //    return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
 
 		}
 		else
@@ -132,5 +138,16 @@ class ResultController extends Controller
 
         return($data);
         // return response()->json(['received'=>'yes',"data"=>$data]);
+    }
+    function getHighMarks($testID)  
+    {
+        $marks = DB::table('result_tab')
+                    ->select('MAX(obtain_marks) as maxmarks')
+                    ->where('test_info_id',$testID)
+                    ->get();
+
+
+        return($marks[0]->maxmarks);
+
     }
 }

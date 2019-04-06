@@ -21,7 +21,7 @@
 
                   <div class="form-group">
                         <label for="price">Price :</label>
-                        <input type="number" value="0" min="0" class="form-control" value="{{$data->package_price}}" id="price" name="price" required>
+                        <input type="number" min="0" class="form-control" value="{{$data->package_price}}" id="price" name="price" required>
                        
                       </div>
 

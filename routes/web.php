@@ -27,6 +27,16 @@ Route::get('/', function () {
     return view('Website/index');
 });
 
+Route::get('/PrivacyPolicy',function(){
+	return view('Website/PrivacyPolicy');
+});
+
+
+
+Route::get('/TermsAndConditions',function(){
+	return view('Website/TermsAndConditions');
+});
+
 
 Route::post('Question/filter', 'Test\\QuestionController@filter');
 
