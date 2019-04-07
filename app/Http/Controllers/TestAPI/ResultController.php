@@ -18,78 +18,108 @@ class ResultController extends Controller
         $datas = $request->data;
         $testID = $request->testID;
         $correct = 0;
-        $attempt = 0;
+        $attempt = 0;  
         $incorrect = 0;
-		$skipped =0;
-		
-        foreach($datas as $value)
+        $skipped =0;
+        $resultID = $request->resultID;
+        $id=0;
+        
+        if($datas != null)
         {
-            $answer = json_decode($value["answer_json"]);
-           $replay = $value["replay"];
-
-            if($replay !=null)
+           
+        
+            foreach($datas as $value)
             {
-                if($answer->eng == $replay)
+                $answer = json_decode($value["answer_json"]);
+            $replay = $value["replay"];
+
+                if($replay !=null)
                 {
-                    $correct++;  
+                    if($answer->eng == $replay)
+                    {
+                       $correct++;  
+                    }
+                    else
+                    {
+                        $incorrect++; 
+                    }
                 }
                 else
                 {
-                    $incorrect++; 
+                    $skipped++;
                 }
+
+
             }
-			else
-			{
-				$skipped++;
-			}
 
+            $MarksInfo = $this->marksCalculation($testID);
+                $info =json_encode(array('correct'=>$correct,'incorrect'=>$incorrect,'skipped'=>$skipped));
+            
+            if($MarksInfo != null)
+            {
 
+                    $totalMarks = sizeof($datas) * $MarksInfo['PositiveMarking'];
+
+                    $obtain = ($correct * $MarksInfo['PositiveMarking']) - ($incorrect * $MarksInfo['NegativeMarking']);
+                    
+                    $obtain = round($obtain,2);
+                   
+                    $data = Result::create([       
+                        'test_info_id'=>$testID,
+                        'user_id'=>$userID,
+                        'stud_answer_json'=>json_encode($datas),
+                        'total_marks'=>$totalMarks,
+                        'obtain_marks'=>$obtain,
+                        'info'=>$info,
+                        ]);
+
+                    $id = $data->id;
+
+ //  return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
+                
+                //    $AIR = $this->getAIR($userID,$testID);
+    //return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
+
+                }
+                else
+                {
+                    
+                     return response()->json(['received'=>'no']);	
+                }
         }
 
-       $MarksInfo = $this->marksCalculation($testID);
-         $info =json_encode(array('correct'=>$correct,'incorrect'=>$incorrect,'skipped'=>$skipped));
-	   
-	   if($MarksInfo != null)
-	   {
+/***SELECT `result_id`, `test_info_id`, `user_id`, `stud_answer_json`, `total_marks`, `obtain_marks`, `info`, 
+ *  FROM `result_tab` WHERE 1 */
 
-			$totalMarks = sizeof($datas) * $MarksInfo['PositiveMarking'];
+        $results =  DB::table('result_tab')
+            ->select('test_info_id','result_id','test_info_id','total_marks','obtain_marks','info')
+            ->where('result_id','=',$id)
+            ->get();
 
-			$obtain = ($correct * $MarksInfo['PositiveMarking']) - ($incorrect * $MarksInfo['NegativeMarking']);
+            $AIR = $this->getAIR($userID,$id);
+           
+            // $MaxMarks =,"MaxMarks"=>$MaxMarks
+            if(sizeof($results)!=0)
+            {
+                
+                $results =$results[0];
+              
+                
+             $this->getHighMarks($results->test_info_id);
+
+  return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info]);
+    
+            }
+                
             
-            $obtain = round($obtain,2);
-			$data = Result::create([       
-				'test_info_id'=>$testID,
-				'user_id'=>$userID,
-				'stud_answer_json'=>json_encode($datas),
-				'total_marks'=>$totalMarks,
-				'obtain_marks'=>$obtain,
-			'info'=>$info,
-				 ]);
 
-			$id = $data->id;
+           // $AIR = $this->getAIR($userID,$testID);
+           // $MaxMarks = $this->getHighMarks($testID);   //"MaxMarks"=>$MaxMarks
 
+// return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
+                
 
-            $AIR = $this->getAIR($userID,$testID);
-            $MaxMarks = $this->getHighMarks($testID);
-
-
-	       return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,"MaxMarks"=>$MaxMarks,'info'=>$info]);
-          
-        //    $AIR = $this->getAIR($userID,$testID);
-	    //    return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
-
-		}
-		else
-		{
-	       return response()->json(['received'=>'no']);	
-		}
-
-       /***  $datas = DB::table('result_tab')
-        ->select('result_id as resultID', 'test_info_id as testID', 'stud_answer_json as answers', 'total_marks as total', 'obtain_marks as obtain')
-        ->where('result_id','=',$id)
-        ->get();*/
-
-		
+        
     }
 
     public function marksCalculation($testID)
@@ -134,20 +164,24 @@ class ResultController extends Controller
                     ) as resultList WHERE user_id = '.$user_id.' and test_info_id = '.$test_info_id.' ORDER by created_at DESC LIMIT 1 
                 ');
 
-        $data = $datas[0]->AIRrank;
+                var_dump($datas);
+       // $data = $datas[0]->AIRrank;
 
-        return($data);
+       // return($data);
         // return response()->json(['received'=>'yes',"data"=>$data]);
     }
+    
     function getHighMarks($testID)  
     {
+       
         $marks = DB::table('result_tab')
-                    ->select('MAX(obtain_marks) as maxmarks')
+                    ->max('obtain_marks')
                     ->where('test_info_id',$testID)
                     ->get();
 
+// var_dump($marks);
 
-        return($marks[0]->maxmarks);
+       // return($marks[0]->maxmarks);
 
     }
 }
