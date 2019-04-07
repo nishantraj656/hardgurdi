@@ -84,7 +84,7 @@ class SectionalPackageController extends Controller
         {
             $imageFullPath =null;
         }
-        echo "Path ".$imageFullPath;
+        // echo "Path ".$imageFullPath;
         return $imageFullPath;
     }
 

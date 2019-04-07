@@ -105,9 +105,9 @@ class ResultController extends Controller
                 $results =$results[0];
               
                 
-             $this->getHighMarks($results->test_info_id);
+             $maxMarks = $this->getHighMarks($results->test_info_id);
 
-  return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info]);
+  return response()->json(['maxMarks'=>$maxMarks,'received'=>'yes','resultID'=>$id,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info]);
     
             }
                 
@@ -164,24 +164,21 @@ class ResultController extends Controller
                     ) as resultList WHERE user_id = '.$user_id.' and test_info_id = '.$test_info_id.' ORDER by created_at DESC LIMIT 1 
                 ');
 
-                var_dump($datas);
-       // $data = $datas[0]->AIRrank;
-
-       // return($data);
-        // return response()->json(['received'=>'yes',"data"=>$data]);
+             
+              if(sizeof($datas)!=0)
+           return   $datas[0]->AIRrank;
+        else 
+         return 0;
     }
     
     function getHighMarks($testID)  
     {
+        $marks= DB::select('SELECT MAX(obtain_marks) as maxMarks FROM result_tab WHERE test_info_id ='.$testID.';');
        
-        $marks = DB::table('result_tab')
-                    ->max('obtain_marks')
-                    ->where('test_info_id',$testID)
-                    ->get();
-
-// var_dump($marks);
-
-       // return($marks[0]->maxmarks);
-
+       
+        if(sizeof($marks))
+         return($marks[0]->maxMarks);
+        else 
+        return 0;
     }
 }

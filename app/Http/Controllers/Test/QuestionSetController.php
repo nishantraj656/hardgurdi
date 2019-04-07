@@ -25,6 +25,7 @@ $data =DB::table('test_info_tab')
 'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
 'test_info_tab.status','test_info_tab.expDate')
 ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
+->where('test_info_tab.issectional','!=', -1)
 ->get();
 return view('QuestionSet.index',['data'=>$data]);
     }
