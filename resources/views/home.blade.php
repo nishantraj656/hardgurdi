@@ -35,6 +35,9 @@
               </div>
             </div>
       </div>
+
+
+
       <div class="col-sm-4 mt-5">
           <div class="card">
               <div class="card-header bg-dark text-white">Test Series</div>
@@ -54,7 +57,7 @@
             <div class="card-header bg-dark text-white">Section </div>
             <div class="card-body">
                   <div class="row">
-                          Active Package : {{$set}}
+                          Active Package : {{$section}}
                       </div>  
                 </div> 
              <div class="card-footer">
@@ -62,6 +65,7 @@
             </div>
           </div>
     </div>
+
       {{---<div class="col-sm-4 mt-5">
           <div class="card">
               <div class="card-header bg-dark text-white">Section</div>

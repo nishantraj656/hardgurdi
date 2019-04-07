@@ -16,9 +16,9 @@
         <form method="POST" action="{{url('Question/filter')}}">
         <div class="row m-2">
       
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="row form-inline">
-              <label class="ml-2">Test Name  : </label>
+              <label class="ml-2" for="test_name_select">Test Name  : </label>
               <select class="form-control" name="setname" id = "test_name_select" >
                   <option value="All">All</option>   
                   @foreach ($list as $l)
@@ -34,7 +34,7 @@
           </div>
           <div class="col-sm-4">
               <div class="row form-inline">
-                  <label class="ml-2">Section  : </label>
+                  <label class="ml-2" for="section_name_select">Section  : </label>
                   <select class="form-control" name="section" id = "section_name_select">
                       <option value="All">All</option>   
                       @foreach ($section as $l)
@@ -49,7 +49,7 @@
           </div>
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             
-          <div class="col-sm-4">
+          <div class="col-sm-2">
             <div class="row">
                 <button type="submit" class="btn btn-primary" id="goFilter_btn"> Go </button>
               </div>

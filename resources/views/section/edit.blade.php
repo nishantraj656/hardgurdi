@@ -3,7 +3,7 @@
  
     <div class="container">
        
-            <form action="{{url('SectionS',$data['package_id'])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('SectionS',$data['test_info_id'])}}" method="POST" enctype="multipart/form-data">
              
                 <div class="form-group">
                     <label for="sectionname">Section Package Name :</label>
