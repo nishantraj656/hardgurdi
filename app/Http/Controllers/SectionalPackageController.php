@@ -195,7 +195,8 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
                     $path = $this->imagePath($path->store('public/Set'));
                 else
                     $path = $request->npic;
-
+                    echo ($id);
+                    return;
                     SectionalPackage::where('test_info_id',$id)->update( [
                         'package_id'=>$request->pid,
                         'test_name'=>$request->sectionname,

@@ -170,7 +170,25 @@ class LoginSignUP extends Controller
     public function change_password_fun(Request $request)
     {
       $data['changed'] = 'yes';
-      $reveiced = $request->json()->all();
-      return response()->json(['data'=>$data,'feedback'=>$reveiced]);
+
+
+
+
+
+      $request->validate([
+        'email' => 'required|email', 
+        'password' => 'required', 
+        'c_password' => 'required|same:password', 
+        'user_type' => 'required',
+      ]);
+
+      User::where('email',$request->email)->update( [
+          'password'=> bcrypt($request->password),
+      ]);
+      return response()->json([
+        'data'=>$data,
+        'feedback_password'=>$request->password,
+        'feedback_email'=>$request->email
+      ]);
     }
 }
