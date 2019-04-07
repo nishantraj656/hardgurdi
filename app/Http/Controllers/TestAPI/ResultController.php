@@ -53,7 +53,7 @@ class ResultController extends Controller
             }
 
             $MarksInfo = $this->marksCalculation($testID);
-                $info =json_encode(array('correct'=>$correct,'incorrect'=>$incorrect,'skipped'=>$skipped));
+            $info =json_encode(array('correct'=>$correct,'incorrect'=>$incorrect,'skipped'=>$skipped));
             
             if($MarksInfo != null)
             {
@@ -73,50 +73,53 @@ class ResultController extends Controller
                         'info'=>$info,
                         ]);
 
-                    $id = $data->id;
+                    $resultID = $data->id;
 
- //  return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
+                 //  return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
+                                
+                                //    $AIR = $this->getAIR($userID,$testID);
+                    //return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
+
+            }
+            else
+            {
                 
-                //    $AIR = $this->getAIR($userID,$testID);
-    //return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
-
-                }
-                else
-                {
-                    
-                     return response()->json(['received'=>'no']);	
-                }
+                 return response()->json(['received'=>'no']);	
+            }
         }
 
 /***SELECT `result_id`, `test_info_id`, `user_id`, `stud_answer_json`, `total_marks`, `obtain_marks`, `info`, 
  *  FROM `result_tab` WHERE 1 */
 
         $results =  DB::table('result_tab')
-            ->select('test_info_id','result_id','test_info_id','total_marks','obtain_marks','info')
-            ->where('result_id','=',$id)
-            ->get();
+                        ->select('test_info_id','result_id','test_info_id','total_marks','obtain_marks','info')
+                        ->where('result_id','=',$resultID)
+                        ->get();
 
-            $AIR = $this->getAIR($userID,$id);
-           
-            // $MaxMarks =,"MaxMarks"=>$MaxMarks
-            if(sizeof($results)!=0)
-            {
-                
-                $results =$results[0];
-              
-                
-             $maxMarks = $this->getHighMarks($results->test_info_id);
+        // $AIR = $this->getAIR($userID,$testID);
 
-  return response()->json(['maxMarks'=>$maxMarks,'received'=>'yes','resultID'=>$id,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info]);
-    
-            }
-                
-            
+        // $MaxMarks =,"MaxMarks"=>$MaxMarks
+        if(sizeof($results)!=0)
+        {
 
-           // $AIR = $this->getAIR($userID,$testID);
-           // $MaxMarks = $this->getHighMarks($testID);   //"MaxMarks"=>$MaxMarks
 
-// return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
+
+            $results =$results[0];
+
+
+            $AIR = $this->getAIR($userID,$results->test_info_id);
+            $maxMarks = $this->getHighMarks($results->test_info_id);
+
+            return response()->json(['maxMarks'=>$maxMarks,'received'=>'yes','resultID'=>$resultID,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info,'testgiuvenID'=>$testID]);
+
+        }
+
+
+
+        // $AIR = $this->getAIR($userID,$testID);
+        // $MaxMarks = $this->getHighMarks($testID);   //"MaxMarks"=>$MaxMarks
+
+        // return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR,'info'=>$info]);
                 
 
         
@@ -155,20 +158,26 @@ class ResultController extends Controller
     public function getAIR($user_id,$test_info_id)
     {
 
-        $statement = DB::statement("SET @row_number = 0 ");
-        $datas = DB::select('
+        $sql = '
                     SELECT rownum as AIRrank from (
 
                         SELECT   (@row_number:=@row_number + 1) AS rownum,obtain_marks,user_id,test_info_id,created_at FROM `result_tab`    
                         ORDER BY `result_tab`.`obtain_marks`  DESC
                     ) as resultList WHERE user_id = '.$user_id.' and test_info_id = '.$test_info_id.' ORDER by created_at DESC LIMIT 1 
-                ');
+                ';
+
+        $statement = DB::statement("SET @row_number = 0 ");
+        $datas = DB::select($sql);
 
              
-              if(sizeof($datas)!=0)
-           return   $datas[0]->AIRrank;
+        if(sizeof($datas)!=0)
+            $finalData = $datas[0]->AIRrank;
         else 
-         return 0;
+            $finalData = 0;
+
+        return($finalData);
+        // return response()->json(['received'=>'yes',"data"=>$finalData]);
+
     }
     
     function getHighMarks($testID)  
