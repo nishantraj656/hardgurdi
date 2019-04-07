@@ -15,7 +15,8 @@ class Result extends Model
          'user_id',
          'stud_answer_json',
          'total_marks',
-         'obtain_marks'
+         'obtain_marks',
+         'info'
          
     ];
 }

@@ -23,6 +23,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
+
+
 Route::group(['middleware' => 'auth:api'], function(){
 
 
@@ -36,8 +39,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 	Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
-	Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
-
+	
 	Route::post('getResult','TestAPI\\ResultController@getResult'); //get Result
 
 

@@ -12,7 +12,7 @@ class SectionalPackageController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -113,7 +113,7 @@ class SectionalPackageController extends Controller
                     $path = $this->imagePath($path->store('public/Set'));
             
                    
-          SectionalPackage::create( [
+          SectionalPackage::create([
             'package_id'=>$request->pid,
             'test_name'=>$request->sectionname,
             'descrption'=>$request->descrption,
