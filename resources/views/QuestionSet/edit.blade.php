@@ -22,7 +22,7 @@
                         @if($data->package_id == $l->pid)
                          <option value="{{$l->pid}}" selected="selected">{{$l->sname}}</option>
                          @else
-                         <option value="{{$l->pid}}" selected="selected">{{$l->sname}}</option>
+                         <option value="{{$l->pid}}" >{{$l->sname}}</option>
                          @endif
                     @endforeach
                       
