@@ -161,9 +161,9 @@ class ResultController extends Controller
         $sql = '
                     SELECT rownum as AIRrank from (
 
-                        SELECT   (@row_number:=@row_number + 1) AS rownum,obtain_marks,user_id,test_info_id,created_at FROM `result_tab`    
-                        ORDER BY `result_tab`.`obtain_marks`  DESC
-                    ) as resultList WHERE user_id = '.$user_id.' and test_info_id = '.$test_info_id.' ORDER by created_at DESC LIMIT 1 
+                        SELECT   (@row_number:=@row_number + 1) AS rownum,obtain_marks,user_id,created_at FROM `result_tab`  where  test_info_id = '.$test_info_id.' 
+                         ORDER BY CAST(`result_tab`.`obtain_marks` AS DECIMAL(5,2)) DESC
+                    ) as resultList WHERE user_id = '.$user_id.'  ORDER by created_at DESC LIMIT 1 
                 ';
 
         $statement = DB::statement("SET @row_number = 0 ");
@@ -182,12 +182,21 @@ class ResultController extends Controller
     
     function getHighMarks($testID)  
     {
-        $marks= DB::select('SELECT MAX(obtain_marks) as maxMarks FROM result_tab WHERE test_info_id ='.$testID.';');
+        $marks = DB::table('result_tab')
+                    // ->select('')
+                    ->select(DB::raw('MAX(CAST(`obtain_marks`AS DECIMAL(5,2) )) as maxMarks'))
+                    // ->max('CAST(`obtain_marks`AS DECIMAL(5,2) ) as maxMarks')
+                    ->where('test_info_id',$testID)
+                    ->get();
+
+
+
+        // $marks= DB::select('SELECT MAX(CAST(`obtain_marks`AS DECIMAL(5,2) )) as maxMarks FROM result_tab WHERE test_info_id ='.$testID.';');
        
        
         if(sizeof($marks))
-         return($marks[0]->maxMarks);
+            return($marks[0]->maxMarks);
         else 
-        return 0;
+            return 0;
     }
 }

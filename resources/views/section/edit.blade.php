@@ -40,7 +40,7 @@
                         <label for="sel1">Select Section :</label>
                         <select class="form-control" id="sel1" name="sectionId">
                         @foreach ($section as $l )
-                        <option value="{{$l['id']}}"  @if ($l['id'] == $data['section_id'])
+                        <option value="{{$l['id']}}"  @if ($l['id'] == $data['issectional'])
                           selected="selected"  
                         @endif>{{$l['title']}}</option>
                         @endforeach

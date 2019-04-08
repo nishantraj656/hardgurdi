@@ -46,6 +46,8 @@ class TestDetails_C extends Controller
                     'marks_on_correct as PositiveMarking',
                     'marks_on_incorrect as NegativeMarking',
                     'expDate as expDate',
+                    'parent_test_info_id as parent_id',
+                    
                     'created_at as created_at'
                   )
                   ->where('test_info_id', '=', $testID)
