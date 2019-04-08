@@ -27,7 +27,7 @@ class ResultController extends Controller
         if($datas != null)
         {
            
-        
+            
             foreach($datas as $value)
             {
                 $answer = json_decode($value["answer_json"]);
@@ -79,6 +79,16 @@ class ResultController extends Controller
                                 
                                 //    $AIR = $this->getAIR($userID,$testID);
                     //return response()->json(['received'=>'yes','resultID'=>$id,'totalMarks'=>$totalMarks,'obtain'=>$obtain,'AIR'=>$AIR]);
+
+
+
+                //  for chnaging give status form purchased_test_tab table with userid and test id nd given status
+                DB::table('purchased_test_tab')
+                    ->where('user_id',$userID)
+                    ->where('test_info_id',$testID)
+                    ->where('given_status','0')
+                    ->update(['given_status'=>'1']);
+
 
             }
             else
