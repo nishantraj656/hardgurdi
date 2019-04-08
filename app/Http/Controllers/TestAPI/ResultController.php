@@ -22,7 +22,7 @@ class ResultController extends Controller
         $incorrect = 0;
         $skipped =0;
        
-        $id=$request->resultID;
+        $resultID=$request->resultID;
         
         if($datas != null)
         {
