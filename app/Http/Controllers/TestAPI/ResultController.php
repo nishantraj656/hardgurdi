@@ -21,8 +21,8 @@ class ResultController extends Controller
         $attempt = 0;  
         $incorrect = 0;
         $skipped =0;
-        $resultID = $request->resultID;
-        $id=0;
+       
+        $id=$request->resultID;
         
         if($datas != null)
         {

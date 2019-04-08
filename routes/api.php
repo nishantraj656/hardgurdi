@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 
 // });
 
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -33,12 +34,13 @@ Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('details', 'APITest\UserController@details');
 
 
+Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
 
 
 
-	Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
+	
 	
 	Route::post('getResult','TestAPI\\ResultController@getResult'); //get Result
 
