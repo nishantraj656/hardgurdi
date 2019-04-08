@@ -20,13 +20,14 @@ class QuestionController extends Controller
 
       
        
-        if($request->section != null)
-			array_push($where,['section_id','=',$request->section]);
-	
-			
+        $where1 = array(['test_info_id','=',$request->testID]);
 
-
-
+       
+       
+        if($request->section != null && $request->section != 6 )
+          array_push($where,['section_id','=',$request->section]);
+       
+       
         $sectionArray =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
         ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
@@ -36,23 +37,10 @@ class QuestionController extends Controller
        $datas = DB::table('question_tab')
         ->select('question_id as questionID','test_info_id','section_id','question_json as question','option_json as option','answer_json','explaination')
         ->where($where)
-        ->orderBy('question', 'desc')
-        ->simplePaginate(200);
+        ->inRandomOrder()
+      // ->orderBy('question', 'desc')
+         ->simplePaginate(200);
 
-        //  $datas1 = DB::table('question_tab')
-        //  ->select('question_id as questionID','test_info_id','section_id','question_json as question','option_json as option','answer_json','explaination')
-        //  ->where($where1);
-       
-       // ->orderBy('question', 'desc')
-        //   ->simplePaginate(200);
-		 
-		
-		 
-// 		 var_dump( $datas);
-// 		 echo '<br><br><br>';
-//         var_dump( $datas1);
-		  
-       // $data =array_merge($datas->data->data,$datas1->data->data);
         $datas; //$this->questionMixing($datas);
 
        
@@ -77,7 +65,7 @@ class QuestionController extends Controller
 
        // var_dump($tempArray);
       
-     return response()->json(['received'=>'yes','data'=>$datas,'section'=>$tempArray]);
+  return response()->json(['received'=>'yes','data'=>$datas,'section'=>$tempArray]);
 
     }
 
