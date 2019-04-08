@@ -36,8 +36,8 @@ class TestDetails_C extends Controller
     //             PositiveMarking:'-0.5',
 
     public function TestDetails(Request $request){
-        // $testID = $request->json()->all()['testID'];
-    	$testID = 9;
+        $testID = $request->json()->all()['testID'];
+    	// $testID = 9;
 
         $data = DB::table('test_info_tab')
                   ->select(

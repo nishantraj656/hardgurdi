@@ -184,9 +184,13 @@ class ResultController extends Controller
     {
         $marks = DB::table('result_tab')
                     // ->select('')
-                    ->select(DB::raw('MAX(CAST(`obtain_marks`AS DECIMAL(5,2) )) as maxMarks'))
+                    ->select(DB::raw('CAST(obtain_marks as DECIMAL(5,2)) as maxMarks'),'user_id')
+
                     // ->max('CAST(`obtain_marks`AS DECIMAL(5,2) ) as maxMarks')
+
                     ->where('test_info_id',$testID)
+                    ->orderByRaw('CAST(`result_tab`.`obtain_marks` AS DECIMAL(5,2)) DESC')
+                    ->limit(3)
                     ->get();
 
 
@@ -194,9 +198,10 @@ class ResultController extends Controller
         // $marks= DB::select('SELECT MAX(CAST(`obtain_marks`AS DECIMAL(5,2) )) as maxMarks FROM result_tab WHERE test_info_id ='.$testID.';');
        
        
-        if(sizeof($marks))
-            return($marks[0]->maxMarks);
-        else 
-            return 0;
+       return($marks);
+        // if(sizeof($marks))
+        //     return($marks[0]->maxMarks);
+        // else 
+        //     return 0;
     }
 }
