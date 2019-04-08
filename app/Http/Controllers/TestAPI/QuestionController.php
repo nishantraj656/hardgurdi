@@ -18,13 +18,7 @@ class QuestionController extends Controller
 
         $where = array(['test_info_id','=',$request->testID]);
 
-      
-       
-        $where1 = array(['test_info_id','=',$request->testID]);
-
-       
-       
-        if($request->section != null && $request->section != 6 )
+        if($request->section != null)
           array_push($where,['section_id','=',$request->section]);
        
        
@@ -37,9 +31,9 @@ class QuestionController extends Controller
        $datas = DB::table('question_tab')
         ->select('question_id as questionID','test_info_id','section_id','question_json as question','option_json as option','answer_json','explaination')
         ->where($where)
-        ->inRandomOrder()
-      // ->orderBy('question', 'desc')
-         ->simplePaginate(200);
+        
+		->orderBy('question', 'desc')
+        ->simplePaginate(200);
 
         $datas; //$this->questionMixing($datas);
 
