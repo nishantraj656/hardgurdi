@@ -92,9 +92,9 @@ Route::get('render_upcomingTestList_HD', 'TestAPI\upcomingTest_C@upcomingTestLis
 
 
 
-Route::get('test', 'TestAPI\HistoryList_C@HistList');
+Route::get('test/{testID}', 'TestAPI\\ResultController@getHighMarks');
 Route::get('test1', 'TestAPI\\QuestionController@getTestQuestion');
-Route::get('test3', 'TestAPI\ResultController@getAIR');
+Route::get('test2/{user_id}/{test_info_id}', 'TestAPI\\ResultController@getAIR');
 
 
 

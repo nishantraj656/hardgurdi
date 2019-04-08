@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Test\ExameTypeController;
 use App\Http\Controllers\Test\packageController;
 use App\Http\Controllers\Test\QuestionSetController;
+use App\Http\Controllers\SectionalPackageController;
 
 class HomeController extends Controller
 {
@@ -35,11 +36,20 @@ class HomeController extends Controller
 
         
         $questionSetController = new QuestionSetController();
-        $questionSetController =$questionSetController->list();
+        $questionSetControllerCount = $questionSetController->count();
+
+        
+        $sectionCount = (new SectionalPackageController())->count();
 
      
-        return view('home',['exameTypeController'=> $exameTypeController,"exame"=>sizeof($exameTypeController),
-        'packageController'=>$packageController,"package"=>sizeof($packageController),
-        'questionSetController'=>$questionSetController,"set"=>sizeof($questionSetController)]);
+        return view('home',[
+            'exameTypeController'=> $exameTypeController,
+            "exame"=>sizeof($exameTypeController),
+            'packageController'=>$packageController,
+            "package"=>sizeof($packageController),
+            'questionSetController'=>$questionSetController,
+            "set"=>($questionSetControllerCount),
+            "section"=>($sectionCount),
+        ]);
     }
 }

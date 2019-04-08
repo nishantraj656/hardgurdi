@@ -29,7 +29,8 @@ class SectionalPackageController extends Controller
     'test_info_tab.test_price as price','test_info_tab.marks_on_correct','test_info_tab.marks_on_incorrect','package_tab.subcat_name as package',
     'test_info_tab.status','test_info_tab.expDate','test_info_tab.issectional','test_info_tab.parent_test_info_id as pid')
     ->join('package_tab','package_tab.package_id','=','test_info_tab.package_id')
-    ->where('test_info_tab.issectional','=', -1)
+    ->where('test_info_tab.issectional','!=', -1)
+    ->orderBy('slno', 'ASC')
     ->get();
     
     $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
@@ -45,6 +46,13 @@ class SectionalPackageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function count()
+    {
+        $listCount = SectionalPackage::where('issectional','!=',-1)
+                ->count();
+        return($listCount);
+    }
+
     public function create()
     {
         $packageController = new packageController();
@@ -195,8 +203,8 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
                     $path = $this->imagePath($path->store('public/Set'));
                 else
                     $path = $request->npic;
-                    echo ($id);
-                    return;
+                    // echo ($id);
+                    // return;
                     SectionalPackage::where('test_info_id',$id)->update( [
                         'package_id'=>$request->pid,
                         'test_name'=>$request->sectionname,

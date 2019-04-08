@@ -12,7 +12,6 @@ class SectionalPackage extends Model
       'test_info_id',
       'parent_test_info_id', 
       'package_id', 
-      'issectional',
       'test_name',
       'descrption',
       'pic', 

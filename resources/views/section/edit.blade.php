@@ -3,7 +3,7 @@
  
     <div class="container">
        
-            <form action="{{url('SectionS',$data['package_id'])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('SectionS',$data['test_info_id'])}}" method="POST" enctype="multipart/form-data">
              
                 <div class="form-group">
                     <label for="sectionname">Section Package Name :</label>
@@ -40,7 +40,7 @@
                         <label for="sel1">Select Section :</label>
                         <select class="form-control" id="sel1" name="sectionId">
                         @foreach ($section as $l )
-                        <option value="{{$l['id']}}"  @if ($l['id'] == $data['section_id'])
+                        <option value="{{$l['id']}}"  @if ($l['id'] == $data['issectional'])
                           selected="selected"  
                         @endif>{{$l['title']}}</option>
                         @endforeach
