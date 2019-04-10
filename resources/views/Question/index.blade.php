@@ -5,7 +5,7 @@
            
             <a href="{{ URL::to('Question/create') }}">
               <button type="button" class="btn btn-success ml-4">New</button>
-          </a>;
+          </a>
         </div>
         @if (session('status'))
         <div class="alert alert-success">

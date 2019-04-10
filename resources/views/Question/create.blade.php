@@ -1,53 +1,34 @@
 @extends('layouts.app')
-<script type="text/javascript" src="https://www.google.com/jsapi">
-</script>
-<script type="text/javascript">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
 
-   // Load the Google Transliterate API
-   google.load("elements", "1", {
-         packages: "transliteration"
-       });
+    // Load the Google Transliterate API
+    google.load("elements", "1",{ packages: "transliteration" });
 
-   function onLoad() {
-     var options = {
-         sourceLanguage:
-             google.elements.transliteration.LanguageCode.ENGLISH,
-         destinationLanguage:
-             [google.elements.transliteration.LanguageCode.HINDI],
-         shortcutKey: 'ctrl+g',
-         transliterationEnabled: true
-     };
+    function onLoad() {
+            var options = {
+                sourceLanguage:
+                    google.elements.transliteration.LanguageCode.ENGLISH,
+                destinationLanguage:
+                    [google.elements.transliteration.LanguageCode.HINDI],
+                shortcutKey: 'ctrl+g',
+                transliterationEnabled: true
+            };
+            // Create an instance on TransliterationControl with the required
+            // options.
+            var control = new google.elements.transliteration.TransliterationControl(options);
+            // Enable transliteration in the textbox with id
+            // 'transliterateTextarea'.
+            control.makeTransliteratable(['hindi']);
+            control.makeTransliteratable(['hindiOptionA']);
+            control.makeTransliteratable(['hindiOptionB']);
+            control.makeTransliteratable(['hindiOptionC']);
+            control.makeTransliteratable(['hindiOptionD']);
+            control.makeTransliteratable(['hindiExplaination']);
+        }
+        google.setOnLoadCallback(onLoad);
 
-     // Create an instance on TransliterationControl with the required
-     // options.
-     var control =
-         new google.elements.transliteration.TransliterationControl(options);
-
-     // Enable transliteration in the textbox with id
-     // 'transliterateTextarea'.
-     control.makeTransliteratable(['hindi']);
-     control.makeTransliteratable(['hindiOptionA']);
-     control.makeTransliteratable(['hindiOptionB']);
-     control.makeTransliteratable(['hindiOptionC']);
-     control.makeTransliteratable(['hindiOptionD']);
-     control.makeTransliteratable(['hindiExplaination']);
-   }
-   google.setOnLoadCallback(onLoad);
-
-//    //Load the Language API.
-//    google.load("language", "1");
-
-//    //Call google.language.transliterate() 
-//    google.language.transliterate(["Namaste"], "en", "hi", function(result) {
-//      if (!result.error) {
-//        var container = document.getElementById("transliteration");
-//        if (result.transliterations && result.transliterations.length > 0 &&
-//            result.transliterations[0].transliteratedWords.length > 0) {
-//          console.log(result.transliterations[0].transliteratedWords[0]);
-//        }
-//      }
-//    });
- </script>
+    </script>
  
 @section('content')
 
@@ -257,39 +238,39 @@
     </div>
     <script type="text/javascript">
       $(document).ready(function(){
-        if($('#section_name_select_newQuestion').children("option:selected").val()==7){
-                $('.o').hide();
-            }
-            else{
-                $('.o').show();
-            }
+            if($('#section_name_select_newQuestion').children("option:selected").val()==7){
+                    $('.o').hide();
+                }
+                else{
+                    $('.o').show();
+                }
 
-          
+            
 
-                $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected"));
-                  $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected"));
+                    $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected"));
+                    $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected"));
 
-                  $("#test_name_select_newQuestion").change(function(){
-                    console.log("Testname changed");
-                    $test_id_selected = $(this).children("option:selected").val()
-                    localStorage.setItem("test_id_selected", $test_id_selected);
+                    $("#test_name_select_newQuestion").change(function(){
+                        console.log("Testname changed");
+                        $test_id_selected = $(this).children("option:selected").val()
+                        localStorage.setItem("test_id_selected", $test_id_selected);
 
-                  });
-                 
-                  $("#section_name_select_newQuestion").change(function(){
-                    console.log("Sectionname changed");
-                    $section_id_selected = $(this).children("option:selected").val()
-                 localStorage.setItem("section_id_selected", $section_id_selected);
+                    });
+                    
+                    $("#section_name_select_newQuestion").change(function(){
+                        console.log("Sectionname changed");
+                        $section_id_selected = $(this).children("option:selected").val()
+                    localStorage.setItem("section_id_selected", $section_id_selected);
 
-                  if($(this).children("option:selected").val()==7){
-                      $('.o').hide();
-                  }
-                  else{
-                      $('.o').show();
-                  }
+                    if($(this).children("option:selected").val()==7){
+                        $('.o').hide();
+                    }
+                    else{
+                        $('.o').show();
+                    }
 
-            });
+                });
 
-        })
+        });
     </script>
 @endsection 
