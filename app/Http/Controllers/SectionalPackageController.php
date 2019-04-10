@@ -245,7 +245,7 @@ return view('section.edit',["data"=>$sectionalPackage,'list'=>$list,'qSet'=>$que
      */
     public function destroy($id)
     {
-        SectionalPackage::where('section_info_id',$id)->delete();
+        SectionalPackage::where('test_info_id',$id)->delete();
         return redirect('SectionS');
     }
 }
