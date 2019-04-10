@@ -55,7 +55,7 @@
 
                         <div class="form-group">
                                 <label for="Time">Test Time :</label>
-                                <input type="number" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
+                                <input type="text" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
                                
                               </div>
                           
@@ -68,11 +68,11 @@
                         <div class="form-group">
                                 <label for="pic">Insert Pic:</label>
                                 <input type="file" name="pic">
-                                <input name="npic" value="{{$data->pic}}" type="hidden"/>
+                                <input name="npic" id="npic" value="{{$data->pic}}" type="hidden"/>
                              
                                 @if($data->pic!=null)
                                <img src="{{asset($data->pic)}}" class ="img-thumbnail"/>
-                               
+                               <Button class="btn btn-danger m-2" id="remove">Remove</Button>
                                  @endif
                                
                               </div>
@@ -94,5 +94,13 @@
         </div>
         
     </div>
+
+    <script>
+            $(document).ready(function(){
+               $('#remove').click(function(){
+                $('#npic').attr('value',null);
+               });
+            });
+        </script>
     
  @endsection
