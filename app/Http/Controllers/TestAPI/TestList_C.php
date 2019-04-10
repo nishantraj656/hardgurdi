@@ -166,3 +166,50 @@ class TestList_C extends Controller
         return response()->json(['received'=>'yes','data'=>$data],$this->successStatus);
     }
 }
+
+
+
+
+
+
+
+
+
+// Zubbling 
+
+// SET @row_num = 0; 
+// SELECT * FROM (
+
+
+//   SELECT *, @row_num := @row_num +1 as count  FROM ( 
+//       SELECT question_id as questionID,test_info_id,section_id,question_json as question,option_json as option,answer_json,explaination FROM `question_tab` WHERE test_info_id = 17 and ispuzzle != 1  ORDER BY RAND()
+//     ) as normalQuesTab
+//     UNION
+//   SELECT *,@row_num := @row_num + 1 as count FROM (
+//     SELECT question_id as questionID,test_info_id,section_id,question_json as question,option_json as option,answer_json,explaination FROM `question_tab` WHERE test_info_id = 17 and ispuzzle = 1
+//   ) as puzzleQuesTab
+
+
+// ) AS Final_table ORDER BY COUNT 
+
+
+
+
+// $sql = '
+//             SELECT * FROM (
+
+
+//         SELECT *, @row_num := @row_num +1 as count  FROM ( 
+//             SELECT question_id as questionID,test_info_id,section_id,question_json as question,option_json as option,answer_json,explaination FROM `question_tab` WHERE test_info_id = 17 and ispuzzle != 1  ORDER BY RAND()
+//           ) as normalQuesTab
+//           UNION
+//         SELECT *,@row_num := @row_num + 1 as count FROM (
+//           SELECT question_id as questionID,test_info_id,section_id,question_json as question,option_json as option,answer_json,explaination FROM `question_tab` WHERE test_info_id = 17 and ispuzzle = 1
+//         ) as puzzleQuesTab
+
+
+//       ) AS Final_table ORDER BY COUNT 
+//         ';
+
+// $statement = DB::statement("SET @row_num = 0");
+// $datas = DB::select($sql);
