@@ -20,7 +20,8 @@
                     {{-- <input name="npicHindiExplaination" value="{{json_decode($datas->explaination)->hindi->pic}}" type="hidden"/> --}}
                                    
                     @if($data->pic!=null)
-                    <img src="{{asset($data->pic)}}" class ="img-thumbnail"/>
+                    <img src="{{asset($data->pic)}}" id="image" class ="img-thumbnail"/>
+                    <Button class="btn btn-danger m-2" id="remove">Remove</Button>
                   
                     @endif
 
@@ -40,5 +41,16 @@
         </div>
        
     </div>
-    
+    <script>
+        $(document).ready(function(){
+           $('#remove').click(function(){
+            $('#npic').attr('value',null)
+          
+           });
+        });
+    </script>
+   
  @endsection
+
+ 
+  

@@ -52,7 +52,7 @@
 
                                       <a href="{{ URL::to('Exam/' .$value->test_cat_id. '/edit') }}">
                                         <button type="button" class="btn btn-success ml-4">Edit</button>
-                                    </a>;
+                                    </a>
                                     </div>
                                   </div>
                                 </td>

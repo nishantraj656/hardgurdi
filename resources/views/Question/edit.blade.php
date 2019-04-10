@@ -97,11 +97,11 @@
                             <div class="form-group">
                                 <label for="pic">Insert Pic:</label>
                                 <input type="file" name="picEng">
-                                <input name="npicEng" value="{{json_decode($datas->question_json)->eng->pic}}" type="hidden"/>
+                                <input name="npicEng" id="npicEng" value="{{json_decode($datas->question_json)->eng->pic}}" type="hidden"/>
                              
                                 @if(json_decode($datas->question_json)->eng->pic!=null)
                                <img src="{{asset(json_decode($datas->question_json)->eng->pic)}}" class ="img-thumbnail"/>
-                               
+                                <Button class="btn btn-danger m-2" id="removenpicEng">Remove</Button>                               
                                  @endif
                                
                               </div>
@@ -116,10 +116,11 @@
                                 <div class="form-group">
                                     <label for="pic">Insert Pic:</label>
                                     <input type="file" name="picEngOptionA">
-                                    <input name="npicEngOptionA" value="{{json_decode($datas->option_json)->eng->A->pic}}" type="hidden"/>
+                                    <input name="npicEngOptionA" id="npicEngOptionA" value="{{json_decode($datas->option_json)->eng->A->pic}}" type="hidden"/>
                              
                                     @if(json_decode($datas->option_json)->eng->A->pic!=null)
                                     <img src="{{asset(json_decode($datas->option_json)->eng->A->pic)}}" class ="img-thumbnail"/>
+                                     <Button class="btn btn-danger m-2" id="removenpicEngOptionA">Remove</Button> 
                                     @endif
                                    
                                   </div>
@@ -136,10 +137,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionB">
-                                        <input name="npicEngOptionB" value="{{json_decode($datas->option_json)->eng->B->pic}}" type="hidden"/>
+                                        <input name="npicEngOptionB" id="npicEngOptionB" value="{{json_decode($datas->option_json)->eng->B->pic}}" type="hidden"/>
                              
                                         @if(json_decode($datas->option_json)->eng->B->pic!=null)
                                     <img src="{{asset(json_decode($datas->option_json)->eng->B->pic)}}" class ="img-thumbnail"/>
+                                     <Button class="btn btn-danger m-2" id="removenpicEngOptionB">Remove</Button> 
                                     @endif
                                        
                                       </div>
@@ -154,10 +156,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionC">
-                                        <input name="npicEngOptionC" value="{{json_decode($datas->option_json)->eng->C->pic}}" type="hidden"/>
+                                        <input name="npicEngOptionC" id="npicEngOptionC" value="{{json_decode($datas->option_json)->eng->C->pic}}" type="hidden"/>
                              
                                         @if(json_decode($datas->option_json)->eng->C->pic!=null)
                                         <img src="{{asset(json_decode($datas->option_json)->eng->C->pic)}}" class ="img-thumbnail"/>
+                                         <Button class="btn btn-danger m-2" id="removenpicEngOptionC">Remove</Button> 
                                         @endif
                                        
                                       </div> 
@@ -172,10 +175,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionD">
-                                        <input name="npicEngOptionD" value="{{json_decode($datas->option_json)->eng->D->pic}}" type="hidden"/>
+                                        <input name="npicEngOptionD" id="npicEngOptionD" value="{{json_decode($datas->option_json)->eng->D->pic}}" type="hidden"/>
                              
                                         @if(json_decode($datas->option_json)->eng->D->pic!=null)
                                     <img src="{{asset(json_decode($datas->option_json)->eng->D->pic)}}" class ="img-thumbnail"/>
+                                     <Button class="btn btn-danger m-2" id="removenpicEngOptionD">Remove</Button> 
                                     @endif
                                       </div>
                             </div>
@@ -187,9 +191,10 @@
                                 <div class="form-group">
                                     <label for="pic">Insert Pic:</label>
                                     <input type="file" name="picEngExplaination">
-                                    <input name="npicEngExplaination" value="{{json_decode($datas->explaination)->eng->pic}}" type="hidden"/>
+                                    <input name="npicEngExplaination" id="npicEngExplaination" value="{{json_decode($datas->explaination)->eng->pic}}" type="hidden"/>
                                     @if(json_decode($datas->explaination)->eng->pic!=null)
                                     <img src="{{asset(json_decode($datas->explaination)->eng->pic)}}" class ="img-thumbnail"/>
+                                     <Button class="btn btn-danger m-2" id="removenpicEngExplaination">Remove</Button> 
                                     @endif
                                   </div>
                     </div>
@@ -203,10 +208,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picHindi">
-                                    <input name="npicHindi" value="{{json_decode($datas->question_json)->hindi->pic}}" type="hidden"/>
+                                    <input name="npicHindi" id="npicHindi" value="{{json_decode($datas->question_json)->hindi->pic}}" type="hidden"/>
                                    
                                         @if(json_decode($datas->question_json)->hindi->pic!=null)
                                         <img src="{{asset(json_decode($datas->question_json)->hindi->pic)}}" class ="img-thumbnail"/>
+                                         <Button class="btn btn-danger m-2" id="removenpicHindi">Remove</Button> 
                                         @endif
                                        
                                       </div>
@@ -221,10 +227,11 @@
                                         <div class="form-group">
                                             <label for="picHindiOptionA">Insert Pic:</label>
                                             <input type="file" name="picHindiOptionA"/>
-                                            <input name="npicHindiOptionA" value="{{json_decode($datas->option_json)->hindi->A->pic}}" type="hidden"/>
+                                            <input name="npicHindiOptionA" id="npicHindiOptionA" value="{{json_decode($datas->option_json)->hindi->A->pic}}" type="hidden"/>
                                    
                                             @if(json_decode($datas->option_json)->hindi->A->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->A->pic)}}" class ="img-thumbnail"/>
+                                             <Button class="btn btn-danger m-2" id="removenpicHindiOptionA">Remove</Button> 
                                             @endif
                                           </div>
                                     </div>
@@ -238,10 +245,11 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionB">
-                                                <input name="npicHindiOptionB" value="{{json_decode($datas->option_json)->hindi->B->pic}}" type="hidden"/>
+                                                <input name="npicHindiOptionB" id="npicHindiOptionB" value="{{json_decode($datas->option_json)->hindi->B->pic}}" type="hidden"/>
                                    
                                                 @if(json_decode($datas->option_json)->hindi->B->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->B->pic)}}" class ="img-thumbnail"/>
+                                             <Button class="btn btn-danger m-2" id="removenpicHindiOptionB">Remove</Button> 
                                             @endif
                                               </div> 
                                      </div>
@@ -255,10 +263,11 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionC">
-                                                <input name="npicHindiOptionC" value="{{json_decode($datas->option_json)->hindi->C->pic}}" type="hidden"/>
+                                                <input name="npicHindiOptionC" id="npicHindiOptionC" value="{{json_decode($datas->option_json)->hindi->C->pic}}" type="hidden"/>
                                    
                                                 @if(json_decode($datas->option_json)->hindi->C->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->C->pic)}}" class ="img-thumbnail"/>
+                                             <Button class="btn btn-danger m-2" id="removenpicHindiOptionC">Remove</Button> 
                                             @endif
                                               </div>
                                     </div>
@@ -272,10 +281,11 @@
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
                                                 <input type="file" name="picHindiOptionD">
-                                                <input name="npicHindiOptionD" value="{{json_decode($datas->option_json)->hindi->D->pic}}" type="hidden"/>
+                                                <input name="npicHindiOptionD" id="npicHindiOptionD" value="{{json_decode($datas->option_json)->hindi->D->pic}}" type="hidden"/>
                                    
                                                 @if(json_decode($datas->option_json)->hindi->D->pic!=null)
                                             <img src="{{asset(json_decode($datas->option_json)->hindi->D->pic)}}" class ="img-thumbnail"/>
+                                             <Button class="btn btn-danger m-2" id="removenpicHindiOptionD">Remove</Button> 
                                             @endif
                                               </div>
                                     </div>
@@ -286,10 +296,11 @@
                                     <div class="form-group">
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picHindiExplaination">
-                                        <input name="npicHindiExplaination" value="{{json_decode($datas->explaination)->hindi->pic}}" type="hidden"/>
+                                        <input name="npicHindiExplaination" id="npicHindiExplaination" value="{{json_decode($datas->explaination)->hindi->pic}}" type="hidden"/>
                                    
                                         @if(json_decode($datas->explaination)->hindi->pic!=null)
                                         <img src="{{asset(json_decode($datas->explaination)->hindi->pic)}}" class ="img-thumbnail"/>
+                                         <Button class="btn btn-danger m-2" id="removenpicHindiExplaination">Remove</Button> 
                                         @endif
                                        
                                       </div> 
@@ -330,7 +341,57 @@
                   $('.o').show();
               }
   
-            
+              $('#removenpicEng').click(function(){
+            $('#npicEng').attr('value',null);
+           });
+
+           $('#removenpicEngOptionA').click(function(){
+            $('#npicEngOptionA').attr('value',null);
+           });
+
+           $('#removenpicEngOptionB').click(function(){
+            $('#npicEngOptionB').attr('value',null);
+           });
+
+           $('#removenpicEngOptionC').click(function(){
+            $('#npicEngOptionC').attr('value',null);
+           });
+
+           $('#removenpicEngOptionD').click(function(){
+            $('#npicEngOptionD').attr('value',null);
+           });
+
+           $('#removenpicEngExplaination').click(function(){
+            $('#npicEngExplaination').attr('value',null);
+           });
+
+           $('#removenpicHindi').click(function(){
+            $('#npicHindi').attr('value',null);
+           });
+
+           $('#removenpicHindiOptionA').click(function(){
+            $('#npicHindiOptionA').attr('value',null);
+           });
+
+           $('#removenpicHindiOptionB').click(function(){
+            $('#npicHindiOptionB').attr('value',null);
+           });
+
+           $('#removenpicHindiOptionC').click(function(){
+            $('#npicHindiOptionC').attr('value',null);
+           });
+
+           $('#removenpicHindiOptionD').click(function(){
+            $('#npicHindiOptionD').attr('value',null);
+           });
+
+           $('#removenpicHindiExplaination').click(function(){
+            $('#npicHindiExplaination').attr('value',null);
+           });
+
+          
+
+
   
             // $("#test_name_select_newQuestion").val(localStorage.getItem("test_id_selected"));
             //   $("#section_name_select_newQuestion").val(localStorage.getItem("section_id_selected"));

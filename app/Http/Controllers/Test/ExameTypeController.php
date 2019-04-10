@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use  App\ExameType;
 use Redirect;
+use Illuminate\Http\Response;
 
 class ExameTypeController extends Controller
 {
@@ -114,11 +115,11 @@ class ExameTypeController extends Controller
             $picpath = $request->file('pic'); 
             if($picpath != null)
                 $picpath = $this->imagePath($picpath->store('public/Set'));
-                else
-                {
-                    $picpath = $request->npic;
-                    // echo $picpath;
-                }
+            else
+            {
+                $picpath = $request->npic;
+                echo $picpath;
+            }
         
         $update = ['cat_name'=>$request->title,'pic'=>$picpath];
         ExameType::where('test_cat_id',$id)->update($update);
@@ -154,6 +155,8 @@ class ExameTypeController extends Controller
         echo "Path ".$imageFullPath;
         return $imageFullPath;
     }
+
+  
 
 
     /**
