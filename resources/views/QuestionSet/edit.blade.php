@@ -55,7 +55,7 @@
 
                         <div class="form-group">
                                 <label for="Time">Test Time :</label>
-                                <input type="number" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
+                                <input type="text" value="{{$data->time}}" min="0" class="form-control" id="Time" name="Time" required>
                                
                               </div>
                           

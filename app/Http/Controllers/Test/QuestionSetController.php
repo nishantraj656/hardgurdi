@@ -48,7 +48,7 @@ return $data;
 
     public function count() 
     {
-        $listCount = QuestionS::where('issectional','=',-1)
+        $listCount = QuestionS::where('issectional','!=',-1)
                 ->count();
         // $activeCount = QuestionS::where('issectional','==',-1)->where('status','==',1)
         // ->count();
@@ -104,7 +104,7 @@ return $data;
         'test_price'=>$request->price,
         'marks_on_correct'=>$request->correct,
         'marks_on_incorrect'=>$request->incorrect,
-        'status'=>0,
+        'status'=> 0,
         'expDate'=>$request->expDate,
         'time'=>$request->Time,
    ]);
@@ -209,7 +209,7 @@ return $data;
             'test_price'=>$request->price,
             'marks_on_correct'=>$request->correct,
             'marks_on_incorrect'=>$request->incorrect,
-            'status'=>0,
+            'status'=> 0,
             'expDate'=>$request->expDate,
             'time'=>$request->Time,
        ];
@@ -224,8 +224,7 @@ return $data;
       
         $update= [
             'status'=>$request->status,
-           
-       ];
+           ];
 
         QuestionS::where('test_info_id',$id)->update($update);
           return redirect('QuestionS');

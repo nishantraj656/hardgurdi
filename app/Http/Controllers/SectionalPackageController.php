@@ -132,7 +132,7 @@ class SectionalPackageController extends Controller
             'marks_on_correct'=>$request->correct,
             'marks_on_incorrect'=>$request->incorrect,
             'status'=>0,
-            'issectional'=>0,
+            
             'expDate'=>$request->expDate,
             'time'=>$request->Time,
        ]);
