@@ -119,8 +119,9 @@ class ResultController extends Controller
 
             $AIR = $this->getAIR($userID,$results->test_info_id);
             $maxMarks = $this->getHighMarks($results->test_info_id);
+           $count = DB::select('SELECT COUNT(result_id) as rid FROM result_tab WHERE test_info_id='.$results->test_info_id);
 
-            return response()->json(['maxMarks'=>$maxMarks,'received'=>'yes','resultID'=>$resultID,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info,'testgiuvenID'=>$testID]);
+return response()->json(['maxMarks'=>$maxMarks,'count'=>$count,'received'=>'yes','resultID'=>$resultID,'totalMarks'=>$results->total_marks,'obtain'=>$results->obtain_marks,'AIR'=>$AIR,'info'=>$results->info,'testgiuvenID'=>$testID]);
 
         }
 

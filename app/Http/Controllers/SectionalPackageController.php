@@ -115,7 +115,7 @@ class SectionalPackageController extends Controller
             'expDate'=>'required',
             'Time'=>'required'
                  ]);
-          
+           
           $path = $request->file('pic');
                 if($path != null)
                     $path = $this->imagePath($path->store('public/Set'));

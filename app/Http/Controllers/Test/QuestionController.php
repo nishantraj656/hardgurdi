@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Test;
 use App\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 use App\Http\Controllers\Test\QuestionSetController;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,10 +30,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
-      
-      
-        
-        
+       
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>'All','li'=>'All']);
     }
 
@@ -69,36 +66,31 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             ->join('test_info_tab','test_info_tab.test_info_id','=','question_tab.test_info_id')
             ->simplePaginate(100);
 
-
-
         $list =new QuestionSetController();
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
       
-        
-        
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>$request->setname,'li'=>$request->section]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
-
+    
     public function create()
     {
-        
+      
         $list =new QuestionSetController();
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
         ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
       
-
         return view('Question.create',["list"=>$list,'section'=>$section]);
-  }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -177,10 +169,6 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             $picEngExplainationpath = $this->imagePath($picEngExplainationpath->store('public/Set'));
 
     
-
-
-
-
             /**{eng:{text:'',pic:''},hindi:{text:'',pic:''}} */
         $question=array("eng"=>array("text"=>$request->eng,"pic"=>$picEngpath),"hindi"=>array("text"=>$request->hindi,"pic"=>$picHindipath));
         $option=array("eng"=>array("A"=>array("text"=>$request->engOptionA,"pic"=>$picEngOptionApath),"B"=>array("text"=>$request->engOptionB,"pic"=>$picEngOptionBpath),"C"=>array("text"=>$request->engOptionC,"pic"=>$picEngOptionCpath),"D"=>array("text"=>$request->engOptionD,"pic"=>$picEngOptionDpath)),
