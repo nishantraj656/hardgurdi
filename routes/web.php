@@ -53,7 +53,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 //Route::get('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
-Route::resource('/Test','Test\\TestController')->middleware('auth');;
+Route::resource('/Test','Test\\TestController')->middleware('auth');
 Route::resource('/Exam','Test\\ExameTypeController')->middleware('auth');;
 Route::resource('/Package','Test\\packageController')->middleware('auth');;
 Route::resource('/Question','Test\\QuestionController')->middleware('auth');;

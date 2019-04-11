@@ -162,37 +162,65 @@ class LoginSignUP extends Controller
       }
       return response()->json(['data' => $data], $this-> successStatus);
     }
+
+
     public function send_OTP_fun(Request $request)
     {
-      $data['sendOTP'] = 'yes';
-      $reveiced = $request->json()->all()['OTP'];
-      $this->OTP = $reveiced;
-      return response()->json(['data'=>$data,'feedback'=>$reveiced]);
+
+      $OTP = $this->generateNumericOTP(6);
+
+      $request->session()->put('otp', $OTP);
+
+      $data['OTP'] = $OTP;
+
+
+      // $reveiced = $request->json()->all();
+      return response()->json(['received'=>'yes','data'=>$data]);
     }
+
     public function change_password_fun(Request $request)
     {
       $data['changed'] = 'yes';
-
-
-
-
-
+      $dataNotdata['changed'] = 'no';
       $request->validate([
         'email' => 'required|email', 
         'password' => 'required', 
         'c_password' => 'required|same:password', 
         'user_type' => 'required',
+        'otp'=>'required',
       ]);
 
-      User::where('email',$request->email)->update( [
-          'password'=> bcrypt($request->password),
-      ]);
-      return response()->json([
-        'data'=>$data,
-        'feedback_password'=>$request->password,
-        'feedback_email'=>$request->email,
-        'OTP'=>$this->OTP,
-      ]);
+      $flag =false;
+
+      if ($request->session()->has('otp')) 
+      {
+        $sessionOTP = $request->session()->get('otp');
+        $OTP = $request->otp;
+        if($sessionOTP == $OTP)
+        {
+            User::where('email',$request->email)->update( [
+              'password'=> bcrypt($request->password),
+          ]);
+          return response()->json([
+            'received'=>'yes',
+            'data'=>$data,
+            'feedback_password'=>$request->password,
+            'feedback_email'=>$request->email
+          ]);
+        }
+         
+       
+
+      }else
+    
+        return response()->json([
+          'received'=>'yes',
+          'data'=>$dataNotdata,
+        
+        ]);
+      
+    
+     
     }
     
     // Function to generate OTP 
