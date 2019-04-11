@@ -341,7 +341,7 @@
                   $('.o').show();
               }
   
-              $('#removenpicEng').click(function(){
+          $('#removenpicEng').click(function(){
             $('#npicEng').attr('value',null);
            });
 

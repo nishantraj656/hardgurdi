@@ -24,17 +24,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
 
 
 Route::group(['middleware' => 'auth:api'], function(){
 
+	Route::post('SaveResult','TestAPI\\ResultController@saveResult');//save result
 
 
 	Route::post('details', 'APITest\UserController@details');
 
 
-Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
+	Route::post('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 
 
 
@@ -92,9 +92,9 @@ Route::get('render_upcomingTestList_HD', 'TestAPI\upcomingTest_C@upcomingTestLis
 
 
 
-Route::get('test/{testID}', 'TestAPI\\ResultController@getHighMarks');
-Route::get('test1', 'TestAPI\\QuestionController@getTestQuestion');
-Route::get('test2/{user_id}/{test_info_id}', 'TestAPI\\ResultController@getAIR');
+// Route::get('test/{testID}', 'TestAPI\\ResultController@getHighMarks');
+// Route::get('test1', 'TestAPI\\QuestionController@getTestQuestion');
+// Route::get('test2/{user_id}/{test_info_id}', 'TestAPI\\ResultController@getAIR');
 
 
 

@@ -381,8 +381,10 @@
 					<!-- App Badge -->
 					<div class="app-badge" >
 						<ul class="list-inline" >
-							<li class="list-inline-item downloadapp-popover" data-toggle="popover" title="Great!!!" data-content="App will avalible soon...">
-								<a ><img class="img-fluid" src="images/app-badge/google-play.png" alt="google-play"></a>
+							<li class="list-inline-item downloadapp-popover" data-toggle="popover" title="Great!!!" data-content="App now Available on Play Store...">
+								<a href="https://play.google.com/store/apps/details?id=com.hardigurdi.HRTest">
+									<img class="img-fluid" src="images/app-badge/google-play.png" alt="google-play">
+								</a>
 							</li>
 							<!-- <li class="list-inline-item">
 								<a href="#"><img class="img-fluid" src="images/app-badge/app-store.png" alt="app-store"></a>
@@ -407,7 +409,7 @@
 		    <div class="col-md-8">
 		      <div class="card-body">
 		        <h5 class="card-title card-title-adv">We are Launching..</h5>
-		        <p class="card-text card-text-adv">Mock Tests will be launched from 6th of april 2019. Hope you will take advantage of our awesome  mobile appliction.</p>
+		        <p class="card-text card-text-adv">Now Available on play store. Hope you will take advantage of our awesome  mobile appliction.</p>
 		        <p class="card-text card-text-adv"><small class="text-muted">By CEO HardiGurdi</small></p>
 		      </div>
 		    </div>
