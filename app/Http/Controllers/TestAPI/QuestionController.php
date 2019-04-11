@@ -34,7 +34,7 @@ class QuestionController extends Controller
         
 		->orderBy('question', 'desc')
         // ->simplePaginate(200);
-        ->simplePaginate(2);
+        ->simplePaginate(200);
 
         $datas; //$this->questionMixing($datas);
 

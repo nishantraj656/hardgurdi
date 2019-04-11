@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\DB;
 class LoginSignUP extends Controller
 {
     public $successStatus = 200;
+    private $OTP = "0";
     public function login(Request $request){ 
         $email = $request->json()->all()['email'];
         $password = $request->json()->all()['password'];
         $user_type = $request->json()->all()['user_type'];
-		$noti_token = $request->json()->all()['noti_token'];
+    $noti_token = $request->json()->all()['noti_token'];
 
         if(Auth::attempt(['email' => $email, 'password' => $password, 'user_type' => $user_type])){ 
             $user = Auth::user(); 
@@ -96,11 +97,11 @@ class LoginSignUP extends Controller
         //     'c_password' => 'required|same:password', 
         //     'phoneno' => 'required|numeric',
         // ]);
-		    
+        
         // if ($validator->fails()) { 
         //     return response()->json(['error'=>$validator->errors()], 401);            
         // }
-		
+    
         // $input = $request->json()->all(); 
         // $input['password'] = bcrypt($input['password']); 
         // $user = User::create($input); 
@@ -164,7 +165,8 @@ class LoginSignUP extends Controller
     public function send_OTP_fun(Request $request)
     {
       $data['sendOTP'] = 'yes';
-      $reveiced = $request->json()->all();
+      $reveiced = $request->json()->all()['OTP'];
+      $this->OTP = $reveiced;
       return response()->json(['data'=>$data,'feedback'=>$reveiced]);
     }
     public function change_password_fun(Request $request)
@@ -188,7 +190,33 @@ class LoginSignUP extends Controller
       return response()->json([
         'data'=>$data,
         'feedback_password'=>$request->password,
-        'feedback_email'=>$request->email
+        'feedback_email'=>$request->email,
+        'OTP'=>$this->OTP,
       ]);
     }
+    
+    // Function to generate OTP 
+  function generateNumericOTP($n) { 
+        
+      // Take a generator string which consist of 
+      // all numeric digits 
+      $generator = "1357902468"; 
+    
+      // Iterate for n-times and pick a single character 
+      // from generator and append it to $result 
+        
+      // Login for generating a random character from generator 
+      //     ---generate a random number 
+      //     ---take modulus of same with length of generator (say i) 
+      //     ---append the character at place (i) from generator to result 
+    
+      $result = ""; 
+    
+      for ($i = 1; $i <= $n; $i++) { 
+          $result .= substr($generator, (rand()%(strlen($generator))), 1); 
+      } 
+    
+      // Return result 
+      return $result; 
+  } 
 }
