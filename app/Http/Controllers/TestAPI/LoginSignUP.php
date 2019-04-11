@@ -168,9 +168,12 @@ class LoginSignUP extends Controller
     {
 
       $OTP = $this->generateNumericOTP(6);
+      $email = $request->email;
+      DB::table('users')
+            ->where('email', $email)
+            ->update(['otp' => $OTP]);
 
-      $request->session()->put('otp', $OTP);
-
+      // session(['otp' => $OTP]);
       $data['OTP'] = $OTP;
 
 
@@ -192,9 +195,9 @@ class LoginSignUP extends Controller
 
       $flag =false;
 
-      if ($request->session()->has('otp')) 
-      {
-        $sessionOTP = $request->session()->get('otp');
+      // if ($request->session()->has('otp')) 
+      // {
+        $sessionOTP = DB::table('users')->select('otp')->where('email',$request->email)->first()->otp;
         $OTP = $request->otp;
         if($sessionOTP == $OTP)
         {
@@ -204,20 +207,23 @@ class LoginSignUP extends Controller
           return response()->json([
             'received'=>'yes',
             'data'=>$data,
-            'feedback_password'=>$request->password,
-            'feedback_email'=>$request->email
+            'feedback_OTP'=>$sessionOTP,
           ]);
         }
          
        
 
-      }else
+      // }else
     
         return response()->json([
-          'received'=>'yes',
-          'data'=>$dataNotdata,
-        
-        ]);
+              'received'=>'yes',
+              'data'=>$dataNotdata,
+              'feedback_OTP1'=>$sessionOTP,
+              // 'session'=>session()->all(),
+              'feedback_OTPuse'=>$OTP,
+              'why'=>($sessionOTP == $OTP),
+            
+            ]);
       
     
      
