@@ -38,18 +38,18 @@ Route::get('/TermsAndConditions',function(){
 });
 
 
-Route::post('Question/filter', 'Test\\QuestionController@filter');
+Route::post('Question/filter', 'Test\\QuestionController@filter')->middleware('auth');
 
-Route::post('SectionS/filter', 'Test\\SectionController@filter');
+Route::post('SectionS/filter', 'Test\\SectionController@filter')->middleware('auth');
 
-Route::post('SectionS/{Test}/a', 'SectionalPackageController@Activate');
+Route::post('SectionS/{Test}/a', 'SectionalPackageController@Activate')->middleware('auth');
 
-Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate');
+Route::post('QuestionS/{Test}/a', 'Test\\QuestionSetController@Activate')->middleware('auth');
 
-Route::post('Package/{Test}/a', 'Test\\packageController@Activate');
+Route::post('Package/{Test}/a', 'Test\\packageController@Activate')->middleware('auth');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 //Route::get('Question/Test','TestAPI\\QuestionController@getTestQuestion');
 

@@ -33,7 +33,8 @@ class QuestionController extends Controller
         ->where($where)
         
 		->orderBy('question', 'desc')
-        ->simplePaginate(200);
+        // ->simplePaginate(200);
+        ->simplePaginate(2);
 
         $datas; //$this->questionMixing($datas);
 
