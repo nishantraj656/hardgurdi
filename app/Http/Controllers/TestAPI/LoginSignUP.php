@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\DB;
 class LoginSignUP extends Controller
 {
     public $successStatus = 200;
+    private $OTP = "0";
     public function login(Request $request){ 
         $email = $request->json()->all()['email'];
         $password = $request->json()->all()['password'];
         $user_type = $request->json()->all()['user_type'];
-		$noti_token = $request->json()->all()['noti_token'];
+    $noti_token = $request->json()->all()['noti_token'];
 
         if(Auth::attempt(['email' => $email, 'password' => $password, 'user_type' => $user_type])){ 
             $user = Auth::user(); 
@@ -96,11 +97,11 @@ class LoginSignUP extends Controller
         //     'c_password' => 'required|same:password', 
         //     'phoneno' => 'required|numeric',
         // ]);
-		    
+        
         // if ($validator->fails()) { 
         //     return response()->json(['error'=>$validator->errors()], 401);            
         // }
-		
+    
         // $input = $request->json()->all(); 
         // $input['password'] = bcrypt($input['password']); 
         // $user = User::create($input); 
@@ -167,46 +168,23 @@ class LoginSignUP extends Controller
     {
 
       $OTP = $this->generateNumericOTP(6);
+      $email = $request->email;
+      DB::table('users')
+            ->where('email', $email)
+            ->update(['otp' => $OTP]);
 
-      $request->session()->put('otp', $OTP);
+      // session(['otp' => $OTP]);
+      $data['OTP'] = $OTP;
 
-      $data['sendOTP'] = $OTP;
 
-
-      $reveiced = $request->json()->all();
-      return response()->json(['received'=>'yes','data'=>$data,'feedback'=>$reveiced]);
+      // $reveiced = $request->json()->all();
+      return response()->json(['received'=>'yes','data'=>$data]);
     }
-
-    // Function to generate OTP
-function generateNumericOTP($n) {
-      
-  // Take a generator string which consist of
-  // all numeric digits
-  $generator = "1357902468";
-
-  // Iterate for n-times and pick a single character
-  // from generator and append it to $result
-    
-  // Login for generating a random character from generator
-  //     ---generate a random number
-  //     ---take modulus of same with length of generator (say i)
-  //     ---append the character at place (i) from generator to result
-
-  $result = "";
-
-  for ($i = 1; $i <= $n; $i++) {
-      $result .= substr($generator, (rand()%(strlen($generator))), 1);
-  }
-
-  // Return result
-  return $result;
-}
-
-
 
     public function change_password_fun(Request $request)
     {
-      $data['changed'] = 'yes';      
+      $data['changed'] = 'yes';
+      $dataNotdata['changed'] = 'no';
       $request->validate([
         'email' => 'required|email', 
         'password' => 'required', 
@@ -217,9 +195,9 @@ function generateNumericOTP($n) {
 
       $flag =false;
 
-      if ($request->session()->has('otp')) 
-      {
-        $sessionOTP = $request->session()->get('otp');
+      // if ($request->session()->has('otp')) 
+      // {
+        $sessionOTP = DB::table('users')->select('otp')->where('email',$request->email)->first()->otp;
         $OTP = $request->otp;
         if($sessionOTP == $OTP)
         {
@@ -229,23 +207,50 @@ function generateNumericOTP($n) {
           return response()->json([
             'received'=>'yes',
             'data'=>$data,
-            'feedback_password'=>$request->password,
-            'feedback_email'=>$request->email
+            'feedback_OTP'=>$sessionOTP,
           ]);
         }
          
        
 
-      }
-      else
+      // }else
     
-    return response()->json([
-      'received'=>'no',
-      'data'=>"OTP error ",
-     
-    ]);
+        return response()->json([
+              'received'=>'yes',
+              'data'=>$dataNotdata,
+              'feedback_OTP1'=>$sessionOTP,
+              // 'session'=>session()->all(),
+              'feedback_OTPuse'=>$OTP,
+              'why'=>($sessionOTP == $OTP),
+            
+            ]);
       
     
      
     }
+    
+    // Function to generate OTP 
+  function generateNumericOTP($n) { 
+        
+      // Take a generator string which consist of 
+      // all numeric digits 
+      $generator = "1357902468"; 
+    
+      // Iterate for n-times and pick a single character 
+      // from generator and append it to $result 
+        
+      // Login for generating a random character from generator 
+      //     ---generate a random number 
+      //     ---take modulus of same with length of generator (say i) 
+      //     ---append the character at place (i) from generator to result 
+    
+      $result = ""; 
+    
+      for ($i = 1; $i <= $n; $i++) { 
+          $result .= substr($generator, (rand()%(strlen($generator))), 1); 
+      } 
+    
+      // Return result 
+      return $result; 
+  } 
 }
