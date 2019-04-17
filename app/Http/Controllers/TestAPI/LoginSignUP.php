@@ -81,44 +81,44 @@ class LoginSignUP extends Controller
 
     public function register(Request $request) 
     { 
-        // $name = $request->json()->all()['name'];
-        // $email = $request->json()->all()['email'];
-        // $password = $request->json()->all()['password'];
-        // $c_password = $request->json()->all()['c_password'];
-        // $phone = $request->json()->all()['phoneno'];
-        // $user_type = $request->json()->all()['user_type'];
+        $name = $request->json()->all()['name'];
+        $email = $request->json()->all()['email'];
+        $password = $request->json()->all()['password'];
+        $c_password = $request->json()->all()['c_password'];
+        $phone = $request->json()->all()['phoneno'];
+        $user_type = $request->json()->all()['user_type'];
 
 
-        // // saving login data to user table 
+        // saving login data to user table 
 
-        // $validator = Validator::make($request->json()->all(),[ 
-        //     'email' => 'required|email', 
-        //     'password' => 'required', 
-        //     'c_password' => 'required|same:password', 
-        //     'phoneno' => 'required|numeric',
-        // ]);
+        $validator = Validator::make($request->json()->all(),[ 
+            'email' => 'required|email', 
+            'password' => 'required', 
+            'c_password' => 'required|same:password', 
+            'phoneno' => 'required|numeric',
+        ]);
         
-        // if ($validator->fails()) { 
-        //     return response()->json(['error'=>$validator->errors()], 401);            
-        // }
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
+        }
     
-        // $input = $request->json()->all(); 
-        // $input['password'] = bcrypt($input['password']); 
-        // $user = User::create($input); 
+        $input = $request->json()->all(); 
+        $input['password'] = bcrypt($input['password']); 
+        $user = User::create($input); 
         
-        // $success['token'] =  $user->createToken('MyApp')-> accessToken; 
-        // $success['name'] =  $user->name;
+        $success['token'] =  $user->createToken('MyApp')-> accessToken; 
+        $success['name'] =  $user->name;
 
 
 
 
-        // //fetching user id of the inserted data in users table 
-        // $wor_info_id = DB::table('users')->select('id','phoneno')
-        //                 ->where('email', '=', $email)
-        //                 ->get();
-        // $userID = $wor_info_id[0]->id; 
+        //fetching user id of the inserted data in users table 
+        $wor_info_id = DB::table('users')->select('id','phoneno')
+                        ->where('email', '=', $email)
+                        ->get();
+        $userID = $wor_info_id[0]->id; 
    
-        // return response()->json(['success'=>$success,'profileData' =>[],'userID'=>$userID,'reg_done' => 'yes'], $this-> successStatus); 
+        return response()->json(['success'=>$success,'profileData' =>[],'userID'=>$userID,'reg_done' => 'yes'], $this-> successStatus); 
     }
    
     /** 
