@@ -56,5 +56,18 @@ class CatSubCat_C extends Controller
 
       	return response()->json(['received'=>'yes','data'=>$cat_sub_cat_arr_final],$this->successStatus);
     }
+	
+	public function imageGet()
+	{
+		$imagePath = array();
+		$imagePath = array_push('http://hardigurdi.com/images/phones/iphone-banner.png');
+		$imagePath = array_push('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201809/Online-exam-647.jpeg?of2m36jHA8vcOKmUZ1YB7DHl_ypIoLIj');
+		$imagePath = array_push('https://jobapply.org.in/wp-content/uploads/2018/07/Exposure-is-king-777x437.jpg');
+		$imagePath = array_push('http://hardigurdi.com/images/icon.png');
+		$imagePath = array_push('http://hardigurdi.com/images/backgrounds/promo-video-bg.jpeg');
+		$imagePath = array_push('http://hardigurdi.com/images/phones/rrb.jpg');
+	return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
+	return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
+	}
     
 }

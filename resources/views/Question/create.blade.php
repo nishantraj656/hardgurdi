@@ -131,7 +131,7 @@
                                         <input type="radio" value="D" name="engRadio"  @if(old('engRadio')=='D') checked="checked"@endif>
                                     <input type="text" class="form-control m-2" value="{{old('engOptionD')}}" name="engOptionD" >
                                     <div class="form-group">
-                                        <label for="pic">Insert Pic:</label>
+										<label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionD">
                                        
                                       </div>
