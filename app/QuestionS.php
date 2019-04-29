@@ -26,19 +26,19 @@ class QuestionS extends Model
 //    ];
 
    public $fillable =[
-        'test_info_id',
-    'package_id',
-     'test_name',
+      'test_info_id',
+      'package_id',
+      'test_name',
       'descrption', 
       'pic', 
       'enroll_stud_count',
-       'test_price',
-        'marks_on_correct', 
-        'marks_on_incorrect',
-        'status',
-        'expDate',
-        'time',
-        'issectional'
+      'test_price',
+      'marks_on_correct', 
+      'marks_on_incorrect',
+      'status',
+      'expDate',
+      'time',
+      'issectional'
    ];
 }
  

@@ -13,7 +13,7 @@ class CatSubCat_C extends Controller
 
     public function index(Request $request) 
     {
-    	$category_list = DB::table('test_cat_tab')
+        $category_list = DB::table('test_cat_tab')
             ->select('cat_name','test_cat_id','pic')
             ->get();
 
@@ -48,26 +48,43 @@ class CatSubCat_C extends Controller
             }
             
             $intermediateArr["category"] = $value->cat_name;
-			$intermediateArr["pic"] = $value->pic;
+            $intermediateArr["pic"] = $value->pic;
             $intermediateArr["subcategory"] = $subcategory_arr;
             array_push($cat_sub_cat_arr_final, $intermediateArr);
         }
 
 
-      	return response()->json(['received'=>'yes','data'=>$cat_sub_cat_arr_final],$this->successStatus);
+        return response()->json(['received'=>'yes','data'=>$cat_sub_cat_arr_final],$this->successStatus);
     }
 	
-	public function imageGet()
-	{
-		$imagePath = array();
-		$imagePath = array_push('http://hardigurdi.com/images/phones/iphone-banner.png');
-		$imagePath = array_push('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201809/Online-exam-647.jpeg?of2m36jHA8vcOKmUZ1YB7DHl_ypIoLIj');
-		$imagePath = array_push('https://jobapply.org.in/wp-content/uploads/2018/07/Exposure-is-king-777x437.jpg');
-		$imagePath = array_push('http://hardigurdi.com/images/icon.png');
-		$imagePath = array_push('http://hardigurdi.com/images/backgrounds/promo-video-bg.jpeg');
-		$imagePath = array_push('http://hardigurdi.com/images/phones/rrb.jpg');
-	return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
-	return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
-	}
+	// public function imageGet()
+	// {
+	// 	$imagePath = array();
+	// 	$imagePath = array_push('http://hardigurdi.com/images/phones/iphone-banner.png');
+	// 	$imagePath = array_push('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201809/Online-exam-647.jpeg?of2m36jHA8vcOKmUZ1YB7DHl_ypIoLIj');
+	// 	$imagePath = array_push('https://jobapply.org.in/wp-content/uploads/2018/07/Exposure-is-king-777x437.jpg');
+	// 	$imagePath = array_push('http://hardigurdi.com/images/icon.png');
+	// 	$imagePath = array_push('http://hardigurdi.com/images/backgrounds/promo-video-bg.jpeg');
+	// 	$imagePath = array_push('http://hardigurdi.com/images/phones/rrb.jpg');
+	// return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
+	// return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
+	// }
+    
+    
+    public function imageGet()
+    {
+
+        $imagePath = [
+           ["image"=> 'http://hardigurdi.com/images/phones/iphone-banner.png'],
+           ["image"=> 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201809/Online-exam-647.jpeg?of2m36jHA8vcOKmUZ1YB7DHl_ypIoLIj'],
+           ["image"=> 'https://jobapply.org.in/wp-content/uploads/2018/07/Exposure-is-king-777x437.jpg'],
+           ["image"=> 'http://hardigurdi.com/images/icon.png'],
+           ["image"=> 'http://hardigurdi.com/images/backgrounds/promo-video-bg.jpeg'],
+           ["image"=> 'http://hardigurdi.com/images/phones/rrb.jpg'],
+           ["image"=> 'http://hardigurdi.com/images/freetest.jpeg']
+        ];
+    return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
+    }
+    
     
 }
