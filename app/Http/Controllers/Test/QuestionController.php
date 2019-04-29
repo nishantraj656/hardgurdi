@@ -139,6 +139,11 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
             $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('public/Set'));
+        
+        $picEngOptionEpath = $request->file('picEngOptionE');
+        if($picEngOptionEpath != null)
+            $picEngOptionEpath = $this->imagePath($picEngOptionEpath->store('public/Set'));
+    
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
@@ -159,7 +164,11 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picHindiOptionDpath = $request->file('picHindiOptionD');
         if($picHindiOptionDpath != null)
             $picHindiOptionDpath = $this->imagePath($picHindiOptionDpath->store('public/Set'));
-
+        
+        $picHindiOptionEpath = $request->file('picHindiOptionE');
+        if($picHindiOptionEpath != null)
+            $picHindiOptionEpath = $this->imagePath($picHindiOptionEpath->store('public/Set'));
+    
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
             $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('public/Set'));
@@ -171,8 +180,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
     
             /**{eng:{text:'',pic:''},hindi:{text:'',pic:''}} */
         $question=array("eng"=>array("text"=>$request->eng,"pic"=>$picEngpath),"hindi"=>array("text"=>$request->hindi,"pic"=>$picHindipath));
-        $option=array("eng"=>array("A"=>array("text"=>$request->engOptionA,"pic"=>$picEngOptionApath),"B"=>array("text"=>$request->engOptionB,"pic"=>$picEngOptionBpath),"C"=>array("text"=>$request->engOptionC,"pic"=>$picEngOptionCpath),"D"=>array("text"=>$request->engOptionD,"pic"=>$picEngOptionDpath)),
-        "hindi"=>array("A"=>array("text"=>$request->hindiOptionA,"pic"=>$picHindiOptionApath),"B"=>array("text"=>$request->hindiOptionB,"pic"=>$picHindiOptionBpath),"C"=>array("text"=>$request->hindiOptionC,"pic"=>$picHindiOptionCpath),"D"=>array("text"=>$request->hindiOptionD,"pic"=>$picHindiOptionDpath)));
+        $option=array("eng"=>array("A"=>array("text"=>$request->engOptionA,"pic"=>$picEngOptionApath),"B"=>array("text"=>$request->engOptionB,"pic"=>$picEngOptionBpath),"C"=>array("text"=>$request->engOptionC,"pic"=>$picEngOptionCpath),"D"=>array("text"=>$request->engOptionD,"pic"=>$picEngOptionDpath),"E"=>array("text"=>$request->engOptionE,"pic"=>$picEngOptionEpath)),
+        "hindi"=>array("A"=>array("text"=>$request->hindiOptionA,"pic"=>$picHindiOptionApath),"B"=>array("text"=>$request->hindiOptionB,"pic"=>$picHindiOptionBpath),"C"=>array("text"=>$request->hindiOptionC,"pic"=>$picHindiOptionCpath),"D"=>array("text"=>$request->hindiOptionD,"pic"=>$picHindiOptionDpath),"E"=>array("text"=>$request->hindiOptionE,"pic"=>$picHindiOptionEpath)));
         $answer=array("eng"=>$request->engRadio,"hindi"=>$request->hindiRadio);
         $explaination=array("eng"=>array("text"=>$request->engExplaination,"pic"=>$picEngExplainationpath),"hindi"=>array("text"=>$request->hindiExplaination,"pic"=>$picHindiExplainationpath));
 

@@ -110,7 +110,7 @@
                                         <label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionB">
                                        
-                                      </div>
+                            </div>
                                     
                              </div>
                             
@@ -133,6 +133,18 @@
                                     <div class="form-group">
 										<label for="pic">Insert Pic:</label>
                                         <input type="file" name="picEngOptionD">
+                                       
+                                      </div>
+                                    
+                            </div>
+
+                            <div class="form-inline o">
+                                    <label for="engOptionD" class="m-2">E</label>
+                                        <input type="radio" value="E" name="engRadio"  @if(old('engRadio')=='E') checked="checked"@endif>
+                                    <input type="text" class="form-control m-2" value="{{old('engOptionE')}}" name="engOptionE" >
+                                    <div class="form-group">
+										<label for="pic">Insert Pic:</label>
+                                        <input type="file" name="picEngOptionE">
                                        
                                       </div>
                                     
@@ -181,10 +193,9 @@
                                             <input type="text" class="form-control m-2" value="{{old('hindiOptionB')}}"  name="hindiOptionB" id = "hindiOptionB">
                                             <div class="form-group">
                                                 <label for="pic">Insert Pic:</label>
-                                                <input type="file" name="picHindiOptionB">
-                                               
-                                              </div> 
-                                     </div>
+                                                <input type="file" name="picHindiOptionB">                                              
+                                            </div> 
+                                    </div>
                                     
                                     <div class="form-inline o">
                                             <label for="hindiOptionC" class="m-2">ग</label>
@@ -206,6 +217,17 @@
                                                 <input type="file" name="picHindiOptionD">
                                                
                                               </div>
+                                    </div>
+
+                                    <div class="form-inline o">
+                                        <label for="hindiOptionD" class="m-2">ङ</label>
+                                            <input type="radio" value="E" name="hindiRadio"  @if(old('hindiRadio')=='E') checked="checked"@endif>
+                                        <input type="text" class="form-control m-2" value="{{old('hindiOptionE')}}"  name="hindiOptionE" id = "hindiOptionE">
+                                        <div class="form-group">
+                                            <label for="pic">Insert Pic:</label>
+                                            <input type="file" name="picHindiOptionE">
+                                           
+                                          </div>
                                     </div>
 
                                     <div class="form-group">
@@ -268,7 +290,6 @@
                     else{
                         $('.o').show();
                     }
-
                 });
 
         });
