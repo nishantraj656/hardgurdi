@@ -14,7 +14,7 @@ class Question extends Model
     */
    public $fillable = 
    [
-    'question_id',
+    'question_id', 
      'test_info_id',
       'section_id',
       'question_json', 

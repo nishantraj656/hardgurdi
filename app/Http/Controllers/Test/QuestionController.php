@@ -322,10 +322,19 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
             $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('public/Set'));
-            else
-            {
-                $picEngOptionDpath = $request->npicEngOptionD;
-            }
+        else
+        {
+            $picEngOptionDpath = $request->npicEngOptionD;
+        }
+
+        $picEngOptionEpath = $request->file('picEngOptionE');
+        if($picEngOptionEpath != null)
+            $picEngOptionEpath = $this->imagePath($picEngOptionEpath->store('public/Set'));
+        else
+        {
+            $picEngOptionEpath = $request->npicEngOptionE;
+        }
+    
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
@@ -364,6 +373,13 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             {
                 $picHindiOptionDpath = $request->npicHindiOptionD;
             }
+        $picHindiOptionEpath = $request->file('picHindiOptionE');
+        if($picHindiOptionEpath != null)
+            $picHindiOptionEpath = $this->imagePath($picHindiOptionEpath->store('public/Set'));
+            else
+            {
+                $picHindiOptionEpath = $request->npicHindiOptionE;
+            }    
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
             $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('public/Set'));
@@ -389,7 +405,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
          Question::where('question_id',$id)->update( [
                'test_info_id'=>$request->setname,
-               'section_id'=>$request->section,
+               'section_id'=>$request->section, 
                'question_json'=>json_encode($question), 
                'option_json'=>json_encode($option), 
                'answer_json'=>json_encode($answer), 

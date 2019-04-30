@@ -184,6 +184,37 @@
                                       </div>
                             </div>
 
+                            @php
+                            $i = 0;
+                                // var_dump(json_decode($datas->option_json)->eng->E);
+                                $collection =json_decode($datas->option_json)->eng;
+                                foreach ($collection as $item)
+                                  {
+                                     $i++;
+                                  }  
+                               
+                            @endphp
+
+                            @if($i==5)
+                            <div class="form-inline o">
+                                <label for="engOptionE" class="m-2">E</label>
+                                    <input type="radio" value="E" @if (json_decode($datas->answer_json)->eng == 'E')
+                                    checked="checked"
+                                @endif name="engRadio">
+                                <input type="text" value="{{json_decode($datas->option_json)->eng->E->text}}" class="form-control m-2" name="engOptionE" >
+                                <div class="form-group">
+                                    <label for="pic">Insert Pic:</label>
+                                    <input type="file" name="picEngOptionE">
+                                    <input name="npicEngOptionE" id="npicEngOptionE" value="{{json_decode($datas->option_json)->eng->E->pic}}" type="hidden"/>
+                         
+                                    @if(json_decode($datas->option_json)->eng->E->pic!=null)
+                                <img src="{{asset(json_decode($datas->option_json)->eng->E->pic)}}" class ="img-thumbnail"/>
+                                 <Button class="btn btn-danger m-2" id="removenpicEngOptionE">Remove</Button> 
+                                @endif
+                                  </div>
+                            </div>
+                            @endif
+
                             <div class="form-group">
                                     <label for="setname">Explaination (English)  :</label>
                             <textarea class="form-control" id="eng" name="engExplaination" rows="5" >{{json_decode($datas->explaination)->eng->text}}</textarea>
@@ -271,6 +302,8 @@
                                             @endif
                                               </div>
                                     </div>
+
+                                    
         
                                     <div class="form-inline o">
                                             <label for="hindiOptionD" class="m-2">घ</label>
@@ -289,6 +322,27 @@
                                             @endif
                                               </div>
                                     </div>
+
+                                    @if($i==5)
+                                    <div class="form-inline o">
+                                        <label for="hindiOptionE" class="m-2">ङ</label>
+                                            <input type="radio" value="E"  @if (json_decode($datas->answer_json)->hindi == 'E')
+                                            checked="checked"
+                                        @endif name="hindiRadio">
+                                        <input type="text" class="form-control m-2"  value="{{json_decode($datas->option_json)->hindi->E->text}}" name="hindiOptionE" id="hindiOptionE">
+                                        <div class="form-group">
+                                            <label for="pic">Insert Pic:</label>
+                                            <input type="file" name="picHindiOptionE">
+                                            <input name="npicHindiOptionE" id="npicHindiOptionE" value="{{json_decode($datas->option_json)->hindi->E->pic}}" type="hidden"/>
+                               
+                                            @if(json_decode($datas->option_json)->hindi->E->pic!=null)
+                                        <img src="{{asset(json_decode($datas->option_json)->hindi->E->pic)}}" class ="img-thumbnail"/>
+                                         <Button class="btn btn-danger m-2" id="removenpicHindiOptionE">Remove</Button> 
+                                        @endif
+                                          </div>
+                                </div>
+                                @endif
+
 
                                     <div class="form-group">
                                             <label for="setname">Explaination (हिंदी)  :</label>
@@ -357,8 +411,13 @@
             $('#npicEngOptionC').attr('value',null);
            });
 
+         
            $('#removenpicEngOptionD').click(function(){
             $('#npicEngOptionD').attr('value',null);
+           });
+
+           $('#removenpicEngOptionE').click(function(){
+            $('#npicEngOptionE').attr('value',null);
            });
 
            $('#removenpicEngExplaination').click(function(){
@@ -383,6 +442,10 @@
 
            $('#removenpicHindiOptionD').click(function(){
             $('#npicHindiOptionD').attr('value',null);
+           });
+
+           $('#removenpicHindiOptionE').click(function(){
+            $('#npicHindiOptionE').attr('value',null);
            });
 
            $('#removenpicHindiExplaination').click(function(){
