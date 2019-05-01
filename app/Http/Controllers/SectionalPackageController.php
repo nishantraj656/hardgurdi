@@ -63,6 +63,8 @@ class SectionalPackageController extends Controller
         
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
+
+        $sectionArray = Section::getSection();
       
 
         return view('section.create',['list'=>$list,'qSet'=>$questionQuestion,'section'=>$section]);

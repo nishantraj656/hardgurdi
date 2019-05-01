@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Test;
 
 use App\Question;
@@ -8,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller; 
 use App\Http\Controllers\Test\QuestionSetController;
 use Illuminate\Support\Facades\Storage;
+use App\Section;
 
 class QuestionController extends Controller
 {
@@ -31,6 +31,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]
         ,["title"=>'Computer',"id"=>8]);
+
+        $section = Section::getSection();
        
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>'All','li'=>'All']);
     }
@@ -72,7 +74,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],
         ["title"=>'puzzle',"id"=>6],["title"=>'Computer',"id"=>8]);
-      
+        
+        $section =Section::getSection();
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>$request->setname,'li'=>$request->section]);
     }
 
@@ -90,7 +93,9 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
         ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6],["title"=>'Computer',"id"=>8]);
-      
+        
+        $section = Section::getSection();
+
         return view('Question.create',["list"=>$list,'section'=>$section]);
     }
 
@@ -228,6 +233,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],
         ["title"=>'puzzle',"id"=>6],["title"=>'Computer',"id"=>8]);
+
+        $section = Section::getSection();
        
        $datas=Question::where(['question_id'=>$id])->first();
 
