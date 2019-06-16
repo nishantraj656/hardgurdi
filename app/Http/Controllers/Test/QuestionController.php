@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Test;
 
 use App\Question;
@@ -8,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller; 
 use App\Http\Controllers\Test\QuestionSetController;
 use Illuminate\Support\Facades\Storage;
+use App\Section;
 
 class QuestionController extends Controller
 {
@@ -29,7 +29,10 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $list =new QuestionSetController();
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]
+        ,["title"=>'Computer',"id"=>8]);
+
+        $section = Section::getSection();
        
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>'All','li'=>'All']);
     }
@@ -69,8 +72,10 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $list =new QuestionSetController();
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
-      
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],
+        ["title"=>'puzzle',"id"=>6],["title"=>'Computer',"id"=>8]);
+        
+        $section =Section::getSection();
         return view('Question.index',['data'=>$datas,"list"=>$list,'section'=>$section,'s'=>$request->setname,'li'=>$request->section]);
     }
 
@@ -87,8 +92,10 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
-        ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
-      
+        ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6],["title"=>'Computer',"id"=>8]);
+        
+        $section = Section::getSection();
+
         return view('Question.create',["list"=>$list,'section'=>$section]);
     }
 
@@ -139,6 +146,11 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
             $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('public/Set'));
+        
+        $picEngOptionEpath = $request->file('picEngOptionE');
+        if($picEngOptionEpath != null)
+            $picEngOptionEpath = $this->imagePath($picEngOptionEpath->store('public/Set'));
+    
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
@@ -159,7 +171,11 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picHindiOptionDpath = $request->file('picHindiOptionD');
         if($picHindiOptionDpath != null)
             $picHindiOptionDpath = $this->imagePath($picHindiOptionDpath->store('public/Set'));
-
+        
+        $picHindiOptionEpath = $request->file('picHindiOptionE');
+        if($picHindiOptionEpath != null)
+            $picHindiOptionEpath = $this->imagePath($picHindiOptionEpath->store('public/Set'));
+    
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
             $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('public/Set'));
@@ -171,8 +187,8 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
     
             /**{eng:{text:'',pic:''},hindi:{text:'',pic:''}} */
         $question=array("eng"=>array("text"=>$request->eng,"pic"=>$picEngpath),"hindi"=>array("text"=>$request->hindi,"pic"=>$picHindipath));
-        $option=array("eng"=>array("A"=>array("text"=>$request->engOptionA,"pic"=>$picEngOptionApath),"B"=>array("text"=>$request->engOptionB,"pic"=>$picEngOptionBpath),"C"=>array("text"=>$request->engOptionC,"pic"=>$picEngOptionCpath),"D"=>array("text"=>$request->engOptionD,"pic"=>$picEngOptionDpath)),
-        "hindi"=>array("A"=>array("text"=>$request->hindiOptionA,"pic"=>$picHindiOptionApath),"B"=>array("text"=>$request->hindiOptionB,"pic"=>$picHindiOptionBpath),"C"=>array("text"=>$request->hindiOptionC,"pic"=>$picHindiOptionCpath),"D"=>array("text"=>$request->hindiOptionD,"pic"=>$picHindiOptionDpath)));
+        $option=array("eng"=>array("A"=>array("text"=>$request->engOptionA,"pic"=>$picEngOptionApath),"B"=>array("text"=>$request->engOptionB,"pic"=>$picEngOptionBpath),"C"=>array("text"=>$request->engOptionC,"pic"=>$picEngOptionCpath),"D"=>array("text"=>$request->engOptionD,"pic"=>$picEngOptionDpath),"E"=>array("text"=>$request->engOptionE,"pic"=>$picEngOptionEpath)),
+        "hindi"=>array("A"=>array("text"=>$request->hindiOptionA,"pic"=>$picHindiOptionApath),"B"=>array("text"=>$request->hindiOptionB,"pic"=>$picHindiOptionBpath),"C"=>array("text"=>$request->hindiOptionC,"pic"=>$picHindiOptionCpath),"D"=>array("text"=>$request->hindiOptionD,"pic"=>$picHindiOptionDpath),"E"=>array("text"=>$request->hindiOptionE,"pic"=>$picHindiOptionEpath)));
         $answer=array("eng"=>$request->engRadio,"hindi"=>$request->hindiRadio);
         $explaination=array("eng"=>array("text"=>$request->engExplaination,"pic"=>$picEngExplainationpath),"hindi"=>array("text"=>$request->hindiExplaination,"pic"=>$picHindiExplainationpath));
 
@@ -215,7 +231,10 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $list =new QuestionSetController();
         $list = $list->list();
         $section =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
-        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
+        ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5],["title"=>'Letter/Essay',"id"=>7],
+        ["title"=>'puzzle',"id"=>6],["title"=>'Computer',"id"=>8]);
+
+        $section = Section::getSection();
        
        $datas=Question::where(['question_id'=>$id])->first();
 
@@ -313,10 +332,19 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
         $picEngOptionDpath = $request->file('picEngOptionD');
         if($picEngOptionDpath != null)
             $picEngOptionDpath = $this->imagePath($picEngOptionDpath->store('public/Set'));
-            else
-            {
-                $picEngOptionDpath = $request->npicEngOptionD;
-            }
+        else
+        {
+            $picEngOptionDpath = $request->npicEngOptionD;
+        }
+
+        $picEngOptionEpath = $request->file('picEngOptionE');
+        if($picEngOptionEpath != null)
+            $picEngOptionEpath = $this->imagePath($picEngOptionEpath->store('public/Set'));
+        else
+        {
+            $picEngOptionEpath = $request->npicEngOptionE;
+        }
+    
 
         $picHindipath = $request->file('picHindi');
         if($picHindipath != null)
@@ -355,6 +383,13 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
             {
                 $picHindiOptionDpath = $request->npicHindiOptionD;
             }
+        $picHindiOptionEpath = $request->file('picHindiOptionE');
+        if($picHindiOptionEpath != null)
+            $picHindiOptionEpath = $this->imagePath($picHindiOptionEpath->store('public/Set'));
+            else
+            {
+                $picHindiOptionEpath = $request->npicHindiOptionE;
+            }    
         $picHindiExplainationpath = $request->file('picHindiExplaination');
         if($picHindiExplainationpath != null)
             $picHindiExplainationpath = $this->imagePath($picHindiExplainationpath->store('public/Set'));
@@ -380,7 +415,7 @@ INNER JOIN `test_info_tab` ON `test_info_tab`.`test_info_id` = `question_tab`.`t
 
          Question::where('question_id',$id)->update( [
                'test_info_id'=>$request->setname,
-               'section_id'=>$request->section,
+               'section_id'=>$request->section, 
                'question_json'=>json_encode($question), 
                'option_json'=>json_encode($option), 
                'answer_json'=>json_encode($answer), 

@@ -66,15 +66,16 @@
           </div>
     </div>
 
-      {{---<div class="col-sm-4 mt-5">
+    <div class="col-sm-4 mt-5">
           <div class="card">
-              <div class="card-header bg-dark text-white">Section</div>
-              <div class="card-body">Content</div> 
+              <div class="card-header bg-dark text-white">Notification</div>
+              <div class="card-body">Notification</div> 
                <div class="card-footer">
-                  <a class="nav-link" href="{{url('/Section')}}">More</a>
+                  <a class="nav-link" href="{{url('/notifiction')}}">More</a>
               </div>
             </div>
-      </div>--}}
+      </div>
+
       <div class="col-sm-4 mt-5">
           <div class="card">
               <div class="card-header bg-dark text-white">Question</div>
@@ -84,6 +85,7 @@
               </div>
             </div>
       </div>
+      
     </div>
 </div>
 @endsection

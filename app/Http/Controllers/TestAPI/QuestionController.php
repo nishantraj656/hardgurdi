@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use function GuzzleHttp\json_decode;
 use Symfony\Component\VarDumper\VarDumper;
 use Illuminate\Support\Facades\Storage;
+use App\Section;
 
 class QuestionController extends Controller
 {
@@ -25,6 +26,8 @@ class QuestionController extends Controller
         $sectionArray =array(["title"=>'English',"id"=>1],["title"=>'Maths',"id"=>2],["title"=>'Reasoning',"id"=>3],
         ["title"=>'General Science',"id"=>4],["title"=>'General Knowledge',"id"=>5]
         ,["title"=>'Letter/Essay',"id"=>7],["title"=>'puzzle',"id"=>6]);
+
+        $sectionArray = Section::getSection();
       
         /**SELECT `question_id`, `test_info_id`, `section_id`, `question_json`, `option_json`, `answer_json`, 
          * `explaination` FROM `question_tab` WHERE `test_info_id`=9 */
