@@ -80,8 +80,7 @@ class CatSubCat_C extends Controller
            ["image"=> 'https://jobapply.org.in/wp-content/uploads/2018/07/Exposure-is-king-777x437.jpg'],
            ["image"=> 'http://hardigurdi.com/images/icon.png'],
            ["image"=> 'http://hardigurdi.com/images/backgrounds/promo-video-bg.jpeg'],
-           ["image"=> 'http://hardigurdi.com/images/phones/rrb.jpg'],
-           ["image"=> 'http://hardigurdi.com/images/freetest.jpeg']
+           ["image"=> 'http://hardigurdi.com/images/phones/rrb.jpg']
         ];
     return response()->json(['received'=>'yes','data'=>$imagePath],$this->successStatus);
     }

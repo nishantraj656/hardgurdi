@@ -234,15 +234,13 @@
 =            Promo Video            =
 ==================================-->
 
-<section class="section promo-video bg-3 overlay">
+<!-- <section class="section promo-video bg-3 overlay">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<!-- Promo Video -->
 				<div class="video">
 					<img class="img-fluid" src="images/backgrounds/promo-video-bg.jpeg" alt="video-thumbnail">
 					<div class="video-button video-box">
-						<!-- Video Play Button -->
 						<a href="javascript:void(0)">
 							<span class="icon" data-video="https://www.youtube.com/embed/tPASI1rGd-Q?autoplay=1">
 								<i class="tf-ion-ios-play-outline"></i>
@@ -253,7 +251,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
 <!--====  End of Promo Video  ====-->
 
@@ -641,7 +639,7 @@
 
   <!-- JAVASCRIPTS -->
   
-
+<!-- 
 <script src="{{ asset('plugins/jquery/jquery.js') }}"></script>
 <script src="{{ asset('plugins/popper/popper.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -649,7 +647,7 @@
 <script src="{{ asset('plugins/waypoints/jquery.waypoints.min.js') }}"></script>
 <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
 <script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
-<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script> -->
 
 <!-- <link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
