@@ -70,3 +70,7 @@ Route::resource('/notifiction','Test\\NotificationController')->middleware('auth
 Route::post('/payment_failed','TestAPI\payuPayment@payment_success_fail');
 Route::post('/payment_success','TestAPI\payuPayment@payment_success_fail');
 Route::get('/payment_getway/{purchaseType_HD1}/{productID_HD2}/{userID_HD3}/','TestAPI\payuPayment@openPaymentGateway');
+
+
+//for tesing
+Route::get('testDataRaw', 'Testing@testDataRaw');
